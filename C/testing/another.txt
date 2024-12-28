@@ -1,0 +1,32 @@
+                                                                        C 
+                                                                      -----
+                                                                      -----
+
+Variable modifiers: 
+
+Auto means Automaic:
+ Variable declared inside a scope by default are automatic variable . gets destroyed after completion of scope.
+ global varibale if we dont initialize with value it will be initialize with 0.
+
+ syntax: auto type Name;
+
+ Extern modifier:
+
+ int var; means declration and defination.
+ extern int var; means declartion only.
+-extern is short name for exteral .
+-used when a particular file needs to access a variable from another file.
+multiple declartion are allow and multiple defination are not allow;
+extern tell that go out of the scope and check the entiy out side of scope first it will check the current file then other files.
+when an extern variable is initialized, then memory for this variable is allocated and it will be considered defined.
+
+Register:
+syntax: register some_data_type variable_name;
+-its like we are telling the compiler that this variable is going to be used frequently.
+-Register keyword hits the compiler to store a variable in register memory.
+-This done because access time reduces greatly for most frequently referred variables.
+-This is the choice of compiler whether it puts the given variable in register or not.
+-usually compiler themselves do the necessary optimizations.
+
+Static:
+

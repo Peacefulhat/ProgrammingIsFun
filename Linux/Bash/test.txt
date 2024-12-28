@@ -1,0 +1,15 @@
+total 64
+drwxr-xr-x  2 peacefulhat peacefulhat  4096 Nov 25 08:59 .
+drwxr-xr-x 10 peacefulhat peacefulhat  4096 Nov 24 18:48 ..
+-rw-r--r--  1 peacefulhat peacefulhat 20184 Nov 25 08:43 bash.txt
+-rwxr-xr-x  1 peacefulhat peacefulhat   158 Nov 24 18:20 conditional2.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat  2608 Nov 24 18:02 conditional.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat    42 Nov 24 05:15 first.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat   396 Nov 25 05:44 function.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat   684 Nov 24 21:00 loops.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat   280 Nov 24 08:05 Operators.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat    37 Nov 25 08:59 redirection.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat   146 Nov 25 06:20 strings.sh
+-rw-r--r--  1 peacefulhat peacefulhat     0 Nov 25 09:01 test.txt
+-rwxr-xr-x  1 peacefulhat peacefulhat   249 Nov 24 07:30 variables.sh
+-rwxr-xr-x  1 peacefulhat peacefulhat     0 Nov 24 21:04 whatbash.sh

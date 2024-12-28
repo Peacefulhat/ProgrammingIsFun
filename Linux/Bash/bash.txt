@@ -1,0 +1,725 @@
+                            LINUX BASH
+                          --------------
+                          --------------
+
+Scripting : is write to automate particular task. does not required compling.
+
+what is shell : is environment is which we run linux commands.(process)(way to communicate between os kernel).
+in linux most commonly used shell is BASH.
+
+Shell Script: -> Shell script is a Text file.
+              -> Sequence of commands.
+              -> Logic of execution.
+              -> Execute the file .
+              -> Sequential execution of statements.
+
+Basic file structure of bash scripting:
+
+#! /usr/bin/bash
+
+File=/etc/passwd
+ 
+if [ -f "$File" ]
+then 
+    echo "$File exists" 
+fi
+
+Here the first line specifing the path to the bash shell, so the the text file can tell the os which shell to use in order to execute the contents of the text file.
+first line is very important if dont specifiy it wont know how to treat the file and where to look for bash shell.
+
+after that we are trying to execute the basic scripts to automate our task.
+
+Shell script execution: 
+1) Execute permission:
+
+if a file have executable premissions, we can just follow this syntax to execute the statements: ./file_name.sh.(chmod command can be used to change file permission,how to treat this file(read,write,executable)in linux).
+
+  if file does not have executable permissions. we can also execute the file content,in this case first we have to specify the shells absolute path and after that file name.
+  syntax: /usr/bin/bash/ ./file_name.sh .
+
+2) Explicitly telling Which shell to use:
+
+can also execute the file statement by fistly specifiying which shell to used the file name.
+syntax: bash filen_name.sh .
+
+./file_name.sh it not necessay to write the script like we can write it as like this file_name.sh in order to do it like this first we need to understand why we write the ./file_name.sh in first place ,in linux when we try to execute the shell script linux will start checking for the folder where this shell script exists. so that it can run it this "/" means relative to current directory. if we want to execute the script we have to set the path of folder where it is to the $PATH varible to do that we just have to write:
+                export PATH=$PATH:path to file.
+if we want to run shell script (that is calling another shell script ) under same 
+shell. syntax . ./file_name.sh. 
+it will not create new shell if have more than one shell script in the main shell script file.
+
+Shell Script Variales:
+
+variables are like contaiors that can store data and which can be changed accordingly to user need.shell variables are different then prgramming variables.
+
+Define a varible:
+  syntax: varible_name =value.
+
+Retrieve the value from variable:
+syntax: $varible_name.
+
+Scope of the variables:
+1) local variables:exits until the script is executed.
+2) Environmental variables: is avaliable for both parent shell as well as your shell script.
+
+export is used to make a variable environmetal in nature.
+
+export variable_name=value.
+
+Special variables: are those which we don't define , which is already deifned .
+$0: returns file name of script.
+
+$n: command line arguments , n value can not be more than 9. meaing we can not exceed 9 entries after the shell script. eg : ./file_name.sh value1...value9 and these positional arguments can be store using varibles myvarible =$1 this means the first positional arguments value is going to store in myvarile variable in script .
+
+$# : returns total number of positional arguments.
+
+$a : will show all the positional arguments in one go.
+
+$$ : returns the process id of the script.
+
+$? : returns the exit status of the last commands.
+
+shift : Number of arguments are reduced each time as the shift command executes.$$ : returns the process id of the script.
+
+$? : returns the exit status of the last commands.
+
+shift : Number of arguments are reduced each time as the shift command executes.$$ : returns the process id of the script.
+
+$? : returns the exit status of the last commands.
+
+shift : Number of arguments are reduced each time as the shift command executes.$$ : returns the process id of the script.
+
+$? : returns the exit status of the last commands{0 success, other than 0 there is error or it is failed to executed successfully .
+
+shift : Number of positional arguments are reduced each time as the shift command executes. we have to store the value in variables so that its not lost when we do shift.
+
+Shell Script Troubleshooting:
+ set -vx: is used after #! /usr/bin/bash to check how the script is behaving while its running ,it allow us to debug the script, it helpful to use this when we dont know where the error is happening in our script  .
+
+ Basic Operators: if we want to do basic operations with symbols like >= ,<= ,&,
+ <<,>> we have to follow this syntax : $((expression)). this syntax can be used with if statements ects but we have to use "(())" other than [] .
+ this is the key step other than this every this is simpley figure out on your own. and we can not use (()) with file test operators we have to use [].
+
+  -> Arithmetic Operators.
+  -> Relational Operators.
+  ->Bitwise Operators
+  -> Boolean Operators.
+  -> File Test Operators.
+
+  Arithmetic Operators:
+    Lets you perform arithmetic operation on the data.
+    syntax: `expr value 1 <operator> value2` .
+    we have to use expr and (` `). for specifiying arithmetic operation between two
+    operands .
+    
+    Operatores:
+    + : addition of two numbers
+    - : subtraction of two numbers
+    \* : multipliaction - multiplies values on either side of operator.
+    / : division- division left hand operator by right hand operator.
+    % : divides the left hand operand by right hand operand and returns remainder.
+    ++ : used to increase the value of operand by one.
+    -- : used to decrease the value of operand by one.
+    = : assignment - assigns right hand side value to left hand side.
+    == : Equality - compares two values if both are same return ture.
+    != not Equality -compares two number if both are different return ture.
+
+    Examples:
+    
+      firstNumber=$1
+      secondNumber=$2
+      sum=`expr $firstNumber + $secondNumber`
+      sub=`expr $firstNumber - $secondNumber`
+      mul=`expr $firstNumber * $secondNumber`
+      mod=`expr $firstNumber % $secondNumber`
+      div=`expr $firstNumber / $secondNumber`
+      echo $sum $sub $mul $mod $div
+  
+
+Relational Operators:(only deals with intergers).
+(<=,>=,!=,== >,< can be used with (()).)
+-eq : checks if the value of two operands are equal or not, if yes then conditionbecomes true.
+
+-ne : checks if the values of two operands are equal or not if the value is not equal then condition becomes true.
+
+-gt : checks if the value of left operand is greater than the value of right operand .
+
+-lt : checks if the value of left operand is less than the value of the right operand.
+
+-ge : checks if the value of left operand is greater than or equal to the value of right operand.
+
+-le : checks if the value of the left oprand is less than or equal to the value of right operand.
+
+File operator:
+-r : checks if the file have read permission or not  for current user.
+-w : check if the file have write permission or not for current user.
+-x : check if the file have write permssion or not for  current user.
+-f : return true if file exists and is a regular file.(regular file is somtheing that isn't a directory ,symlink, socket, device,etc.)
+-e : return true if the file exits.
+-d : wheather it is a directory or not and wheather it is avaliable or not if it is directory and is avaliable it will return true.
+-s : we can also check if the file is there and is it not empty. if its is avaliableand its not empty it will return true.
+
+boolean operator: 
+-a : does "logical and " of two condition.
+-o : does "logical or " of two condition.
+
+
+
+
+Bitwise Operators: A bitwise operator is an operator used to perform bitwise operations on bit patterns. They are of 6 types:
+
+Bitwise And (&): Bitwise & operator performs binary AND operation bit by bit on the operands.
+Bitwise OR (|): Bitwise | operator performs binary OR operation bit by bit on the operands.
+Bitwise XOR (^): Bitwise ^ operator performs binary XOR operation bit by bit on the operands.
+Bitwise complement (~): Bitwise ~ operator performs binary NOT operation bit by bit on the operand.
+Left Shift (<<): This operator shifts the bits of the left operand to left by number of times specified by right operand.
+Right Shift (>>): This operator shifts the bits of the left operand to right by number of times specified by right operand.
+
+
+
+
+
+Decision Making:
+  ->in context of shell scripting it is similar prgramming language decision making ,meaing it allow us to write some logic so that it can execute the the statements when the logic is ture if logic is not correct the statement inside of the decision making statement is not going to be executed .it lets us user to write ou r script such that if our logic is not correct don't execute the following shell commands and vice versa.
+
+1) if statement :
+  syntax:
+    if [ condition ]; then
+      statement to be executed
+    fi
+
+2) if else statement :
+  syntax:
+    if [ condition ]; then
+      statement 1,
+    else
+      statement2
+    fi
+3) if else if statement:
+  syntax:
+  if [ condition ]; then
+    run this statement
+  elif [ condition ]; then 
+    run this statement;
+  :
+  :
+  :
+  else
+   run this statement;
+  fi
+4) switch:
+  syntax:
+    case expression in 
+      pattern-1)
+        statement
+        ;;
+      pattern-2)
+        statement 
+        ;;
+        :
+        :
+        :
+        pattern-n)
+          statement
+          ;;
+
+        *)
+        ;;
+      esac
+      here *) is like a default case.
+
+
+How to read input from console screen :
+  syntax: read variable_name. this is used inside script.
+
+Loops : repeating a same task again and again. in oder to get this fucnatlity we should use loops.
+
+1) while: run the statements only if he conditons is true.
+  syntax:
+    while [conition]; do 
+        statements
+      done
+
+    syntax:
+    while((condition)) do 
+            statements
+            done
+             
+2) until loop:
+  run the statement until the condition becomes true. (how do while works in c)
+    syntax: 
+    until [ condition ]; do 
+       statement
+       done
+
+    syntax: 
+    until((conition)) do 
+      statement
+      done
+
+3) for loop:
+    number of iterations depending on a list of value.
+    syntax:
+    for varialbe in va1 val2 vl3; 
+      do 
+        statement
+      done
+
+  syntax:
+  for((variable_name; condition ;increment)) do 
+    statement
+    done
+
+break:
+The break statement terminates the execution of a loop and turn the program control to the next command or instruction following the loop.
+syntax : break
+
+continue:a continue statement to skip a loop iteration. The loop continues and moves to the next iteration but the commands after the continue statements are skipped in that partcular iteration.
+syntax : continue
+
+Fucnctions: (subroutine)
+  shell fucntions helps in :
+            -> break the code into smaller parts 
+            ->code reuse
+
+  syntax:
+    function_name(){
+      statement(s);
+    }
+  $? : is used to caputer the return value of a fucntion after its is called.
+  eg:
+    var=5
+factorial(){
+  local result=1
+  for((dir=5;dir >=1 ; dir=`expr $dir - 1`)) do 
+  result=$(($result * dir ))
+  echo
+done
+return $result
+}
+factorial
+res=$? // here we can see the result(return value) is being captured after function call.
+echo 
+
+
+Passing arguments to bash function:
+You can pass arguments to a function just like you can pass arguments to a bash script. You just include the arguments when you do the function call. 
+
+eg:
+
+iseven () {
+if [ $(($1 % 2)) -eq 0 ]; then
+echo "$1 is even."
+else
+echo "$1 is odd."
+fi
+}
+
+iseven 3 //function calls
+iseven 4 // function calls
+iseven 20 // fucntion calls
+iseven 111 //function calls.
+
+Recursive function :
+A recursive function is a function that calls itself! Recursive functions come in handy when you attempt to solve a programming problem that can be broken down to smaller subproblems.
+
+eg:
+  factorial () {
+if [ $1 -le 1 ]; then
+echo 1
+else
+last=$(factorial $(( $1 -1)))
+echo $(( $1 * last ))
+fi
+}
+
+echo -n "4! is: "
+factorial 4
+echo -n "5! is: "
+factorial 5
+echo -n "6! is: "
+factorial 6
+
+
+String Operations in Bash :A string is nothing but a sequence (array) of characters. Let’s create a string named distro and initialize its value to “Ubuntu”.
+
+  = : if both strings are equal then execute the statemet.
+  != : if the both strings are not equal then execute the statement.
+  -z : checks if the string is empty is zero or not,-z "" this will return 0 .
+  -n : checks if the string length is zero or having some length value.
+
+Get String length:
+  we use # symbol to get the string length of a string.
+  syntax : {#string}.
+  eg: distro="Ubuntu"
+    echo ${#distro}
+
+Concatenating two strings:
+
+You can append a string to the end of another string; this process is called string concatenation.
+To demonstrate, let’s first create two strings str1 andstr2 as follows:
+str1="hand"
+str2="book"
+Now you can join both strings and assign the result to a new string named str3 as follows:
+str3=$str1$str2
+
+Finding substrings:
+
+You can find the position (index) of a specific letter or word in a string. To demonstrate, let’s first create a string named str as follows:
+str="Bash is Cool"
+
+Now you can get the specific position (index) of the substring cool. To accomplish that, use the expr command:
+
+kabary@handbook:~/scripts$ word="Cool"
+kabary@handbook:~/scripts$ expr index "$str" "$word"
+9
+
+The result 9 is the index where the word “Cool” starts in the str string.
+
+Extracting substrings:
+
+You can also extract substrings from a string; that is to say, you can extract a letter, a word, or a few words from a string.
+
+To demonstrate, let’s first create a string named foss as follows:
+
+foss="Fedora is a free operating system"
+
+Now let’s say you want to extract the first word “Fedora” in the foss string. You need to specify the starting position (index) of the desired substring and the number of characters you need to extract.
+
+Therefore, to extract the substring “Fedora”, you will use 0 as the starting position and you will extract 6 characters from the starting position:
+
+kabary@handbook:~/scripts$ echo ${foss:0:6}
+Fedora
+
+Notice that the first position in a string is zero just like the case with arrays in bash. You may also only specify the starting position of a substring and omit the number of characters. In this case, everything from the starting position to the end of the string will be extracted.
+
+For example, to extract the substring “free operating system” from the foss string; we only need to specify the starting position 12:
+
+kabary@handbook:~/scripts$ echo ${foss:12}
+output : free operating system.
+
+
+Replacing substrings:
+
+You can also replace a substring with another substring; for example, you can replace “Fedora” with “Ubuntu” in the foss string as follows:
+
+kabary@handbook:~/scripts$ echo ${foss/Fedora/Ubuntu}
+Ubuntu is a free operating system
+
+Let’s do another example, let’s replace the substring “free” with “popular”:
+
+kabary@handbook:~/scripts$ echo ${foss/free/popular}
+Fedora is a popular operating system
+
+Since you are just printing the value with echo command, the original string is not reallt altered.
+
+
+Deleting substrings:
+
+You can also remove substrings. To demonstrate, let’s first create a string named fact as follows:
+
+fact="Sun is a big star"
+
+You can now remove the substring “big” from the string fact:
+
+kabary@handbook:~/scripts$ echo ${fact/big}
+Sun is a star
+
+Let’s create another string named cell:
+
+cell="112-358-1321"
+
+Now let’s say you want to remove all the dashes from the cell string; the following statement will only remove the first dash occurrence in the cell string:
+
+kabary@handbook:~/scripts$ echo ${cell/-}
+112358-1321
+
+To remove all dash occurrences from the cell string, you have to use double forward slashes as follows:
+
+kabary@handbook:~/scripts$ echo ${cell//-}
+1123581321
+
+Notice that you are using echo statements and so the cell string is intact and not modified; you are just displaying the desired result!
+
+To modify the string, you need to assign the result back to the string as follows:
+
+kabary@handbook:~/scripts$ echo $cell
+112-358-1321
+kabary@handbook:~/scripts$ cell=${cell//-}
+kabary@handbook:~/scripts$ echo $cell
+1123581321
+
+Converting upper and lower-case letters in string:
+
+You can also convert a string to lowercase letter or uppercase letters. Let’s first create two string named legend and actor:
+
+legend="john nash"
+actor="JULIA ROBERTS"
+
+You can convert all the letters in the legend string to uppercase:
+
+kabary@handbook:~/scripts$ echo ${legend^^}
+JOHN NASH
+
+You can also convert all the letters in the actor string to lowercase:
+
+kabary@handbook:~/scripts$ echo ${actor,,}
+julia roberts
+
+You can also convert only the first character of the legend string to uppercase as follows:
+
+kabary@handbook:~/scripts$ echo ${legend^}
+John nash
+
+Likewise, you can convert only the first character of the actor string to lowercase as follows:
+
+kabary@handbook:~/scripts$ echo ${actor,}
+jULIA ROBERTS
+
+You can also change certain characters in a string to uppercase or lowercase; for example, you can change the letters j and n to uppercase in the legend string as follows:
+
+kabary@handbook:~/scripts$ echo ${legend^^[jn]}
+JohN Nash
+
+Arrays in Bash:
+
+syntax : array_name=(value1 value2 value3 … ).
+eg: integer=(1,2,3,4,5,)
+
+->starting index of array is 0. and to access nth element you use n-1 index.
+
+->Accessing array element:
+
+syntax : {array_name[index]}.
+
+file=("f1.txt","f2.txt","f3.txt")
+echo ${file[*]} // this line will print all the elements present in the array.
+
+->Size of array :
+  syntax : {#array_name[@]}
+
+->Updating the value of any element of array using index :
+  
+  syntax: array_name[index]=value.
+
+->Adding new element to array .
+  syntax: array_name+=(value).
+
+->Deleting array elements in bash.
+  syntax:unset array_name[index].
+  unset array_name: this will delete complete array.
+
+-> Creating hybrid arrays with different data types:
+  Declaration:
+
+declare -A myArray
+
+This line declares an associative array named myArray.
+Assignment:
+
+myArray["key"]="value"
+
+Assign a value to a specific key in the array.
+Accessing values:
+
+${myArray["key"]}
+
+Retrieve the value associated with a particular key.
+Iterating through keys and values:
+
+for key in "${!myArray[@]}"; do
+  echo "Key: $key, Value: ${myArray[$key]}"
+done
+
+This loop iterates through all keys in the array and prints both the key and its associated value.
+
+
+Shell Redirections:
+
+file discriptors:
+
+In simple words, when you open a file, the operating system creates an entry to represent that file and store the information about that opened file. So if there are 100 files opened in your OS then there will be 100 entries in OS (somewhere in kernel). These entries are represented by integers like (...100, 101, 102....). This entry number is the file descriptor. So it is just an integer number that uniquely represents an opened file for the process. If your process opens 10 files then your Process table will have 10 entries for file descriptors.
+
+Similarly, when you open a network socket, it is also represented by an integer and it is called Socket Descriptor. I hope you understand.
+
+Every time you execute a program, three file descriptors are created by default:
+
+    0 – stdin (standard input)
+    1 – stdout (standard output)
+    2 – stderr (standard error)
+
+By default the stdout and stderr descriptors are “attached” to the screen, meaning that the program output and its errors are not saved to any file, but just displayed, while the standard input is attached to the keyboard. Redirection operators let us manipulate those associations.
+
+
+->output Redirection:
+  > : write the output to file. if file does not exit it will create a file and feed the file with the data and if file already exits and there is some data in their then it is going to be replaced by new one if we use > to file.
+  syntax: command > file_name.
+
+  >> : Append the output to a file.
+  syntax: command >> file_name
+  
+Multiple redirections at one :
+syntax:
+    ${command1; command2;...commandN;} > file_name.
+
+
+  -> Discard the output:(/dev/null : bit bucket :is a device which dicards all data written to it )
+    script.sh > /dev/null
+
+Bash piping:
+  In Bash, piping is a mechanism that allows you to connect the output of one command as the input to another command. This is achieved using the pipe symbol |. The basic syntax is:
+          command1 | command2 | commandN
+
+
+  eg: cat /etc/passwd | grep root
+
+
+input redirection operator.
+
+In Bash, input redirection is a mechanism that allows you to change the source of input for a command. There are several input redirection operators in Bash:
+
+    <: This operator is used to redirect input from a file. For example:
+
+command < input.txt
+
+<<<: This operator is used to redirect a string as input to a command.
+syntax:command <<< "This is the input string"
+
+<<: This is called a "here document" or "here doc." It allows you to specify a block of input directly within your script. For example:
+command << EOF
+This is the input
+for the command
+EOF
+
+The EOF is just a delimiter; you can choose any word as long as it is consistent.
+
+<&: This operator is used for duplicating input file descriptors. For example:
+command 0< input.txt
+
+This is equivalent to <, but it explicitly specifies file descriptor 0 (standard input).
+
+Awk: 
+
+awk is a powerful text processing tool in Unix and Unix-like systems. It is particularly useful for processing and analyzing text data in files or streams. Here's a brief overview of the basic syntax and usage of awk:
+Basic Syntax:
+
+bash
+
+awk 'pattern { action }' input_file
+
+    pattern: An optional pattern that specifies when to apply the action. If no pattern is provided, the action is applied to every line.
+    action: The block of code to be executed for lines that match the pattern.
+
+Example:
+
+Let's say you have a file named data.txt with the following content:
+
+Alice 25
+Bob 30
+Charlie 22
+
+You can use awk to print the names of people who are older than 20:
+
+awk '$2 > 20 { print $1 }' data.txt
+
+    $2 refers to the second field (the age in this case).
+    The condition $2 > 20 checks if the age is greater than 20.
+    { print $1 } prints the first field (the name) if the condition is true.
+
+Common AWK Actions:
+
+    Print specific columns:
+
+
+awk '{ print $1, $3 }' input_file
+
+This prints the first and third columns of each line.
+
+Calculate and print the average:
+
+
+awk '{ sum += $2 } END { print "Average:", sum/NR }' input_file
+
+This calculates the average of the values in the second column.
+
+Filter lines based on a condition:
+
+
+awk '/pattern/ { print }' input_file
+
+This prints lines that contain the specified pattern.
+
+Use a custom field separator (delimiter):
+
+    awk -F':' '{ print $1, $3 }' /etc/passwd
+
+    This sets the field separator to a colon and prints the first and third fields.
+
+These are just a few examples of what awk can do. It's a versatile tool with many features for text processing and data extraction. If you have a specific task or scenario in mind, feel free to ask for more tailored examples!
+
+Sed:
+
+sed (stream editor) is a powerful and versatile text manipulation tool in Unix and Unix-like operating systems. It operates on a line-by-line basis, making it well-suited for tasks like text substitution, deletion, insertion, and more. Here's a basic overview of the sed syntax and some common use cases:
+Basic Syntax:
+
+sed OPTIONS 'COMMAND' INPUT_FILE
+
+    OPTIONS: Optional flags that modify the behavior of sed.
+    COMMAND: The sed command that specifies the text manipulation operation.
+    INPUT_FILE: The file on which sed operates. If not provided, sed reads from the standard input.
+
+Examples:
+
+    Substitute text:
+
+sed 's/old-text/new-text/' input.txt
+
+This replaces the first occurrence of 'old-text' with 'new-text' on each line of the file.
+
+Replace all occurrences:
+
+sed 's/old-text/new-text/g' input.txt
+
+The g flag replaces all occurrences of 'old-text' with 'new-text' on each line.
+
+Delete lines matching a pattern:
+
+sed '/pattern/d' input.txt
+
+This deletes lines that contain the specified pattern.
+
+Print specific lines:
+
+sed -n '1,5p' input.txt
+
+The -n option suppresses automatic printing, and 1,5p prints lines 1 through 5.
+
+Insert text before a line:
+
+
+sed '/pattern/i\New line before' input.txt
+
+This inserts 'New line before' before lines containing the specified pattern.
+
+Append text after a line:
+
+
+    sed '/pattern/a\New line after' input.txt
+
+    This appends 'New line after' after lines containing the specified pattern.
+
+In-Place Editing:
+
+sed can also perform in-place editing, modifying the content of the file directly. For example:
+
+sed -i 's/old-text/new-text/g' input.txt
+
+This replaces all occurrences of 'old-text' with 'new-text' in input.txt and saves the changes in-place.
+Multi-command execution:
+
+You can execute multiple commands sequentially using the -e option:
+
+sed -e 'command1' -e 'command2' input.txt
+
+These are just a few examples of what sed can do. It's a powerful tool for text processing and manipulation. If you have a specific task or scenario in mind, feel free to ask for more tailored examples!
+

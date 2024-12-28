@@ -1,0 +1,2 @@
+- In general, "interconnected" refers to the state of being connected or linked together in some manner. It can describe relationships between various elements, systems, or entities where they interact or depend on each other in some way
+- changes in one entity / component can affect other within the system.

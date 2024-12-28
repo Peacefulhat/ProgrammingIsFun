@@ -1,0 +1,1 @@
+- Interacting refers to the process of two or more entities engaging with each other in some form of communication, exchange, or relationship. When entities interact, they affect one another, either directly or indirectly, through various means.

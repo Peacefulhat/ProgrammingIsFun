@@ -1,0 +1,10 @@
+Wlplis@: Flags=4163<UP,BROADCAST,RUNNING, MULTICAST> mtu 1500
+—ny inet 192.168.158.143 netmask 255.255.255.0 broadcast 192.168.158.255
+<=3 inet6 fe80::7TUc5:5¢5:F19U:adTe prefixlen 64 scopeid 0x20<link>
+" inet6 2409:40d7:d:ede6:a3ba:du61:193b: F7ea prefixlen 64 scopeid Oxd<global>
+ether 30:03:c8:cc:87:41 txqueuelen 1000 (Ethernet)
+RX packets 110533 bytes 147739646 (140.8 MiB)
+RX errors 6 dropped 8 overruns © frame 0
+TX packets 58699 bytes 6850954 (6.5 MiB)
+TX errors © dropped © overruns ® carrier  collisions 0
+

@@ -1,0 +1,5 @@
+How to chnage Man pager to nvim.
+(man pager is which renders man pages )
+(by default it set to less )
+To change you just need to:
+put (export PAGER="nvim +Man!") to you .rc file.
