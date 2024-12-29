@@ -73,7 +73,7 @@ return s;
 
 //43
 // sqrt of number using binary search .(leet code).
-//sqrt(x)
+//sqrt(x) (leet code)
 int sqrt_of_number(int n){// integer only
 int s=0;
 int e=n;
@@ -110,9 +110,8 @@ return ans;
 
 
 //44
-
-// Book Allocation problem
-//refer to notes for full disciption (code studio.)
+//Book Allocation problem (code studio)
+//https://www.naukri.com/code360/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
 
 // find  if the allocation of pages is possible.
 bool isPosssible( vector<int>arr, int n, int m, int mid){
@@ -160,7 +159,9 @@ int allocate(vector<int> arr, int n , int m) {
 
 
 //45
-//AggressiveCows
+//AggressiveCows (code studio)
+//https://www.naukri.com/code360/problems/aggressive-cows_1082559?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
+
 bool isPossible(vector<int> &stalls, int k, int mid){
 int cowCount = 1;
 int lastPos = stalls[0];
