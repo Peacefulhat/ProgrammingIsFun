@@ -174,22 +174,22 @@ for(int i=0;i<size;i++){
 // 2pointer approach
 
 void sort0and1(int arr[],int size){
-    int i=0,j=size-1;
-    while(i<j){
-    while(arr[i]==0&&i<j){
-        i++;
-    }
-    while(arr[j]==1&&i<j){
-        j--;
-    }
-    if(arr[i]==0&&arr[j]==1&&i<j){
-    int temp=arr[i];
-    arr[i]=arr[j];
-    arr[j]=temp;
-    i++;
-    j--;
-    }
-    }
+ int i=0,j=size-1;
+ while(i<j){
+ while(arr[i]==0&&i<j){
+     i++;
+ }
+ while(arr[j]==1&&i<j){
+     j--;
+ }
+ if(arr[i]==0&&arr[j]==1&&i<j){
+ int temp=arr[i];
+ arr[i]=arr[j];
+ arr[j]=temp;
+ i++;
+ j--;
+ }
+ }
 }
 
 //40

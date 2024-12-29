@@ -12,7 +12,17 @@
 //62
 //Reverse the Array(code studio)
 //https://www.naukri.com/code360/problems/reverse-the-array_1262298?utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio3
-//TODO
+void reverseArray(vector<int> &arr , int m){
+    int start=m+1;
+    int end=arr.size()-1;
+    while(start<end){
+        int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        end--;
+        start++;
+    }    	
+}
 
 //63
 //Merge Sorted Array (leet code)
