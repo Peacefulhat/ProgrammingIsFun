@@ -7,6 +7,7 @@
 
 //41
 // search in rotated sorted array (code studio.)
+//https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
 
 int getPivot(vector<int>&arr,int n){
 int s=0;
@@ -197,6 +198,8 @@ return ans;
 
 //46
 //peak index in mountain array(leet code;)
+//https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
+
 //love babbr bahiya
 
 int peak_index_mountain_array(std::vector<int>&arr){
@@ -236,3 +239,59 @@ int peakIndexInMountainArray(vector<int>& arr) {
   return -1;
 }
 
+
+//47
+//Reverse integer
+//https://leetcode.com/problems/reverse-integer/description/
+int reverse(int x) {
+ int reverse=0;
+ while(x){
+ if(reverse>INT_MAX/10||reverse<INT_MIN/10){
+     return 0;
+ }
+ reverse=reverse*10+(x%10);
+ x=x/10;
+ }
+ return reverse;
+}
+
+//48
+//Complement of Base 10 integer
+//https://leetcode.com/problems/complement-of-base-10-integer/submissions/1206010191/
+int bitwiseComplement(int n) {
+ int mask=0,m=n;
+ if(n==0){return 1;}
+ while(n)
+ {
+ mask=(mask<<1)|1;
+ n=n>>1;
+ }
+ return (~m)&mask;
+}
+
+//49
+// power of two
+//https://leetcode.com/problems/power-of-two/description/
+bool isPowerOfTwo(int n) {
+ bool flag=0;
+ if(n==INT_MIN){return false;}
+  if(n<0){
+      flag=1;
+      n=-1*n;
+  }
+    int m=n;
+  int bits=0;
+  while(n){
+      if(n&1){
+          bits++;
+      }
+      n=n>>1;
+  }
+return flag||bits>1||m==0?false:true;
+}
+
+//50
+// find all duplicates in an array
+//https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
+
+//TODO

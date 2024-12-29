@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "WebDev/CSS/CSS fundamentals.md",
+                "file": "Linux/Some Networking Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSS fundamentals"
+              "title": "Some Networking Fundamentals"
             }
           },
           {
@@ -89,7 +89,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e56950efcaf2fdb2",
@@ -177,9 +178,11 @@
   },
   "active": "7801c9f4a4bf24a4",
   "lastOpenFiles": [
+    "Linux/Introduction.md",
+    "Linux/Text Editors/Emacs.md",
+    "WebDev/CSS/CSS fundamentals.md",
     "Excalidraw/Drawing 2024-11-04 20.20.39.excalidraw.md",
     "WebDev/CSS/assets/box-model.png",
-    "WebDev/CSS/CSS fundamentals.md",
     "WebDev/CSS/assets/Css1.png",
     "Excalidraw",
     "WebDev/CSS/assets",
@@ -196,7 +199,6 @@
     "Networking/Introduction.md",
     "Networking/SomeOtherDefinations/System.md",
     "WebDev/Git/Git.md",
-    "Linux/Text Editors/Emacs.md",
     "WebDev/HTML/assets/html2.png",
     "WebDev/HTML/assets/html.png",
     "WebDev/HTML/assets",

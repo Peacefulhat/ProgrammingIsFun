@@ -68,7 +68,8 @@ for(int start=0;start<size;start+=2){
 }
 
 //35
-// find unique.
+// find unique.(code studio)
+//https://www.naukri.com/code360/problems/find-unique_625159?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1&isSignin=true&leftPanelTabValue=SUBMISSION
 int unique(int arr[],int size){
   int unique=0;
   for(int i=0;i<size;i++){
@@ -78,7 +79,8 @@ return unique;
 }
 
 //36
-//find duplicate in array
+//find duplicate in array (code studio)
+//https://www.naukri.com/code360/problems/duplicate-in-array_893397?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1&leftPanelTabValue=SUBMISSION
 
 int duplicate(int arr[],int size){
 int sum =0;
@@ -103,7 +105,8 @@ int duplicateWithXor(int arr[]){
 
 
 //37
-//intersection of arrays
+//intersection of arrays(code studio)
+//https://www.naukri.com/code360/problems/intersection-of-2-arrays_1082149?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1
 
 //brute force method
 void findArrayInstersection(int arr[], int n,int arr2[] ,int m ){
@@ -139,8 +142,8 @@ void findArrayInstersection2(int arr[],int n,int arr2[],int m){
 }
 
 //38
-// pair sum
-
+// pair sum (code studio)
+//https://www.naukri.com/code360/problems/pair-sum_697295?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1
 void  pairSum(int arr[],int size,int sum){
  for(int i=0;i<size;i++){
     for(int j=i+1;j<size;j++){
@@ -151,7 +154,8 @@ void  pairSum(int arr[],int size,int sum){
  }
 }
 
-// triplet sum
+// triplet sum(code studio)
+//https://www.naukri.com/code360/problems/triplets-with-given-sum_893028?source=youtube&campaign=LoveBabbar_Codestudiovideo1&utm_source=youtube&utm_medium=affiliate&utm_campaign=LoveBabbar_Codestudiovideo1
 void tripletSum(int arr[],int size,int sum){
 for(int i=0;i<size;i++){
     for(int j=i+1;j<size;j++){
@@ -190,6 +194,7 @@ void sort0and1(int arr[],int size){
 
 //40
 // TODO: sort 0,1,2
+//https://www.naukri.com/code360/problems/sort-0-1-2_631055?source=youtube&campaign=LoveBabbar_Codestudiovideo1&utm_source=youtube&utm_medium=affiliate&utm_campaign=LoveBabbar_Codestudiovideo1
 void sort012(int arr[],int size){
 }
 
