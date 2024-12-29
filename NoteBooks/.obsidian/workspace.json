@@ -8,29 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7801c9f4a4bf24a4",
+            "id": "adc45be3c8011ffe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Some Networking Fundamentals.md",
+                "file": "Linux/Some basic command line tools.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Some Networking Fundamentals"
-            }
-          },
-          {
-            "id": "145bf753548c0089",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2024-11-04 20.20.39.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2024-11-04 20.20.39.excalidraw"
+              "title": "Some basic command line tools"
             }
           }
         ]
@@ -89,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "e56950efcaf2fdb2",
@@ -176,9 +163,16 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "7801c9f4a4bf24a4",
+  "active": "cc983f214e18aea6",
   "lastOpenFiles": [
-    "Linux/Introduction.md",
+    "Haskell/Introduction.md",
+    "Untitled.canvas",
+    "WebDev/HTML/What is Html.md",
+    "WebDev/HTML/Structure of HTML document.md",
+    "WebDev/Git/Git.md",
+    "Theory of Computation/Introduction.md",
+    "Linux/Some Networking Fundamentals.md",
+    "Linux/Some basic command line tools.md",
     "Linux/Text Editors/Emacs.md",
     "WebDev/CSS/CSS fundamentals.md",
     "Excalidraw/Drawing 2024-11-04 20.20.39.excalidraw.md",
@@ -188,17 +182,14 @@
     "WebDev/CSS/assets",
     "Excalidraw/Drawing 2024-11-04 19.55.56.excalidraw.md",
     "Untitled.md",
-    "WebDev/HTML/Structure of HTML document.md",
     "WebDev/Drawing 2024-10-18 00.57.27.excalidraw.md",
     "WebDev/CSS",
     "Css.md",
-    "WebDev/HTML/What is Html.md",
     "Untitled 1.md",
     "Drawing 2024-11-03 10.57.50.excalidraw.md",
     "README.md",
     "Networking/Introduction.md",
     "Networking/SomeOtherDefinations/System.md",
-    "WebDev/Git/Git.md",
     "WebDev/HTML/assets/html2.png",
     "WebDev/HTML/assets/html.png",
     "WebDev/HTML/assets",
@@ -207,9 +198,7 @@
     "DotBatch/HTML/What is Html ?.md",
     "Linux/Text Editors/Emacs.md~",
     "Untitled 2.md",
-    "Linux/Some Networking Fundamentals.md",
     "Linux/Text Editors",
-    "Haskell/Introduction.md",
     "Excalidraw/Drawing 2024-08-17 20.06.23.excalidraw.md",
     "Excalidraw/Drawing 2024-08-17 20.04.37.excalidraw.md",
     "Excalidraw/Drawing 2024-07-28 16.34.23.excalidraw.md",
@@ -219,10 +208,8 @@
     "WebDev/Git/assets/branching.png",
     "WebDev/Git/assets/ignoreFile.png",
     "WebDev/Git/assets/headOfCommit.png",
-    "Excalidraw/Drawing 2024-06-05 09.17.43.excalidraw.md",
     "WebDev/Git/assets/lifeCycleofChange.png",
     "WebDev/Git/assets/versionControl4.png",
-    "Operating System/TypesOfOperatingSystem.md",
     "WebDev/Git/assets"
   ]
 }

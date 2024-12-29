@@ -1,4 +1,4 @@
-###### Sudo(super user do)
+###### sudo(super user do)
 - lets us to run commands as higher privileged user
 - it allow us to run commands or view the file or other stuff that are not allowed for normal user.
 - sudo cat /etc/shadow
@@ -42,3 +42,5 @@ arp -a -> which ip is mapped to which mac address. or ip n
 ip r  -> ip routing or route
 ping-> to check if machine is active or not if icmp is active
 netstat -> is used to idenitify what open ports and severcie avilable
+
+iwclt:
