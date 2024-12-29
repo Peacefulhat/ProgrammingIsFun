@@ -25,5 +25,16 @@
 //TODO
 
 //54
-// peak index in mountain array
+//square root of a number
+//https://www.naukri.com/code360/problems/square-root_893351?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
 
+//TODO
+
+//55
+//Painter's Partition Problem.
+
+//https://www.naukri.com/code360/problems/painter's-partition-problem_1089557?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
+
+//TODO
+
+//56

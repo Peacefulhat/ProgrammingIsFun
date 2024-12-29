@@ -73,7 +73,7 @@ return s;
 
 //43
 // sqrt of number using binary search .(leet code).
-
+//sqrt(x)
 int sqrt_of_number(int n){// integer only
 int s=0;
 int e=n;
