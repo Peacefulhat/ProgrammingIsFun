@@ -11,17 +11,28 @@
             "id": "adc45be3c8011ffe",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Linux/Some basic command line tools.md",
-                "mode": "source",
-                "source": false
+                "file": "Networking/RoughWork/Drawing 2024-05-30 10.04.56.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "Some basic command line tools"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2024-05-30 10.04.56.excalidraw"
+            }
+          },
+          {
+            "id": "b8853607cd530181",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Networking/RoughWork/Drawing 2025-01-03 18.45.11.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-01-03 18.45.11.excalidraw"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,7 +88,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e56950efcaf2fdb2",
@@ -163,53 +175,54 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "cc983f214e18aea6",
+  "active": "b8853607cd530181",
   "lastOpenFiles": [
+    "Networking/Data Communication.md",
+    "Networking/Introduction.md",
+    "Networking/RoughWork/Drawing 2024-05-30 10.04.56.excalidraw.md",
+    "Excalidraw/Drawing 2025-01-03 18.45.01.excalidraw.md",
+    "Networking/RoughWork/Drawing 2025-01-03 18.45.11.excalidraw.md",
+    "Untitled.md",
+    "Untitled",
+    "Networking/SomeOtherDefinations/Interconnected.md",
+    "Networking/SomeOtherDefinations/System.md",
+    "Networking/SomeOtherDefinations/Interrelated.md",
+    "Networking/SomeOtherDefinations/Interacting.md",
+    "WebDev/CSS/CSS fundamentals.md",
+    "Theory of Computation/Introduction.md",
+    "Linux/Some basic command line tools.md",
     "Haskell/Introduction.md",
     "Untitled.canvas",
     "WebDev/HTML/What is Html.md",
     "WebDev/HTML/Structure of HTML document.md",
     "WebDev/Git/Git.md",
-    "Theory of Computation/Introduction.md",
     "Linux/Some Networking Fundamentals.md",
-    "Linux/Some basic command line tools.md",
     "Linux/Text Editors/Emacs.md",
-    "WebDev/CSS/CSS fundamentals.md",
     "Excalidraw/Drawing 2024-11-04 20.20.39.excalidraw.md",
     "WebDev/CSS/assets/box-model.png",
     "WebDev/CSS/assets/Css1.png",
     "Excalidraw",
     "WebDev/CSS/assets",
     "Excalidraw/Drawing 2024-11-04 19.55.56.excalidraw.md",
-    "Untitled.md",
     "WebDev/Drawing 2024-10-18 00.57.27.excalidraw.md",
     "WebDev/CSS",
     "Css.md",
     "Untitled 1.md",
     "Drawing 2024-11-03 10.57.50.excalidraw.md",
     "README.md",
-    "Networking/Introduction.md",
-    "Networking/SomeOtherDefinations/System.md",
     "WebDev/HTML/assets/html2.png",
     "WebDev/HTML/assets/html.png",
     "WebDev/HTML/assets",
     "DotBatch/HTML/#What is Html.md#",
     "WebDev/HTML/What is Html.md~",
-    "DotBatch/HTML/What is Html ?.md",
     "Linux/Text Editors/Emacs.md~",
-    "Untitled 2.md",
     "Linux/Text Editors",
-    "Excalidraw/Drawing 2024-08-17 20.06.23.excalidraw.md",
-    "Excalidraw/Drawing 2024-08-17 20.04.37.excalidraw.md",
-    "Excalidraw/Drawing 2024-07-28 16.34.23.excalidraw.md",
     "WebDev/HTML",
     "WebDev/Git/assets/gitStash.png",
-    "Rust/Introduction.md",
     "WebDev/Git/assets/branching.png",
     "WebDev/Git/assets/ignoreFile.png",
     "WebDev/Git/assets/headOfCommit.png",
     "WebDev/Git/assets/lifeCycleofChange.png",
-    "WebDev/Git/assets/versionControl4.png",
-    "WebDev/Git/assets"
+    "WebDev/Git/assets/versionControl4.png"
   ]
 }
