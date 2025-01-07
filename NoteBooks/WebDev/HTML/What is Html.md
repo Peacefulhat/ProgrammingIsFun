@@ -8,7 +8,7 @@
 - A markup language is one that is designed for defining and presenting text.HTML(Hyper Text Markup Language), is an example of a markup language.
 - Within a text file such as an HTML file, elements are _marked up_ using tags which explain the purpose of that part of the content.
 - <span style="color:#ff0000;">Tags: in HTML, a tag is used for creating an element.</span>
-- <span style="color:#00ff00";>Elements: An element is a part of web-page.in XML and HTML, an element may contain a data item or chunk of text or an image or perhaps nothing.
+- <span style="color:#00ff00";>Elements: An element is a part of web-page.in XML and HTML, an element may contain a data item or chunk of text or an image or perhaps nothing.The HTML **element** is everything from the start tag to the end tag:
 </span>
 ### Language:
 - set of rules.

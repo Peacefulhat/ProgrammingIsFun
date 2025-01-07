@@ -27,7 +27,16 @@ void reverseArray(vector<int> &arr , int m){
 //63
 //Merge Sorted Array (leet code)
 //https://leetcode.com/problems/merge-sorted-array/description/
-//TODO
+// void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        if(n==0) return;
+        if(m==0&&n==0) return;
+        int j=0;
+        for(int i=m;i<m+n;i++){
+        nums1[i]=nums2[j];
+        j++;
+        }
+        sort(nums1.begin(),nums1.end());
+    }
 
 //64
 //Move Zeros (leet code)

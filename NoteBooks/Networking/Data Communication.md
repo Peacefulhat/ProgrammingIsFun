@@ -50,3 +50,41 @@ Data communication are the exchange of data between two nodes via some form of l
 	- Message timing
 	- Message size
 	- Message delivery options
+
+
+##### Message Encoding:
+![[Message_Encoding.png]]
+
+
+> [!NOTE] Why Encoder?
+> Because we have wired/wireless medium,message source need to know what kind of medium is available for data propagation ,because of that we have to convert data into appropriate format so that it can be propagated properly between devices.(send between devices)
+
+##### Message formatting and encapsulation:
+- Agreed format.
+- Encapsulate the information to identify the sender and receiver correctly.
+- we add some additional information to the data to identify sender and receiver
+##### Message Size:
+- Human breaks long messages into smaller parts or sentences.
+- like wise, long messages must also be broken into smaller pieces to travel across a network.
+- or there might be a case that media is not capable of handling big message. for cases like this we need to break the message into smaller parts.
+##### Message Timing:
+- flow control (to control the rate of data exchange).
+	- some time there might be a case that sender is very fast, and receiver is slow , sender can send data fast , and receiver is not able to keep up with it.
+	- if there is no flow control send will keep on sending data and receiver will not be able to receive the data.
+	- so the the communication becomes useless in this case.
+	- 
+- Response timeout
+	- some kind of acknowledgement, to ensure that the data reached its final destination, and it does not get lost in the process.
+	- protocol must ensure that how much time sender have to wait to receiver the acknowledgement , before sender resend the data.
+##### Message Delivery options
+- Uni-cast
+	- one sender one receiver , sender will send data to one receiver on the network.
+- Multicast
+	- When sender sends a data to set of receivers on a network but not all.
+- Broadcast
+	- When a sender sends data to all the nodes in a network.
+
+> [!NOTE] Note
+> When sender have higher capabilities of sending data it gets slowed down by the message timing approach to maintain the flow of communication between the sender and receiver
+> example: like when server process data slow even though your internet speed is good.
+

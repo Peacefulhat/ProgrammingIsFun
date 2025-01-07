@@ -14,7 +14,39 @@
 //52
 // first and last position of an element in sorted array.(code studio)
 //https://www.naukri.com/code360/problems/first-and-last-position-of-an-element-in-sorted-array_1082549?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2&leftPanelTabValue=PROBLEM
-//TODO
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k) {
+    pair<int, int> occ = {-1, -1};
+    int start = 0, end = n - 1;
+    while (start <= end) {
+        int mid = start + (end - start) / 2;
+        if (arr[mid] < k) {
+            start = mid + 1;
+        }
+          if (arr[mid] > k) {
+            end = mid - 1;
+        }
+         if(arr[mid]==k) {
+            occ.first = mid;
+            end = mid - 1; 
+        }
+    }
+
+    start = 0, end = n - 1;
+    while (start <= end) {
+        int mid = start + (end - start) / 2;
+        if (arr[mid] < k) {
+            start = mid + 1;
+        } 
+        if (arr[mid] > k) {
+            end = mid - 1;
+        }
+         if(arr[mid]==k) {
+            occ.second = mid;
+            start = mid + 1;
+        }
+    }
+     return occ;
+}
 
 //53
 //find pivot index (leet code)

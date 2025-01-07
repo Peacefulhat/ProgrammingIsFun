@@ -1,4 +1,4 @@
-<span style="color:#00ff00;">There are no examples, if you are using this as note ,try googling thing,and try doing things on your own.</span>
+There are no examples, if you are using this as note ,try googling thing,and try doing things on your own.
 
 - While constructing your HTML document, you can use certain tags to establish its structure.
 

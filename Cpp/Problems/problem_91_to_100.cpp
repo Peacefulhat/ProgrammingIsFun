@@ -29,14 +29,7 @@ int climb_stare(int n){
 // say digits
 //ip=412
 //op=four one two
-static std::vector<std::string>p={"zero","one","two","three","four","five","six","seven","eight","nine"};
-void say_digits(int n){
-  if(n==0){
-    return;
-  }
-  say_digits(n/10);
-  std::cout<<p[(n%10)+1];
-}
+
 // Todo
 
 // 94
