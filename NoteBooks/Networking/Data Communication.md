@@ -43,6 +43,7 @@ Data communication are the exchange of data between two nodes via some form of l
 - confirmation or acknowledgement requirement.
 
 #### Protocols - Network communication
+#### or Element of a Protocol
 - Protocol used in networks communications also define:
 	- message encoding
 	- Message formatting and encapsulation

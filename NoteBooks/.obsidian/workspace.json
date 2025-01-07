@@ -4,35 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "252f3848f2cbc126",
+        "id": "7029debb4b4c8845",
         "type": "tabs",
         "children": [
           {
-            "id": "adc45be3c8011ffe",
+            "id": "6cd1b70b8bedd6a7",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Networking/RoughWork/Drawing 2024-05-30 10.04.56.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2024-05-30 10.04.56.excalidraw"
-            }
-          },
-          {
-            "id": "b8853607cd530181",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Networking/RoughWork/Drawing 2025-01-03 18.45.11.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-01-03 18.45.11.excalidraw"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -175,13 +160,13 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "b8853607cd530181",
+  "active": "6cd1b70b8bedd6a7",
   "lastOpenFiles": [
     "Networking/Data Communication.md",
     "Networking/Introduction.md",
     "Networking/RoughWork/Drawing 2024-05-30 10.04.56.excalidraw.md",
-    "Excalidraw/Drawing 2025-01-03 18.45.01.excalidraw.md",
     "Networking/RoughWork/Drawing 2025-01-03 18.45.11.excalidraw.md",
+    "Excalidraw/Drawing 2025-01-03 18.45.01.excalidraw.md",
     "Untitled.md",
     "Untitled",
     "Networking/SomeOtherDefinations/Interconnected.md",
