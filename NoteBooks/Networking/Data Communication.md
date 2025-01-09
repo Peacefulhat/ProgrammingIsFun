@@ -88,3 +88,83 @@ Data communication are the exchange of data between two nodes via some form of l
 > When sender have higher capabilities of sending data it gets slowed down by the message timing approach to maintain the flow of communication between the sender and receiver
 > example: like when server process data slow even though your internet speed is good.
 
+#### Peer to Peer Network
+- Every node is called peer 
+-  Connect directly to share resources and communicate without needing a central server.
+- Each peer can both act as client and server.
+- They are in equal in level ,meaning there no one is superior and no one is inferior.
+- Problem with this is that no one is working like an administrator to watch over the network,communication.
+- suitable for smaller applications.
+- Not Scalable.
+
+#### Client server network
+- We have a centralized administration.
+- Follow master-slave architecture.
+- Central sever manages.
+- Request-response model.
+- Server may be overloaded.
+
+#### Components of Computer Network
+- Node
+- Media
+- Services
+##### Nodes
+- A node can send ,receive and both send and receive the data.
+- End Nodes (End devices)
+	- are the nodes that is going to be starting point in the communication or ending point in communication.
+	- Example:computer, security cameras, bar code scanner etc.
+- Intermediary Nodes
+	- are the node that just forward data from one node to another node in a network.
+	- place in between End Nodes.
+	- Example: switches , Bridges, Routers etc.
+
+##### Media(Link)
+- carries the data from one side to other.
+- can be wired medium(guided medium), or wireless medium(unguided medium).
+- Example:(wired medium)
+	- Ethernet straight through cable(data is carried through electrical signals)
+	- Ethernet cross over cable.(data is carried through electrical signals)
+	- Fiber optic cable.
+	- Coaxial cable
+	- USB cable.
+
+> [!NOTE] Ethernet straight-through cable
+> If we want to connect different devices we have to go for this cable.
+
+>[!Note] Ethernet crossover cable
+> If we want to connect devices of same type,like router, switches, computer, etc. we have to go with Ethernet crossover cable.
+
+##### Wireless media
+- signals are converted in waves.
+- Example:
+	- Infrared
+	- Radio
+	- Microwaves(Example: cellular system)
+	- satellite(Example: Long range communication)
+#### Services
+- e-mail.
+- storage services.
+- file sharing.
+- instant messaging.
+- world wide web.
+
+
+#### Classification of computer network
+- LAN(local area network)
+	- A small network is said to be a local area network.
+	- have restricted to a limited area.
+	- A local area network is a computer network that interconnects computers within a limited area such as a residence, school, laboratory, university campus or office building.
+- we can set up LAN in two ways:
+	- Wired LAN(Example:Ethernet-Hub,switch)
+	- Wireless LAN(Example:WI-FI)
+
+MAN(metropolitan are network)
+- metropolitan area network (MAN) is a computer that interconnects user with computer resources in a geographic region of the size of a metropolitan area(city.) 
+- MAN-Devices.
+	- Switches/Hub.
+	- Routers/Bridges.	
+>[!NOTE] Note
+>Routers or Bridges are need to connect two local area network.
+
+WAN(Wide area network)
+- A wide area network is telecommunication network that extends over a larger geographical area for the primary purpose of computer networking.
