@@ -35,7 +35,7 @@ int climb_stare(int n){
 // 94
 //check if array is sorted or not using recursion
 bool is_sorted(int *arr,int size){
-  if(size==0|| size=1) return true;
+  if(size==0|| size==1) return true;
   if(arr[0]>arr[1]){
     return false;
   }else{
@@ -47,3 +47,9 @@ bool is_sorted(int *arr,int size){
   //Todo:
   //ip 3,2,5,1
   // return sum
+  int rsum(int*arr, int size){
+  if(s<0){
+    return 0;
+  }
+ return arr[size]+rsum(arr,size-1); 
+  }

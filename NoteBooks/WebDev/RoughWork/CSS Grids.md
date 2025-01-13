@@ -1,0 +1,5 @@
+- 2D layout system for web
+- let you lay content out in rows and columns.
+- makes layout design easier, with its built in features.
+- Grid will typically have columns rows and then gaps between each rows and columns.
+- gaps are commonly referred as gutters.
