@@ -1,27 +1,7 @@
-#include<iostream>
-#include<vector>
-#include<climits>
-using namespace std;
-
-void reverseArray(vector<int> &arr , int m){
-    int start=m;
-    int end=arr.size()-1;
-    std::cout<<end<<std::endl;
-    while(start<end){
-      std::cout<<"{"<<start<<","<<end<<"}\n";
-        int temp=arr[start];
-        arr[start]=arr[end];
-        arr[end]=temp;
-        end--;
-        start++;
-    }    	
-}
+#include"problem_91_to_100.h"
 
 int main(){
-  vector<int>a={1,2,3,4,5,6};
-  reverseArray(a,3);
-  for(int i=0;i<a.size();i++){
-    std::cout<<a[i]<<" ";
-  }
+  int arr[5]={1,2,3,4,5};
+  std::cout<<linear_search(arr,0,4,3)<<"\n";
   return 0;
 }

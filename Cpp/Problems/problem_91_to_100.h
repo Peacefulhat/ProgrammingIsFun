@@ -1,4 +1,7 @@
-#pragman once
+#pragma once
+#include<iostream>
+#include<vector>
+#include<string>
 // 91
 //Fibonacci Number
 //https://leetcode.com/problems/fibonacci-number/
@@ -32,7 +35,7 @@ int climb_stare(int n){
 
 // Todo
 
-// 94
+
 //check if array is sorted or not using recursion
 bool is_sorted(int *arr,int size){
   if(size==0|| size==1) return true;
@@ -40,16 +43,25 @@ bool is_sorted(int *arr,int size){
     return false;
   }else{
     bool sorted=is_sorted(arr+1, size-1);
-    return true;
+    return sorted;
 }
-
+}
   //95
   //Todo:
-  //ip 3,2,5,1
-  // return sum
+  //ip: 3,2,5,1
+  //op: return sum
   int rsum(int*arr, int size){
-  if(s<0){
+  if(size<0){
     return 0;
   }
  return arr[size]+rsum(arr,size-1); 
   }
+//96
+// linear search
+  int linear_search(int *arr,int s,int e,int key){
+   
+    if(s>e&&key!=arr[s]) return -1;
+     if(arr[s]==key) return s;
+       return linear_search(arr,s+1,e,key);
+  }
+
