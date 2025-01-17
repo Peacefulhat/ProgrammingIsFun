@@ -1,0 +1,10 @@
+{
+  "emacs-text-editor:backward-char": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "B"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-bits 32 
+ubits 32 
 global _start
 
 Section .text
