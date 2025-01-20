@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Haskell/Basic fundamentals.md",
+                "file": "Haskell/compiling Haskell code.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basic fundamentals"
+              "title": "compiling Haskell code"
             }
           }
         ]
@@ -165,12 +165,13 @@
   },
   "active": "346bc66ef56d6ad2",
   "lastOpenFiles": [
-    "Haskell/Introduction.md",
     "Haskell/Basic fundamentals.md",
+    "Haskell/compiling Haskell code.md",
+    "Haskell/Introduction.md",
+    "Untitled.md",
     "Python/Practical Python.md",
     "Linux/Some basic command line tools.md",
     "Untitled 1.md",
-    "Untitled.md",
     "WebDev/RoughWork/CSS Grids.md",
     "Networking/HomeWork/HomeWork.png",
     "WebDev/RoughWork",
@@ -201,7 +202,6 @@
     "Excalidraw",
     "WebDev/CSS/assets",
     "Excalidraw/Drawing 2024-11-04 19.55.56.excalidraw.md",
-    "WebDev/Drawing 2024-10-18 00.57.27.excalidraw.md",
     "WebDev/CSS",
     "WebDev/HTML/assets/html2.png",
     "WebDev/HTML/assets/html.png",
