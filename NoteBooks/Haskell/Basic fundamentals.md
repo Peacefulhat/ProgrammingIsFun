@@ -1,4 +1,5 @@
 ##### Note: Done in Haskell interpreter.
+(kind of like an overview)
 ##### Examples
 #### Expression:
 
@@ -31,4 +32,10 @@
 	
 	map factorial [0..5]
 	[1,1,2,5,24,120]
-	
+- kind of like it takes in a function and a list of arguments and evaluate the result and put them in a list.	
+
+#### comments
+- "--": is used for writing comments in Haskell.
+#### Negative value:
+- Negative value should be written with in parenthesis"()".
+[[Basic Types]]
