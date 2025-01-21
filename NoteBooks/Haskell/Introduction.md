@@ -7,3 +7,4 @@ There are no                        There are:
 - explicit memory management.        automatic type inference.
 
 Haskell is elegant, concise and make you think differently!
+[[Basic fundamentals]]
