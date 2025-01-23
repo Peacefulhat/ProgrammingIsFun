@@ -1,0 +1,2 @@
+1: count Inversion.
+  inversion ={x,y:x>y,x=A[i],y=B[j],i<j,i,jEW}
