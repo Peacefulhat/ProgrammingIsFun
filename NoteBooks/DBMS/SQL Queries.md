@@ -173,3 +173,23 @@ CONSTRAINT CHECK (CONDITION) // this also valid.
 
 ##### Default
 - set default value of columns.
+```
+CREATE TABLE accounts(
+...
+balance DOUBLE NOT NULL DEFAULT 0.00,
+...
+)
+
+INSERT INTO (...balance...) VALUES(DEFAULT) -- DEFAULT IS NEEDED OTHER WISE COL MISMATCH WILL HAPPEN.
+```
+
+>[!NOTE]
+>An attribute can be PK and FK both in a table.
+
+##### ALTER Operations:
+- changes schema.
+##### ADD:
+- **Add new columns**:
+	- ALTER TABLE TABLE_NAME ADD new_col_name_2 DATATYPE;
+	- Example:
+	- ALTER TABLE customer ADD age INT NOT NULL;
