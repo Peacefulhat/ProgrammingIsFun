@@ -96,8 +96,80 @@
 - by default ascending.
 - ASC :: for ascending.
 - DESC :: for descending.
+#### Data Grouping(Group by)
+- The `GROUP BY` statement groups rows that have the same values into summary rows, like "find the number of customers in each country"
+- table get rearranged internally.
+
+- GROUP BY clause is used to collect data from multiple records and group the result by one or more columns. it is generally use in a select statement. 
+- Groups into category based on column given.
+- SELECT c1,c2,c3 from sample_table where cond GROUP BY c1,c2,c3.
+- All the column names mentioned after SELECT statement shall be repeated in GROUP BY in order to successfully execute the query.
+
+- Generally used with aggregation functions to perform various actions.
+- An aggregate function is a function that performs a calculation on a set of values, and returns a single value.
+- Aggregate functions are often used with the `GROUP BY` clause of the `SELECT` statement. The `GROUP BY` clause splits the result-set into groups of values and the aggregate function can be used to return a single value for each group.
+- COUNT()
+- SUM()
+- AVG()
+- MIN()
+- MAX()
+
+- Aggregate functions ignore null values (except for `COUNT()`).
+
 #### Distinct
+- finds the distinct value in a table.
 - example:
-- select distinct department from Workers;
-#### Data Grouping
--  
+- select distinct (column_name) from Workers;
+- GROUP BY can also be used for the same .
+	- select (column_name) form table GROUP BY column_name; same output as above DISTINCT query.
+	- SQL is smart enough to realize that if you are using GROUP BY and not using any aggregation function, then you mean DISTINCT.
+
+#### GROUP BY HAVING
+- Out of the categories made by GROUP BY, we would like to know only particular thing (cond).
+- Similar to WHERE.
+- Select COUNT(cust_id), country from customer GROUP BY country HAVING COUNT(cust_id) > 50;
+- WHERE vs HAVING
+- Both have same function of filtering the row base on certain conditions.
+- WHERE clause is used to filter the rows from the table based on specified condition
+- HAVING clause is used to filter the rows from the groups based on the specified condition.
+- HAVING is used after GROUP BY while WHERE is used before GROUP BY clause.
+- If you are using HAVING, GROUP BY is necessary.
+- WHERE can be used with SELECT, UPDATE & DELETE keywords while GROUP BY used with SELECT.
+
+#### Constraints (DDL)
+##### Primary Key:
+- PK is not null and unique and only one per table(only one column be primary key).
+//TODO: add link to image. for primary key.(refer to notes pdf).
+
+##### Foreign key:
+- used for representing relation among tables.
+- FK refers to PK of other table.
+- Each relation can having any number of FK.
+- CREATE TABLE ORDER(
+	id INT PRIMARY KEY,
+	delivery_date DATE,
+	order_placed_date DATE,
+	cust_id INT,
+	FOREIGN KEY(cust_id)REFERENCES customer(id)	
+	);
+##### Unique 
+- Unique , can be null ,table can have multiple unique attributes.
+- CREATE TABLE customer(
+	...
+	email VARCHAR(1024) UNIQUE,
+	...
+  );
+##### Check
+- CREATE TABLE customer(
+...
+
+-- CONSTRAINT constraint_name CHECK (CONDITION) // this valid.
+
+CONSTRAINT CHECK (CONDITION) // this also valid.
+);
+
+- constraint_name, can also avoid this, MySQL generate name of constraint automatically.
+
+
+##### Default
+- set default value of columns.
