@@ -1,0 +1,63 @@
+                                      Basic Editing Commands                                                              --------------------------
+                                     --------------------------
+
+Leader Keys:
+C=ctrl,M=meta,Return=Enter,Del=backspace;
+
+Basic Cursor Control:
+C-f: Move forward one character (forward-char).
+C-b: Move backward one character (backward-char).
+C-n: Move down one screen line (next-line).
+C-p: Move up one screen line (previous-line).
+C-a: Move to the beginning of the line (move-beginning-of-line).
+C-e: Move to the end of the line (move-end-of-line).
+M-f: Move forward one word (forward-word).
+M-b: Move backward one word (backward-word).
+M-r: Without moving the text on the screen, reposition point on the left margin of
+the center-most text line of the window; on subsequent consecutive invocations,
+move point to the left margin of the top-most line, the bottom-most line, and
+so forth, in cyclic order (move-to-window-line-top-bottom.
+C-v: Page Down next.
+M-v: Page Up.
+
+Windows:
+C-x 1: expands the window which contains the cursor, to occupy the full screen.It deletes all other windows.
+
+Inserting and Deleting:
+Enter: for newline character.
+backspace: for deleting a character.
+C-d: Delete the next character after the cursor.
+M-<Del>: kill the word immediately before the cursor.
+M-d: kill the next word after the cursor.
+C-k: kill from the cursor position to end of line.
+M-k: kill to the end of the current sentence.
+
+C-<spc>: will set a mark, then move cursor to desired postion,then C-w. This will kill all the text between the two position.
+
+C-y: it reinserts the last killed text, at the current cursor position.(current kill text).
+M-y: will yank the previous killed text.
+
+C-/orC-_: will undo the change.
+
+
+C-x C-f: find file.
+C-x C-s: save file.
+C-x C-b: list buffers.
+
+Searching:
+Incremental Search: Press Ctrl + s to start an incremental search.As you type, Emacs will highlight the first occurrence of the text you're searching for.
+Press Ctrl + s again to find the next occurrence.
+
+Reverse Incremental Search:
+    Press Ctrl + r to start a reverse incremental search.
+    Similar to incremental search, but searches backward in the buffer.
+
+Isearch Mode:
+    Press Ctrl + s and then Ctrl + s again to enter Isearch mode.
+    In Isearch mode, type the search term, and Emacs will highlight the matches as you type.
+    Use Ctrl + s to move to the next match and Ctrl + r to move to the previous match.
+
+Query Replace:
+    To search and replace, use M-% (Alt + Shift + 5).
+    Enter the text to search for and the replacement text when prompted.
+    Press y to replace the current occurrence, n to skip, or q to quit,! to replace all occurrences.

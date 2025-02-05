@@ -164,7 +164,7 @@ MAN(metropolitan are network)
 	- Switches/Hub.
 	- Routers/Bridges.	
 >[!NOTE] Note
->Routers or Bridges are need to connect two local area network.
+>Routers or Bridges are needed o connect two local area network.
 
 WAN(Wide area network)
 - A wide area network is telecommunication network that extends over a larger geographical area for the primary purpose of computer networking.

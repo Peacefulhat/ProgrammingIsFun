@@ -1,0 +1,45 @@
+#Emacs Terminology
+
+Buffer :: The area containing text.
+Point :: The cursor.
+Mark :: The point were highlighted text starts.
+     - The mark is set with C-SPC.
+Window :: A section of the emacs window containg text.
+       - Split sperates the windows.
+Frame :: Dedicated Emacs Window(meaning your o's window).
+
+Minibuffer :: Text area at the bottom of a frame.
+
+Region :: area between the point and the mark.
+    -Kill-region:(C-w) make use of this(cut) in emacs.
+
+Major mode:: current programming mode.
+Minor mode :: (enables feature such as spellchecking).
+
+Major mode:: current programming mode.
+Minor mode :: (enables feature such as spellchecking).
+
+
+#Basic syntax:
+
+Defining a function:
+	 (defun function_name (parameter)
+	 (//body of function 1))
+Calling a function:
+	(function_name args)
+
+#Basic types
+integer::1
+float::2.2
+strings::"hello"
+keywords:: :hello
+chars:: ?h
+bool ::t,nil
+pairs (cons cell)::(cons 1 2)
+list :: (list 1 2 3)
+' (+ 1 2): this ' symbol at front tell elisp interpreter to not evaluate this expression.
+
+
+
+
+
