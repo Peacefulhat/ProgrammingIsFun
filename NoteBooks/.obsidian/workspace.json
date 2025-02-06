@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DBMS/SQL Queries.md",
+                "file": "Linux/Text Editors/Emacs magit.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SQL Queries"
+              "title": "Emacs magit"
             }
           }
         ],
@@ -182,8 +182,11 @@
   },
   "active": "fc1b0f08ba572d4f",
   "lastOpenFiles": [
-    "Linux/Terminal Navigation.md",
+    "Linux/Text Editors/Emacs.md",
+    "Linux/Text Editors/Emacs magit.md",
+    "Linux/Text Editors/Emacs with Sql.md",
     "DBMS/SQL Queries.md",
+    "Linux/Terminal Navigation.md",
     "DBMS/Sql_assets",
     "DBMS",
     "Networking/Data Communication.md",
@@ -200,7 +203,6 @@
     "Networking/HomeWork/HomeWork.png",
     "WebDev/RoughWork",
     "Networking/HomeWork/find_solution for this issue.png",
-    "Linux/Text Editors/Emacs.md",
     "Linux/Some Networking Fundamentals.md",
     "Networking/Assets/Message_Encoding.png",
     "Networking/Assets",
@@ -213,8 +215,6 @@
     "Networking/SomeOtherDefinations/Interconnected.md",
     "Networking/SomeOtherDefinations/System.md",
     "Networking/SomeOtherDefinations/Interrelated.md",
-    "Networking/SomeOtherDefinations/Interacting.md",
-    "WebDev/CSS/CSS fundamentals.md",
     "Untitled.canvas",
     "WebDev/CSS/assets/box-model.png",
     "WebDev/CSS/assets/Css1.png",
