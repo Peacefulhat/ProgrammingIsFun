@@ -193,3 +193,29 @@ INSERT INTO (...balance...) VALUES(DEFAULT) -- DEFAULT IS NEEDED OTHER WISE COL 
 	- ALTER TABLE TABLE_NAME ADD new_col_name_2 DATATYPE;
 	- Example:
 	- ALTER TABLE customer ADD age INT NOT NULL;
+##### MODIFY:
+- changes the data type of an attribute.
+- ALTER TABLE table-name CHANGE COLUMN old-col-name new-col-name new-col-data type;
+- Example:
+- ALTER TABLE customer CHANGE COLUMN name customer-name VARCHAR(1024);
+##### CHANGE COLUMN
+- Rename column name.
+- ALTER TABLE table-name CHANGE COLUMN old-col-name new-col-name
+- Example:
+- ALTER TABLE CUSTOMER CHANGE COLUMN NAME customer-name VARCHAR (1024)
+
+##### DROP COLUMN
+- Drop a column completely.
+- ALTER TABLE table-name DROP COLUMN col-name;
+- Example:
+- ALTER TABLE customer DROP COLUMN middle-name;
+
+#### RENAME 
+- Rename table name itself.
+- ALTER TABLE old-table-name RENAME TO new-table-name;
+- Example:
+- ALTER TABLE table-name RENAME TO customer-details;
+
+#### Data manipulation language(DML):
+
+
