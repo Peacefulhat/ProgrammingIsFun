@@ -16,6 +16,7 @@ struct node*get_root();
 struct node *memory_alloc(type_t value);
 void mem_free(struct node* temp);
 void insert(type_t value);
+void delete(type_t value);
 void inorder(struct node*it);
 void preorder(struct node*it);
 void postorder(struct node*it);

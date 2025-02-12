@@ -52,6 +52,12 @@ void insert(type_t value){
   }
 }
 
+
+void delete(type_t value){
+  
+}
+
+
 void inorder(struct node* it){
   if(it==NULL){
     return;
