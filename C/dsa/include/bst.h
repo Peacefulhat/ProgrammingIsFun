@@ -13,11 +13,15 @@ struct node*get_root();
  };
 
 // allocate memory for node;
-struct node *memory_alloc(type_t value);
-void mem_free(struct node* temp);
+
+struct node *memory_alloc(type_t);
+void mem_free(struct node*);
 void insert(type_t value);
-void delete(type_t value);
-void inorder(struct node*it);
-void preorder(struct node*it);
-void postorder(struct node*it);
+struct node*delete(struct node*,type_t value);
+void inorder(struct node*);
+void preorder(struct node*);
+void postorder(struct node*);
+struct node *successor(struct node*);
+struct node*search_node(struct node*,type_t);
+void m_postorder(struct node* it);
 #endif
