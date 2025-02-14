@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HLD/Blogsite.md",
-                "mode": "preview",
+                "file": "Reverse Engineering/Assembly.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Blogsite"
+              "title": "Assembly"
             }
           }
         ]
@@ -167,8 +167,14 @@
   },
   "active": "e9c7fd5791aa2776",
   "lastOpenFiles": [
-    "DBMS/SQL Queries.md",
+    "Untitled 3.md",
+    "Reverse Engineering/Assembly.md",
+    "Untitled 1.md",
+    "Untitled 2.md",
+    "Untitled.md",
     "HLD/Blogsite.md",
+    "Reverse Engineering",
+    "DBMS/SQL Queries.md",
     "HLD",
     "Linux/Terminal Navigation.md",
     "Linux/Some Networking Fundamentals.md",
@@ -186,7 +192,6 @@
     "Haskell/Basic fundamentals.md",
     "Haskell/compiling Haskell code.md",
     "Python/Practical Python.md",
-    "Untitled 1.md",
     "WebDev/RoughWork/CSS Grids.md",
     "Networking/HomeWork/HomeWork.png",
     "WebDev/RoughWork",
@@ -197,10 +202,6 @@
     "WebDev/HTML/What is Html.md",
     "WebDev/HTML/Structure of HTML document.md",
     "Networking/RoughWork/Drawing 2024-05-30 10.04.56.excalidraw.md",
-    "Networking/RoughWork/Drawing 2025-01-03 18.45.11.excalidraw.md",
-    "Excalidraw/Drawing 2025-01-03 18.45.01.excalidraw.md",
-    "Networking/SomeOtherDefinations/Interconnected.md",
-    "Networking/SomeOtherDefinations/System.md",
     "Untitled.canvas",
     "WebDev/CSS/assets/box-model.png",
     "WebDev/CSS/assets/Css1.png",
@@ -210,7 +211,6 @@
     "WebDev/HTML/assets/html2.png",
     "WebDev/HTML/assets/html.png",
     "WebDev/HTML/assets",
-    "DotBatch/HTML/#What is Html.md#",
     "WebDev/Git/assets/gitStash.png",
     "WebDev/Git/assets/branching.png",
     "WebDev/Git/assets/ignoreFile.png"
