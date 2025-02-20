@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "12cf5ad853fbb1d3",
@@ -170,12 +169,13 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "cec175e459e75f96",
+  "active": "ad3b3d4202d38b13",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Linux/Assembly/Assembly.md",
     "Untitled 4.md",
     "Untitled 5.md",
     "Untitled 6.md",
-    "Linux/Assembly/Assembly.md",
     "Linux/Assembly"
   ]
 }
