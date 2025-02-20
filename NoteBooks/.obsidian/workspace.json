@@ -11,10 +11,14 @@
             "id": "cec175e459e75f96",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Linux/Assembly/Assembly.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Assembly"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "12cf5ad853fbb1d3",
@@ -90,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Linux/Assembly/Assembly.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Assembly"
             }
           },
           {
@@ -108,11 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Linux/Assembly/Assembly.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Assembly"
             }
           },
           {
@@ -136,12 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Linux/Assembly/Assembly.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Assembly"
             }
           }
         ]
@@ -162,6 +170,12 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ad3b3d4202d38b13",
-  "lastOpenFiles": []
+  "active": "cec175e459e75f96",
+  "lastOpenFiles": [
+    "Untitled 4.md",
+    "Untitled 5.md",
+    "Untitled 6.md",
+    "Linux/Assembly/Assembly.md",
+    "Linux/Assembly"
+  ]
 }
