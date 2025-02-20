@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "e9ee592a347f05a0",
+    "id": "91cd80d2f2a3f2e8",
     "type": "split",
     "children": [
       {
-        "id": "37db36a113fb5f33",
+        "id": "9a1048f0f49ba1be",
         "type": "tabs",
         "children": [
           {
-            "id": "e9c7fd5791aa2776",
+            "id": "cec175e459e75f96",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Reverse Engineering/Assembly.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Assembly"
+              "title": "New tab"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "422beac8e02605a3",
+    "id": "06aeb493b352f976",
     "type": "split",
     "children": [
       {
-        "id": "004e9cd54ecee8ca",
+        "id": "7153b89d4457592d",
         "type": "tabs",
         "children": [
           {
-            "id": "cc983f214e18aea6",
+            "id": "ad3b3d4202d38b13",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +44,7 @@
             }
           },
           {
-            "id": "89356f7031e6b1b6",
+            "id": "1799896fff8243b5",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +61,7 @@
             }
           },
           {
-            "id": "a1887fc23190f889",
+            "id": "fcbaf00d105562dc",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -78,24 +74,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "e56950efcaf2fdb2",
+    "id": "12cf5ad853fbb1d3",
     "type": "split",
     "children": [
       {
-        "id": "186e902caa8d2a92",
+        "id": "6ba86ee2ae7d4dd2",
         "type": "tabs",
         "children": [
           {
-            "id": "7d1b5b4cbaea6c67",
+            "id": "7d61fb9c3dd25b29",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DotBatch/HTML/What is Html.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,46 +99,49 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for What is Html"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "db33c88734119347",
+            "id": "a2a7a673737ed81f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DotBatch/HTML/What is Html.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from What is Html"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "95c5317cfe1c8da0",
+            "id": "c3663cd5663f29a2",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           },
           {
-            "id": "749428cb044f768c",
+            "id": "236b8835b7ba4746",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "DotBatch/HTML/What is Html.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of What is Html"
+              "title": "Outline"
             }
           }
         ]
@@ -165,54 +162,6 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e9c7fd5791aa2776",
-  "lastOpenFiles": [
-    "Untitled 3.md",
-    "Reverse Engineering/Assembly.md",
-    "Untitled 1.md",
-    "Untitled 2.md",
-    "Untitled.md",
-    "HLD/Blogsite.md",
-    "Reverse Engineering",
-    "DBMS/SQL Queries.md",
-    "HLD",
-    "Linux/Terminal Navigation.md",
-    "Linux/Some Networking Fundamentals.md",
-    "Linux/Some basic command line tools.md",
-    "Linux/Text Editors/Emacs with Sql.md",
-    "Linux/Text Editors/Emacs magit.md",
-    "Networking/Data Communication.md",
-    "Linux/Text Editors/Emacs.md",
-    "DBMS/Sql_assets",
-    "DBMS",
-    "WebDev/Git/Git.md",
-    "Haskell/Functions.md",
-    "Haskell/Basic Types.md",
-    "Haskell/Introduction.md",
-    "Haskell/Basic fundamentals.md",
-    "Haskell/compiling Haskell code.md",
-    "Python/Practical Python.md",
-    "WebDev/RoughWork/CSS Grids.md",
-    "Networking/HomeWork/HomeWork.png",
-    "WebDev/RoughWork",
-    "Networking/HomeWork/find_solution for this issue.png",
-    "Networking/Assets/Message_Encoding.png",
-    "Networking/Assets",
-    "Networking/Introduction.md",
-    "WebDev/HTML/What is Html.md",
-    "WebDev/HTML/Structure of HTML document.md",
-    "Networking/RoughWork/Drawing 2024-05-30 10.04.56.excalidraw.md",
-    "Untitled.canvas",
-    "WebDev/CSS/assets/box-model.png",
-    "WebDev/CSS/assets/Css1.png",
-    "Excalidraw",
-    "WebDev/CSS/assets",
-    "WebDev/CSS",
-    "WebDev/HTML/assets/html2.png",
-    "WebDev/HTML/assets/html.png",
-    "WebDev/HTML/assets",
-    "WebDev/Git/assets/gitStash.png",
-    "WebDev/Git/assets/branching.png",
-    "WebDev/Git/assets/ignoreFile.png"
-  ]
+  "active": "ad3b3d4202d38b13",
+  "lastOpenFiles": []
 }

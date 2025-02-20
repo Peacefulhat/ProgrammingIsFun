@@ -1,20 +1,27 @@
 #Hangman
+
 import random
-word_list=["aardvark","babbon","camel"]
 
-random_word=word_list[random.randint(0,2)]
-guess_limit=5
-word_len=len(random_word)
-guess=[]
-temp=input()
+d_list=["aardvark","baboon","camel"]
 
-for i in random_word:
-    if temp==i:
-        print("Right")
-    else:
-        print("Wrong")
+selected_word=d_list[random.randint(0,len(d_list)-1)]
+
+correct_letters=[]
+times_to_guess=len(selected_word)
+print(selected_word)
+while(times_to_guess>0):
+    display=""
+    user_guess=input(" guess your letter ::").lower()
+    for letter in selected_word:
+        if(user_guess==letter):
+            
+            times_to_guess-=1
+
+            continue;
+        display+="_"
+    print(display)
         
+print(display)
+               
 
-
-
-    
+               
