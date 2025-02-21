@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "12cf5ad853fbb1d3",
@@ -169,10 +170,12 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ad3b3d4202d38b13",
+  "active": "cec175e459e75f96",
   "lastOpenFiles": [
-    "Untitled.md",
+    "DBMS/SQL Queries.md",
     "Linux/Assembly/Assembly.md",
+    "Python/Practical Python.md",
+    "Untitled.md",
     "Untitled 4.md",
     "Untitled 5.md",
     "Untitled 6.md",

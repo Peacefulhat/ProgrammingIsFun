@@ -125,3 +125,32 @@ b:e8 00 00 00 00           call 10 <main+0x10>
 - Programs directly reference memory by address and use primitive types
 - A condition register contains flags modified by instructions
 - Bit-oriented operations are important , like rotate,shift,and ,or and not
+- It is convenient that the program counter (PC)/instruction pointer (IP) always points to the next linear instruction, since it simplifies calling and returning and make them faster 
+	- Aside: the 6502 has to waste cycles because it stores the PC on the stack off-by-one and has to increment it on return 
+- It is common convention that the stack pointer(SP) point to the last item pushed onto the stack.
+	- Aside: the 6502 doesn't do this, either but points to the first open address.
+- The usual convention is that, given two possible addresses for a thing(the last item pushed or first open spot) the higher address is chosen, often because it tends to be aligned(the low bits are zero)
+##### There is a lot of commonality in assembly languages, and instructions follow the following basic format:
+
+**mnemonic**:
+- A <strong>mnemonic</strong> identifies the main operation (though there may be others).
+- This is usually short, and can be fairly obvious(like add and sub)or not-so-obvious(like `pslrq`).
+- Example:
+	**`mov rax, 1`** : `mov` is mnemonic and here This operation "move".This operation is used to copy the data.here its coping value one to the `rax` register.
+**Operands**:
+- The **operands** are the explicit arguments to the operation. There may be additional implicit arguments.
+- order of arguments matters.
+- `x86` uses `<mnemonic> <destination> <source>`.And this order is common among processors.`Arm` does the same thing.
+- `AT&T` uses `<mnemonic> <source> <destination> `.
+- Example:
+	**`mov rax, 1`**: here the arguments are `rax` and a literal value `1`.
+
+###### Some example of mnemonic with different length of arguments.
+`clc` : takes no operand just clear the carry flag.
+`ret 16`: can take zero or one operand.
+`inc`: take one argument, just increment the value by one.
+`add eax,ebx`: takes two operands, its `eax+=ebx`
+`imul eax,ebx,7`: can take one argument,two argument or three, here its `eax=ebx*7`
+`movsb`: is a string oriented instruction,takes three implicit arguments, implicit register `<source>`:`rsi`
+`<destination>`:`rdi`, and a `direction register`: which is conditional code register etc. **Here its moving data byte by byte**.
+
