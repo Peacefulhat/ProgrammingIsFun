@@ -146,11 +146,219 @@ b:e8 00 00 00 00           call 10 <main+0x10>
 	**`mov rax, 1`**: here the arguments are `rax` and a literal value `1`.
 
 ###### Some example of mnemonic with different length of arguments.
-`clc` : takes no operand just clear the carry flag.
-`ret 16`: can take zero or one operand.
+`clc` : takes no operand just 
+and.
 `inc`: take one argument, just increment the value by one.
 `add eax,ebx`: takes two operands, its `eax+=ebx`
 `imul eax,ebx,7`: can take one argument,two argument or three, here its `eax=ebx*7`
 `movsb`: is a string oriented instruction,takes three implicit arguments, implicit register `<source>`:`rsi`
 `<destination>`:`rdi`, and a `direction register`: which is conditional code register etc. **Here its moving data byte by byte**.
+>[!NOTE]
+>Intel operations usually have zero , one, or two operands. A few (like `imul`) can have three. There can be both explicit and implicit arguments as well as optional operands.
+>
+> In some cases `disassemblers` will show implicit arguments as if they were explicit operands and you could change them. That not always true.
 
+##### Assembly instructions - Implicit and Explicit:
+- Every assembly language has some oddities and the `X86` instruction set has example of most of those.
+- The **Division** operation has one explicit operand and one implicit argument and uses three registers.
+- only the divisor is named explicitly and can be specified the other register are implicit and fixed
+- Example:
+	- ` div rbx`:divide the 128 bit integer in `rdx:rax` by the 64 bit integer `rbx` and store the 64 bit quotient in `rax` and the 64 bit remainder in `rdx`.
+	- Generate an exception if the result won't fit.
+`rbx` :`rdx`         `rax`
+      high 64 bit low 64 bit
+quotient: store in `rax`.
+remainder: store in `rdx`.
+
+## Assembly instruction - Addressing Modes:
+
+- The value of each operand can be provided in a few different ways. We call this the addressing mode for each operand .
+- Some processor have many addressing modes, including fancy modes like direct indexed, indirect indexed, implied, zero page, etc
+- The `x86` has (arguably) four "high-level" modes:
+	- immediate
+	- register
+	- memory
+	- rip-relative
+	Aside: Addressing mode available vary by processor, but again, there are many commonalities.
+##### Immediate Addressing mode
+- The value of the operand is given as a literal constant.
+- Example:
+	- `mov rax, 0x2f4e0800`: here hex value is the immediate value.
+##### Register Addressing Mode
+- The value of the operand is the current content of a register.
+- Example:
+	- `mov rax, rcx`: here `rcx` is like Register value.
+##### Memory Addressing Mode
+- The value of the operand is the current content of a memory address.
+- Memory References are enclosed in square brackets and can be specified in fairly complex ways.
+- Example:
+	- `mov rax, [rdx+16]`: here term is square bracket is memory reference.
+	- In this case the memory address is taken by adding 16 to the content of the register `rdx`.so this operand is a memory operand composed of a register and an immediate value.
+
+##### rip-Relative Addressing Mode
+- The value of the operand depends on the current value of the instruction pointer rip.
+- This is a trick to implement position independent code.
+- Example:
+	- `lea rax, [rel msg]` 
+
+## Writing Assembly
+- you the following tools to use when writing assembly.
+- operations
+- register
+- memory
+- stack
+- conditional branches
+- unconditional jumps
+That's pretty much everything.
+
+**`//Todo:Risc and Cisc.`**
+
+## Instruction set architecture
+
+#### Programming view:
+![[programming_view.png]]
+
+#### Some X86 Architecture: 16-bit addresses(64 `kib`,2^16)
+
+16-bit general purpose registers
+- Accumulator : `ax`
+- base: `bx`
+- counter: `cx`
+- data: `dx`
+- stack pointer: `sp`
+- (stack)base pointer: `bp`
+- source index: `si`
+- destination index: `di`
+- instruction pointer: `ip`
+>[!NOTE]
+>The `ax,bx,cx and dx` register are `<high> <low>` byte-addressable.
+>`ax=ah.al` here `ah has high 8 bits and al has low 8 bits`
+>`bx=bh.bl`
+>`cx=ch.cl`
+>`dx=dh.dl`
+>
+>8-bits:byte
+>16-bits:word
+
+#### Some X86 Architecture: 32-bit addresses(4 GB)
+Extended general purpose register.
+- `eax,ebx,ecx,edx`
+- `esp,ebp`
+- `esi,edi`
+- `eip`
+ >[!NOTE]
+> - Even though `sp and ip` are still usable, the stack pointer is now `esp` and the instruction pointer `eip`,because memory addresses are always 32 bit wide.
+
+Register aliasing:
+`eax`:: (16 bits).`ax`
+	 (16 bits).`ah.al`
+8 bits :: byte
+16 bits :: word
+32 bits :: `dword` (double word)
+
+#### Some X86_64 (`amd64`) Architecture:64-bit addresses (16 `EIB`)
+"r" is for register.
+- `rax,rbx,rcx,rdx`
+- `rsp,rbp`
+- `rsi,rdi`
+- `rip` 
+>[!NOTE]
+>Even though `esp and eip` are still usable,the stack pointer is now `rsp` and the instruction pointer is now `rip`, because memory addresses are always 64 bit wide.
+
+But also...
+- `r8,r9,r10,r11,r12,r13,r14,r15`
+- (`rax through rdi` count as `r0-r7`)
+ 
+Aliasing:
+`rax`
+=(32 bits).`eax`
+=(32 bits).(16 bits).`ax`
+=(32-bits).(16 bits).`ah.al`
+
+8 bits: byte
+16 bits: word
+32 bits: `dword` (double word)
+64 bits: `qword` (quad word)
+
+`Todo: look into the documentation for floating point registers`
+
+#### Segment register
+code segment :: `cs`
+Data segment :: `ds`
+stack ::`ss`
+Extra segment registers :: `es, fs, gs`
+The extra segment register are usually used by operating system.
+
+### flags (16 bit)
+- carry `cf`
+- parity `pf`(even =1 , odd=0)
+- adjust/Auxiliary `af`(4-bit carry)
+- zero `zf`
+- sign `sf`
+- trap `tf`(single-step)
+- interrupt Enable `if`(allowed = 1)
+- direction `df`(increment = 0)
+- overflow `of`
+- privilege `ipol`(2 bits)
+### more eflags (32 bit)
+- Resume `rf`
+- virtual 8086 `vm`(compatibility =1 )
+- alignment Check `ac`(enable=1)
+- virtual interrupt `vif`
+- virtual interrupt pending `vip`
+- cpu id `id`
+- virtual address Descriptor `vad`(allowed =1)
+
+### more `rflags` (64 bit)
+- Reserved , current not much used.
+
+You cannot access the register directly but you can manipulate it using special instructions.
+- `pushf` pushes the flags register content on top of the stack.
+- `popf` loads the flags register from the top of the stack.
+- similar instruction extends to `eflags(pushfd/popfd)`and `rflags(pushfq/popfq)`
+- `lahf` moves flags bits 0-7 into `ah`
+- `sahf` moves `ah` into bits 0-7 of flags![[flags.png]]
+#### Special Registers:
+
+**rip**:
+- The instruction pointer is rip, you can't access it directly(you can't `mov rax,rip`) but you can use it with rip-relative indexing, and there are tricks to read it during program execution.
+**`rsp`**:
+- The stack pointer is `rsp`. you can use it like any other register , including doing math with it (`sub rsp,16`). A common mistake is to use `esp` in place of `rsp`. only `rsp` is the stack pointer,because addresses have 64 bits.
+**`rbp`**:
+- The base pointer is `rbp`. it is really just another register, but by convention it often holds the address of the current stack frame and is used to locate local variables stored on the stack. with in a procedure the stack pointer `rsp` may change ,but the base pointer `rbp` is (usually)fixed.
+- if the base pointer is not needed, then code might use it as just another general-purpose register.
+>[!NOTE]
+>A stack frame is the area of the stack that belongs to a specific routine. it usually hold temporary or local variables
+
+**`rsi and rdi`**:
+- The **source** and **destination** register `rsi and rdi` are used by instructions that move block of data (along with the count register `rcx` and the direction flag `df`). Otherwise you can use them just like any other register.
+
+### An Example:
+```
+mov rax,60
+mov rdi,0 
+syscall
+hlt
+```
+
+Let's create an assembly program. for now we will just start up and then exit.
+
+we will use the *exit* system call;
+```
+nasm -f elf64 filename.asm
+```
+only for Linux.
+we can see the .o file using obj dump
+```
+objdump -d -Mintel filename.o
+```
+- `Mintel`: is for intel dialect.
+
+- Assembler does not know how things will be laid out in memory , so it cannot fill everything in, and defers that to the linker by creating re-locations. 
+-   ![[disassembly.png]]
+- `0: ,5:,a:,c:` are the offset address of each instruction.
+- Next we link the file to create executable.
+- *Linking* resolves (most of ) the re-locations.These are usually references to symbols in other files, to library code, or to well-known symbols(like _start or main) .
+- Linking connects ("links")parts of programs , entire programs, or libraries.
+- The linker on most platforms is called **`ld`**.Here the linker looks for a _start symbol but does not find one. it assumes the first address in the file is the start.
+- ![[linking.png]]
