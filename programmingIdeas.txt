@@ -1,0 +1,13 @@
+
+SOME PROGRAMMING IDEAS
+
+0). Do some coding chalanges daily or read some code onilne on github.
+1). 2d physic engine in c (Physica) (from scratch,except gpu piplines).
+2). Packet sniffer in c or python.( using kernel level library).
+3). Dynamic website using (MERN) stack.(codhelp as reference).
+4). qr code generator in c.(from scratch , with some Image format is allowed).
+5). 3d engine project, some time in my life.
+6). coogle , using cpp(implement own parser and lexer).(idea from mister Tsoding.)
+7). jit compiler for brain fuck (tsoding bfjit generate x86_64 asm as an intemidiate file.)
+8). build system in c (tsoding nob.h)
+9). package manager for linux.
