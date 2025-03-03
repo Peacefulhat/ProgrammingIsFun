@@ -125,3 +125,10 @@ Searching for a string is a cursor motion command; it moves the cursor to the ne
 - M-x ediff: Emacs can compare two file and highlight their differences.
 - M-x dired: To enter dired mode , you can use C-x C-q to make dired buffer editable.
 - M-x list-packages: for downloading packages for emacs.
+## Dired
+
+ If you want to move multiple files:
+ - Navigate to the directory in Dired.
+- Mark files by pressing m on each file.
+ - Press R.
+ - Enter the destination folder and press Enter.

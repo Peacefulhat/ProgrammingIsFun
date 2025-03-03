@@ -25,7 +25,6 @@ typedef struct{
 }custom;
 
 
-
 void swrite(){// writing a structure
   FILE* fp;
   fp = fopen(spath,"wb");

@@ -52,6 +52,7 @@ char *readline(FILE *fp)
             }
 
             buf = new_buf;  // Successful realloc
+	    //	    free(new_buf);
         }
 
         buf[offset++] = c;  // Add the byte onto the buffer
