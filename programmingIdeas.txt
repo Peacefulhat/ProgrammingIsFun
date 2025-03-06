@@ -11,3 +11,8 @@ SOME PROGRAMMING IDEAS
 7). jit compiler for brain fuck (tsoding bfjit generate x86_64 asm as an intemidiate file.)
 8). build system in c (tsoding nob.h)
 9). package manager for linux.
+10). some em-wave transmitter and reciver.
+11). boot loader(asm)
+12). compiler in c or asm.
+
+
