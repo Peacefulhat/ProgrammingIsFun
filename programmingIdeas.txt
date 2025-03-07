@@ -14,5 +14,7 @@ SOME PROGRAMMING IDEAS
 10). some em-wave transmitter and reciver.
 11). boot loader(asm)
 12). compiler in c or asm.
+13). Run-length encoding.
+14). lazy-evalution in c 
 
 
