@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d0fc32f9e501098c",
+        "id": "0939e033ad430a2d",
         "type": "tabs",
         "children": [
           {
-            "id": "1ace88f3c7dc0ba9",
+            "id": "554df0eb106d40c9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Assembly/GPR's.md",
+                "file": "IWeb/laravel/Thing you need to Know.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GPR's"
+              "title": "Thing you need to Know"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "12cf5ad853fbb1d3",
@@ -161,7 +160,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -170,22 +168,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1ace88f3c7dc0ba9",
+  "active": "554df0eb106d40c9",
   "lastOpenFiles": [
+    "Untitled 1.md",
+    "Untitled 2.md",
+    "Untitled 3.md",
+    "IWeb/laravel/Thing you need to Know.md",
+    "Untitled.md",
+    "IWeb/php/Basics.md",
+    "IWeb/php/Untitled",
+    "Linux/Assembly/GPR's.md",
+    "IWeb/laravel",
+    "IWeb/php",
+    "IWeb/Untitled.md",
+    "IWeb",
     "Linux/Text Editors/Emacs.md",
     "Opengl/Introduction.md",
     "Opengl/Assets",
-    "Linux/Assembly/GPR's.md",
     "Opengl",
-    "Untitled.md",
-    "Untitled 1.md",
     "Untitled 7.md",
     "Untitled 8.md",
     "Untitled 9.md",
     "Untitled 5.md",
     "Untitled 6.md",
-    "Untitled 2.md",
-    "Untitled 3.md",
     "Untitled 4.md",
     "Linux/Assembly/Assembly.md",
     "Linux/Assembly/Assets/linking.png",
