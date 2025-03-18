@@ -1,5 +1,5 @@
 -> Run length encoding.
 -> co-recursion.
 -> Byte pair encoding
-
+-> Backpropogation
 

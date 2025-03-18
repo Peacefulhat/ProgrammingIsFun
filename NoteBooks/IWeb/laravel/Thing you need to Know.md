@@ -463,3 +463,5 @@ class UserController extends Controller
 
 The `request()` helper simplifies access to request data in Laravel applications!
 
+
+
