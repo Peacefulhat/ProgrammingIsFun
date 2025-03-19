@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/manpages.md",
+                "file": "IWeb/laravel/Thing you need to Know.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "manpages"
+              "title": "Thing you need to Know"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "12cf5ad853fbb1d3",
@@ -160,7 +161,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -171,6 +171,7 @@
   },
   "active": "554df0eb106d40c9",
   "lastOpenFiles": [
+    "Linux/manpages.md",
     "Linux/Some Networking Fundamentals.md",
     "Linux/Some basic command line tools.md",
     "Linux/Text Editors/Emacs with Sql.md",
