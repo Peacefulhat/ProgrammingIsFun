@@ -43,10 +43,11 @@ void xor_model(){
  // MAT_PRINT(m.b1);
  // MAT_PRINT(m.w2);
  // MAT_PRINT(m.b2);
+ printf("%f", forward_xor(m,0,1));
 }
 
 int main(void){
  srand(time(0));
  xor_model();
   return 0;
-}
+ }

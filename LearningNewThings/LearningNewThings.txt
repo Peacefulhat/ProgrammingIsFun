@@ -2,4 +2,9 @@
 -> co-recursion.
 -> Byte pair encoding
 -> Backpropogation
+-> Seam carving
+-> sobel operator
+-> Luminance formula
+-> Recreated Lena
+
 
