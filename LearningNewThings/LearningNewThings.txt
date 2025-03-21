@@ -6,5 +6,5 @@
 -> sobel operator
 -> Luminance formula
 -> Recreated Lena
-
+-> Brian Kernighan's algorithm (count set bits in O(logn).
 
