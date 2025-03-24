@@ -2,52 +2,56 @@
 #include"nn.h"
 #define NN_IMPLEMENTATION
 
+float td[]={
+  0,0,0,
+  0,1,1,
+  1,0,1,
+  1,1,0
+};
 
-typedef struct{
-  Mat a0;
-  Mat w1,b1,a1;
-  Mat w2,b2,a2;
-}Xor;
 
-float forward_xor(Xor m, float x1,float x2){
- MAT_AT(m.a0, 0, 0) = x1;
- MAT_AT(m.a0, 0, 1) = x2;
- 
- // forwarding
- mat_dot(m.a1,m.a0,m.w1);
- mat_sum(m.a1,m.b1);
- mat_sig(m.a1);
-
- mat_dot(m.a2,m.a1,m.w2);
- mat_sum(m.a2,m.b2);
- mat_sig(m.a2);
- 
- return *m.a2.es;
+void model(){
+  size_t stride=3;
+  size_t n = sizeof(td)/sizeof(td[0])/stride;
+  Mat ti = {
+    .rows=n,
+    .cols=2,
+    .stride=stride,
+    .es=td
+  };
+    Mat to = {
+      .rows=n,
+      .cols=1,
+      .stride=stride,
+      .es=td+2
+  };
+    size_t arch[] = {2,2,1};
+  NN nn = nn_alloc(arch, ARRAY_LEN(arch));
+  NN g = nn_alloc(arch, ARRAY_LEN(arch));
+  nn_rand(nn,0,1);
+  printf("cost = %f\n",nn_cost(nn,ti,to));
+  float eps=1e-1;
+  float rate=1e-1;
   
+  nn_finte_diff(nn,g,eps, ti, to);
+  nn_learn(nn, g,rate);
+
+
+  for(size_t i=0; i<2; ++i){
+    for(size_t j=0;j<2;++j){
+      MAT_AT(NN_INPUT(nn), 0, 0)=i;
+      MAT_AT(NN_INPUT(nn), 0, 1)=j;
+      nn_forward(nn);
+      printf("%zu ^ %zu = %f\n", i,j,MAT_AT(NN_OUTPUT(nn),0,0));
+    }
+  }
+  
+   return;
 }
 
-void xor_model(){
-  Xor m;
-  m.a0 = mat_alloc(1, 2);
-  m.w1 = mat_alloc(2,2);
-  m.b1 = mat_alloc(1,2);
-  m.w2 = mat_alloc(2, 1);
-  m.b2 = mat_alloc(1,1);
-  m.a1 = mat_alloc(1, 2);
-  m.a2 = mat_alloc(1, 1);
- mat_rand(m.w1,0,1);
- mat_rand(m.b1,0,1);
- mat_rand(m.w2,0,1);
- mat_rand(m.b2,0,1);
- // MAT_PRINT(m.w1);
- // MAT_PRINT(m.b1);
- // MAT_PRINT(m.w2);
- // MAT_PRINT(m.b2);
- printf("%f", forward_xor(m,0,1));
-}
 
 int main(void){
- srand(time(0));
- xor_model();
+  srand(time(0));
+  model();
   return 0;
  }
