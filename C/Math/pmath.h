@@ -41,6 +41,7 @@ void vec_init2d(vec2 *vec,real x, real y){
 }
 
 void vec_invert2d(vec2*vec){
+  PMA_ASSERT(vec!=NULL);
   vec->x=-vec->x;
   vec->y=-vec->y;
 
@@ -72,7 +73,7 @@ void vec_sum2d(vec2*dst, vec2 a ,vec2 b){
   
   PMA_ASSERT(dst!=NULL);
   dst->x=a.x+b.x;
-  dst->x=a.y+b.y;
+  dst->y=a.y+b.y;
 }
 
 void vec_sub2d(vec2*dst, vec2 a ,vec2 b){
