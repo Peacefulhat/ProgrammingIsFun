@@ -1,8 +1,10 @@
+// CURRENTLY WORKIG ON 
+-> region based memory allocator for my 2d physic engine.
+-> color full video to ascii.
 
-SOME PROGRAMMING IDEAS
 
-0). Do some coding chalanges daily or read some code onilne on github.
-1). 2d physic engine in c (Physica) (from scratch,except gpu piplines).
+UPCOMMING PROGRAMMING IDEAS
+1). 2d physic engine in c (P2D) (from scratch,except gpu piplines).
 2). Packet sniffer in c or python.( using kernel level library).
 3). Dynamic website using (MERN) stack.(codhelp as reference).
 4). qr code generator in c.(from scratch , with some Image format is allowed).
@@ -16,5 +18,6 @@ SOME PROGRAMMING IDEAS
 12). compiler in c or asm.
 13). Run-length encoding.
 14). lazy-evalution in c 
+
 
 

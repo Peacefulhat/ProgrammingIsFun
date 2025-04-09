@@ -1,4 +1,4 @@
-### Laravel installation
+#n## Laravel installation
 - follow steps on official website for steps
 ### Creating a new Laravel project
 - on terminal

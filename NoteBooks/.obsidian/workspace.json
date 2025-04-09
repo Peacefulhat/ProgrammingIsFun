@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "IWeb/laravel/Thing you need to Know.md",
+                "file": "Linux/Text Editors/Emacs magit.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Thing you need to Know"
+              "title": "Emacs magit"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "12cf5ad853fbb1d3",
@@ -173,6 +172,7 @@
   "active": "554df0eb106d40c9",
   "lastOpenFiles": [
     "GamePhysics/Vectors.md",
+    "IWeb/laravel/Thing you need to Know.md",
     "GamePhysics",
     "Linux/manpages.md",
     "Linux/Some Networking Fundamentals.md",
@@ -180,7 +180,6 @@
     "Linux/Text Editors/Emacs with Sql.md",
     "Linux/Text Editors/Emacs magit.md",
     "Linux/Terminal Navigation.md",
-    "IWeb/laravel/Thing you need to Know.md",
     "Untitled 1.md",
     "Untitled 2.md",
     "Untitled 3.md",
