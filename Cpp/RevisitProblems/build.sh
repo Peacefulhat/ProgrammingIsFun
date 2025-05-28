@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-g++ -o main $1 $2
+g++ -o main $1
 
 ./main
 
