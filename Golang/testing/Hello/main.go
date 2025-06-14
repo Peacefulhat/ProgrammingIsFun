@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"Hello/basic"
 	"Hello/medium"
 )
 
 func main(){
-	basic.Variadic_funcs("gcc")
-	fmt.Println("Hello,World!")
-	medium.Hello_from_medium()
+	getvalue := medium.Intseq()
+	fmt.Println("Clouser Function :: (Multiple Calls)")
+	fmt.Println(getvalue())
+	fmt.Println(getvalue())
+	fmt.Println(getvalue())
 }
 
