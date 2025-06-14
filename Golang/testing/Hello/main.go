@@ -11,5 +11,9 @@ func main(){
 	fmt.Println(getvalue())
 	fmt.Println(getvalue())
 	fmt.Println(getvalue())
+	fmt.Println("Anonymous Function ::")
+	fmt.Println(medium.AnonymousFunc(5))
+	
+	
 }
 
