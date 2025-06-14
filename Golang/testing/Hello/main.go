@@ -6,14 +6,7 @@ import (
 )
 
 func main(){
-	getvalue := medium.Intseq()
-	fmt.Println("Clouser Function :: (Multiple Calls)")
-	fmt.Println(getvalue())
-	fmt.Println(getvalue())
-	fmt.Println(getvalue())
-	fmt.Println("Anonymous Function ::")
+	fmt.Println("\nHello, From Main")
+	fmt.Println("Anonymous Function :: (Factorial)")
 	fmt.Println(medium.AnonymousFunc(5))
-	
-	
 }
-

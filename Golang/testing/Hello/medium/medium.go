@@ -1,6 +1,5 @@
 package medium
 
-
 //Clouser
 //Closures “capture” and remember the variables from their surrounding scope.
 
@@ -29,4 +28,51 @@ func AnonymousFunc(size int16) int {
 		return sum
 	}(size)
 	return int(sumFunc)
+}
+
+// Recursive
+
+func Recursive(n int) int {
+	if n == 0 {
+		return 1;
+	}
+	return n*Recursive(n-1)
+}
+
+// Anonymous function can be recursive
+
+func Arecursive(n int32) int32 {
+	// its like function type.
+	var fact func(n int32) int32
+	
+	fact = func(n int32) int32{
+		if n == 1{
+			return 1;
+		}
+		return n*fact(n-1)
+	}
+		
+	return fact(n)
+}
+
+
+// Pointers
+
+func Pointers(n *int32) int32{
+	*n++
+	return *n
+}
+
+func PointerToArray(n *[]int32) int32{
+	sum := int32(0)
+	
+	for i := int32(0); i<int32(len(*n)); i++{
+		sum += (*n)[i]
+	}
+	return sum
+}
+
+// Todo finish it
+func PointerTo2DArray() {
+
 }
