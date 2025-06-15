@@ -1,4 +1,6 @@
 package medium
+import "fmt"
+import "unicode/utf8"
 
 //Clouser
 //Closures “capture” and remember the variables from their surrounding scope.
@@ -72,7 +74,41 @@ func PointerToArray(n *[]int32) int32{
 	return sum
 }
 
-// Todo finish it
-func PointerTo2DArray() {
+
+func PointerTo2DArray(n *[2][2]int32 , rows int32, cols int32) int32{
+	sum := int32(0)
+	for i := int32(0); i<rows; i++{
+		for j := int32(0); j<cols; j++{
+			sum += (*n)[i][j]
+		}
+	}
+		return sum;
 
 }
+
+
+// String and Rune (not done yet)(TODO)
+
+func StringAndRune(){
+	var s string = "สวัสดี"
+	fmt.Println("Rune Count :: ",utf8.RuneCountInString(s))
+	
+}
+
+// Struct
+type Position struct {
+	X float32
+	Y float32
+}
+
+type PlayerData struct {
+	PlayerId int32
+	PlayerName string
+	PlayerPosition Position
+}
+
+
+func CurrentPlayerData( p *PlayerData) {
+	fmt.Println(*p)
+}
+

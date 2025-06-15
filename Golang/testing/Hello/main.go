@@ -1,12 +1,16 @@
 package main
 
 import (
-	"fmt"
+
 	"Hello/medium"
 )
 
 func main(){
-	fmt.Println("\nHello, From Main")
-	fmt.Println("Anonymous Function :: (Factorial)")
-	fmt.Println(medium.AnonymousFunc(5))
+	p := medium.PlayerData{}
+	p.PlayerId = 234
+	p.PlayerName = "Peacefulhat"
+	p.PlayerPosition.X = 23.0
+	p.PlayerPosition.Y = 17.0
+	medium.CurrentPlayerData(&p)
+	
 }
