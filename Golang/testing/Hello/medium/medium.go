@@ -134,9 +134,9 @@ func (c *PlayerData) DistanceTo(d *PlayerData) float64 {
 func (p *PlayerData) DistancesToMore(others ...*PlayerData) []float64 {
 	var distances []float64
 	for _, other := range others {
-		dx := other.Position.X - p.Position.X
-		dy := other.Position.Y - p.Position.Y
-		dist := math.Sqrt(dx*dx + dy*dy)
+		dx := other.PlayerPosition.X - p.PlayerPosition.X
+		dy := other.PlayerPosition.Y - p.PlayerPosition.Y
+		dist := math.Sqrt(float64(dx*dx + dy*dy))
 		distances = append(distances, dist)
 	}
 	return distances
