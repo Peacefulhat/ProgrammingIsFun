@@ -1,6 +1,10 @@
 package medium
-import "fmt"
-import "unicode/utf8"
+
+import (
+	"fmt"
+	"math"
+	"unicode/utf8"
+)
 
 //Clouser
 //Closures “capture” and remember the variables from their surrounding scope.
@@ -111,4 +115,31 @@ type PlayerData struct {
 func CurrentPlayerData( p *PlayerData) {
 	fmt.Println(*p)
 }
+
+// Methods are functions that can be defined on structs
+
+func (c* PlayerData) Player() *PlayerData{
+	return c
+}
+
+// two values 
+func (c *PlayerData) DistanceTo(d *PlayerData) float64 {
+	dx := d.PlayerPosition.X - c.PlayerPosition.X
+	dy := d.PlayerPosition.Y - c.PlayerPosition.Y
+	sum := dx*dx + dy*dy
+	return math.Sqrt(float64(sum))
+}
+
+// more than two values
+func (p *PlayerData) DistancesToMore(others ...*PlayerData) []float64 {
+	var distances []float64
+	for _, other := range others {
+		dx := other.Position.X - p.Position.X
+		dy := other.Position.Y - p.Position.Y
+		dist := math.Sqrt(dx*dx + dy*dy)
+		distances = append(distances, dist)
+	}
+	return distances
+}
+
 
