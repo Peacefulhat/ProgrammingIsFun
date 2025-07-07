@@ -1,7 +1,6 @@
 package main
 
 import (
-	"Raylib/raylib"
 	"fmt"
 )
 
@@ -9,6 +8,7 @@ import (
    #include<raylib.h>
    #cgo LDFLAGS: -lraylib
  */
+import "C"
 
 func main(){
 		
@@ -20,25 +20,13 @@ func main(){
 	for; !bool(C.WindowShouldClose());{
     
         C.BeginDrawing();
-		C.ClearBackground(C.RAYWHITE);
+		C.ClearBackground(C.BLACK);
 		C.DrawText(C.CString("Congrats! You created your first window!"), 190, 200, 20, C.LIGHTGRAY);
-
+		C.DrawText(C.CString("Congrats! You created your first window!"), 190, 220, 20, C.LIGHTGRAY);
         C.EndDrawing();
 
 	}
 	
-    C.CloseWindow(); 
-
-
-
-
-
-
-
-
-
-
-
-	
-
+    C.CloseWindow()
+	fmt.Println("Exited sucessfully")
 }

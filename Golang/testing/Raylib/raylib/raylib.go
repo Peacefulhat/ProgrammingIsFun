@@ -8,4 +8,5 @@ import "C"
 
 
 func EventPolling() uint8{
+	return 0
 }
