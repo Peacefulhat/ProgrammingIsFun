@@ -40,10 +40,10 @@ M-y: will yank the previous killed text.
 C-/orC-_: will undo the change.
 
 
-C-x C-f: find file.
+C-x C-f: find file.;
 C-x C-s: save file.
 C-x C-b: list buffers.
-
+a
 Searching:
 Incremental Search: Press Ctrl + s to start an incremental search.As you type, Emacs will highlight the first occurrence of the text you're searching for.
 Press Ctrl + s again to find the next occurrence.
@@ -54,7 +54,7 @@ Reverse Incremental Search:
 
 Isearch Mode:
     Press Ctrl + s and then Ctrl + s again to enter Isearch mode.
-    In Isearch mode, type the search term, and Emacs will highlight the matches as you type.
+ Isearch mode, type the search term, and Emacs will highlight the matches as you type.
     Use Ctrl + s to move to the next match and Ctrl + r to move to the previous match.
 
 Query Replace:

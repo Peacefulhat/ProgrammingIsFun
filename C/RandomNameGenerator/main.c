@@ -1,9 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
+//TODO:: fix the mutatebangers function , infinite loop persent
+typedef unsigned short ushort;
+typedef unsigned int uint;
+
+// word ::= <syl>*
+// <syl> ::= <con><vow>
+// <syl> ::= <con><vow><con>
+// <syl> ::= <vow><con><vow>
+// <syl> ::= <vow><con>
 
 const char* vowels = "aeiou";
 const char * consonants = "bcdfghjklmnpqrstvwxyz";
+const char* bangers[4]={"coix", "uwu", "bex","sipix"};
+
+bool IsVowel(char *v){
+    unsigned short i=0;
+    while(vowels[i]!='\0'){
+        if(*v == vowels[i]){
+            return true;
+            }
+        }
+        return false;
+}
 
 int count(const char* s){
     int length=0;
@@ -16,11 +37,6 @@ int count(const char* s){
     return length;    
 }
 
-// word ::= <syl>*
-// <syl> ::= <con><vow>
-// <syl> ::= <con><vow><con>
-// <syl> ::= <vow><con>
-
 typedef enum {
     CONVOW,
     CONVOWCON,
@@ -28,10 +44,17 @@ typedef enum {
     VOWCONVOW
 }SyllableOrder;
 
-/*
-Bangers::
-    coix
-*/
+void MutateBangers(const char* bangers[]){
+    
+    printf("Bangers::\n");
+    for(int i=0; i<4; ++i){
+       ushort j=0;
+        while(bangers[i][j]!='\0'){
+            printf("%c,", bangers[i][j]);
+        }
+        printf("%s\n", bangers[i]);
+    }
+}
 
 void SingleSyllable(char * word, int *offset){
     SyllableOrder Syllables[4]={CONVOW, CONVOWCON, VOWCON,VOWCONVOW};
@@ -62,7 +85,7 @@ void SingleSyllable(char * word, int *offset){
         word[k++]=vowels[rand()%count(consonants)];
         break;
 
-        }
+    }
     default:{
         printf("Not a valid syllable order");
         break;
@@ -72,22 +95,25 @@ void SingleSyllable(char * word, int *offset){
 *offset=k;
 }
 
+
+void RandomWords(char *buffer, unsigned short no_of_words,int syl_len){
+  
+    printf("Words::\n");
+    for(int j=0;j<no_of_words;j++){
+        int offset=0;
+        int rsyl=(rand()%syl_len)+1;
+        for (int i=0;i<rsyl;i++){
+            SingleSyllable(buffer,&offset); 
+        }
+        buffer[offset]='\0'; 
+        printf("%s\n",buffer);
+    }
+  
+    }
 int main() {
     
     char word[13];
-    const int SYL_LEN=4;
-    srand(time(NULL));
-    printf("Words::\n");
-    for(int j=0;j<10;j++){
-        int offset=0;
-        int rsyl=(rand()%SYL_LEN)+1;
-        for (int i=0;i<rsyl;i++){
-            SingleSyllable(word,&offset); 
-        }
-        word[offset]='\0'; 
-        printf("%s\n",word);
-    }
-
+    MutateBangers(bangers);
 
     return 0;
 }
