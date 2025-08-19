@@ -15,6 +15,7 @@ int getbits(int x, int p,int n){
   x=x&bitMask;
   return x;
 }
+
 int invert(int x, int p, int n) {
     int invertMask = ((1 << n) - 1);
     invertMask=invertMask<<(p-n);
@@ -27,7 +28,7 @@ int rightrot(int x,int n){
 }
 
 int main() {
-  printf("%d",rotateBits(27,3));
+  printf("%d",rotateBit);
   return 0;
 }
 
