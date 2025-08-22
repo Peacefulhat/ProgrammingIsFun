@@ -13,7 +13,6 @@ char* trim_end(char**argv, char *buffer){
     buffer[i]='\0';
 
     return buffer;
-
 }
 
 int main(int argc, char** argv)
