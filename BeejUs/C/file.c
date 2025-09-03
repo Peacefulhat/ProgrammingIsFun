@@ -43,14 +43,12 @@ void sread(){// reading a sturcture
   FILE*fp;
   fp=fopen(spath,"rb");
   custom st;
-  int times=5;
-  for(int i=0;i<5;i++){
-  fread(&st,sizeof(st),5,fp);// reading one struct form file
+  fread(&st,sizeof(st),1,fp);// reading one struct form file
   printf("file pointer: %p\n",fp);
   printf("%s ",st.s);
   printf("%f ",st.pos);
   printf("%d \n",st.c);
-  }
+
   fclose(fp);
 }
 
