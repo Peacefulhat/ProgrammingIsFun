@@ -6,9 +6,8 @@ int main(){
   int h=23;
   string str="Hello,Strings";
   writeln(str);
-  for(int i=0;i<str.sizeof-1;++i){
-    writeln(str[i]);
-    writeln("\n");
+  foreach(i;str){
+    writeln(i);
   }
   
   return 0;

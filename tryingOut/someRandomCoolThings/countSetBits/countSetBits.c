@@ -1,13 +1,14 @@
-// Brian Kernighan's algorithm for counting set bits
+
 #include<stdio.h>
 #include<stddef.h>
 
+// count bits one by one
 size_t rec_count(int n){
   if(n==0)return 0;
   return (n&1)+rec_count(n>>1);
 }
 
-// only if  n greater than or equal to 0
+
 size_t naive_count(int n){
   size_t count=0;
   while(n){
@@ -18,9 +19,8 @@ size_t naive_count(int n){
 }
 
 //brian karnighans count bits,
-// n=n&(n-1);
-// q=n&m , n, m=n-1; n=m+1
-// 
+//count bits one by one if number i odd or even (until number becomes zero)kind of like O(n) , but for mutiple of two its O(1)
+
 size_t bCountSetBits(int n){
   size_t count=0;
   while(n){

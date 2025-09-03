@@ -5,7 +5,7 @@
 #define screenWidth 800
 #define screenHeight 450
 #define FRAMERATE 20
-#define FONTSIZE  
+#define FONTSIZE  5
 
 
 bool movingchar(int randomNumber){
