@@ -1,9 +1,10 @@
 #!/usr/bin/zsh
 
+# ./build.sh <filename> <options>
 file=$1  # Use $1 as the filename
 fmt=""   # Use $2 as the format flag
 run=""   # Use $3 as the run flag
-ntimes="" # Use $4 as the while flag
+ntimes="1" # Use $4 as the while flag
 
 #Parse command-line Arguments
 shift # Shift to next argument $1=$2 ,$2=$3...
