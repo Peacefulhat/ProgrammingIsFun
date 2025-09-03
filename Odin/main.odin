@@ -1,0 +1,39 @@
+package main
+
+import "core:fmt"
+
+n_sum::proc(n:int)-> int{
+    if n == 0{
+        return 0;
+    }
+    return n + n_sum(n-1);
+}
+
+fib::proc(n:int) -> int{
+    if n==0{
+        return 0;
+    }
+    if n==1{
+        return 1;
+        
+    }
+    
+    return fib(n-1)+fib(n-2);
+}
+
+fibi::proc(n:int){
+    a:int = 0;
+    b:int = 1;
+    fmt.println("1",":",a);
+    fmt.println("2",":",b);
+
+    for i:=3; i<n+3; i+=1 {
+        sum :=a+b;
+        a = b;
+        b = sum;
+        fmt.println(i,":",sum);
+    }
+}
+main::proc(){
+    fibi(5);
+}
