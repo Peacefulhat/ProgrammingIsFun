@@ -2,6 +2,7 @@ package rayincl
 
 foreign import raylib "system:raylib"
 
+
 Color :: struct #packed {
     r, g, b, a: u8,
 }
@@ -23,8 +24,17 @@ Vector2 :: struct #packed {
     y : f32
 }
 
-RED  :: Color{255, 0, 0, 255}
-BLUE :: Color{0, 0, 255, 255}
+RAYWHITE          :: Color { 245, 245, 245, 255};
+RED               :: Color {255, 0, 0, 1};
+BLUE              :: Color {0, 0, 255, 1};
+DARKBLUE          :: Color { 0, 82, 172, 255};  
+BLACK             :: Color {0, 0, 0, 1};
+MOUSE_LEFT_BUTTON :: 0
+KEY_S             :: 83
+KEY_W             :: 87
+KEY_DOWN          :: 264
+KEY_UP            :: 265
+
 
 foreign raylib {
     InitWindow           :: proc(width: i32, height: i32, title: cstring) ---
@@ -37,5 +47,8 @@ foreign raylib {
     DrawRectangle        :: proc(rec: Rectangle, lineThick: f32, color: Color) ---
     GetMousePosition     :: proc() -> Vector2 ---
     IsMouseButtonPressed :: proc(button: i32) -> bool ---
+    IsKeyDown            :: proc(key: i32) -> bool ---
     DrawCircle           :: proc(posX: i32, posY: i32, radiou: f32, color: Color) ---
+    SetTragetFPS         :: proc(fps: i32) ---
+    GetFrameTime         :: proc() -> f32 ---
 }

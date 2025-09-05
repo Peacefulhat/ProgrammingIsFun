@@ -49,6 +49,9 @@ real vec_signed_angle2d(vec2 a, vec2 b);
 real vec_angle2d(vec2 vec);
 void vec_reflect_dampe2d(vec2 *result ,vec2 v, vec2 n, real damping);
 
+void hello_from_c();
+
+
 // initilize a vector
 #define VEC_INIT2D(vec, x, y) do { \
     PMA_ASSERT((vec) != NULL);     \
@@ -76,6 +79,11 @@ void vec_reflect_dampe2d(vec2 *result ,vec2 v, vec2 n, real damping);
 
 
 #ifdef PMATH_IMP
+
+void hello_from_c()
+{
+    printf("Hello fom C!\n");
+}
 
 // calculate the magnitude
 real vec_mag2d(vec2 vec){
