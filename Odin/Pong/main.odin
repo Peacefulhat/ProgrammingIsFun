@@ -5,7 +5,7 @@ import rl "raylibdef"
 foreign import "pmath.a"
 
 main :: proc(){
-    rl.SetTragetFPS(60);
+    rl.SetTargetFPS(60);
     rl.InitWindow(800, 450, cstring("Raylib + Odin: Hello World"))
     PaddleLeft := rl.vec2 {5, 5};
     PaddleRight := rl.vec2 {P2LOC, 5};
@@ -14,7 +14,7 @@ main :: proc(){
     dt := rl.GetFrameTime();
     
     for !rl.WindowShouldClose() {
-        dt := GetFrameTime(); 
+        dt := rl.GetFrameTime(); 
         rl.BeginDrawing()
         rl.ClearBackground(rl.Color{0,255,0,1})
         switch(Options){
@@ -22,11 +22,11 @@ main :: proc(){
             HomeScreen();
             break;
         case 1:
-            DrawComponents(&PaddleLeft,&PaddleRight,&ball,BallVel);
+            DrawComponents(&PaddleLeft, &PaddleRight, &ball, &BallVel);
             LeftPaddleMove(&PaddleLeft);
             RightPaddleMove(&PaddleRight);
             BallWallCollision(&ball, dt*1.2);
-            PaddleBallCollision(&ball, PaddleLeft, PaddleRight, dt);
+            PaddleBallCollision(&ball, &PaddleLeft, &PaddleRight, dt);
 
         case 2:
             // settings not implemented yet
@@ -34,7 +34,7 @@ main :: proc(){
 
             
         case 3:
-            quit_screen();
+            QuitScreen();
             
         }
         rl.EndDrawing()

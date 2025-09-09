@@ -37,18 +37,24 @@ KEY_UP            :: 265
 
 
 foreign raylib {
-    InitWindow           :: proc(width: i32, height: i32, title: cstring) ---
-    WindowShouldClose    :: proc() -> bool ---
-    BeginDrawing         :: proc() ---
-    ClearBackground      :: proc(color: Color) ---
-    DrawText             :: proc(text: cstring, posX: i32, posY: i32, font_size: i32, color: Color) ---
-    EndDrawing           :: proc() ---
-    CloseWindow          :: proc() ---
-    DrawRectangle        :: proc(rec: Rectangle, lineThick: f32, color: Color) ---
-    GetMousePosition     :: proc() -> Vector2 ---
-    IsMouseButtonPressed :: proc(button: i32) -> bool ---
-    IsKeyDown            :: proc(key: i32) -> bool ---
-    DrawCircle           :: proc(posX: i32, posY: i32, radiou: f32, color: Color) ---
-    SetTragetFPS         :: proc(fps: i32) ---
-    GetFrameTime         :: proc() -> f32 ---
+    InitWindow             :: proc(width: i32, height: i32, title: cstring) ---
+    WindowShouldClose      :: proc() -> bool ---
+    BeginDrawing           :: proc() ---
+    ClearBackground        :: proc(color: Color) ---
+    DrawText               :: proc(text: cstring, posX: i32, posY: i32, font_size: i32, color: Color) ---
+    EndDrawing             :: proc() ---
+    CloseWindow            :: proc() ---
+    DrawRectangle          :: proc(posX: i32, posY:i32, width: i32, height: i32, color: Color) ---
+    DrawRectangleLinesEx   :: proc(rec: Rectangle, lineThick: f32, color: Color) ---
+    CheckCollisionPointRec :: proc(Point: Vector2, rec: Rectangle) -> bool ---
+    GetMousePosition       :: proc() -> Vector2 ---
+    IsMouseButtonPressed   :: proc(button: i32) -> bool ---
+    IsKeyDown              :: proc(key: i32) -> bool ---
+    DrawCircle             :: proc(posX: i32, posY: i32, radiou: f32, color: Color) ---
+    SetTargetFPS           :: proc(fps: i32) ---
+    GetFrameTime           :: proc() -> f32 ---
+}
+
+foreign pmath {
+    
 }
