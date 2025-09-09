@@ -9,8 +9,8 @@ TITLE          :: "PONG"
 SPEED          :: 10
 RWIDTH         :: 10
 RHEIGHT        :: 130
-COLOR_BALL     :: RED
-COLOR_RECT     :: RED
+COLOR_BALL     :: rl.RED
+COLOR_RECT     :: rl.RED
 P2LOC          :: ((WIDTH - RWIDTH) - 5)
 BALL_VEL_SCALE :: 100
 SCORE_REGION   :: 65
@@ -31,7 +31,7 @@ Ball :: struct {
 Options : u8 = 0;
 Score   := Pair {0,0,false};
 
-DrawComponent :: proc (^Left,^Right : rl.vec2, ^B : Ball, Ini : rl.vec2)
+DrawComponent :: proc (Left: ^rl.vec2, Right : ^rl.vec2, B : ^Ball, Ini : ^rl.vec2)
 {
     #assert(Left  != nil);
     #assert(Right != nil);
@@ -51,12 +51,12 @@ DrawComponent :: proc (^Left,^Right : rl.vec2, ^B : Ball, Ini : rl.vec2)
     rl.DrawRectangle(0, SCORE_REGION - 5, WIDTH,5, RED);
     
     // back button
-    Rectangle Back={MARGIN, 20, 30, 30};
+    Back = rl.Rectangle{MARGIN, 20, 30, 30};
     DrawRectangleLinesEx(Back, 3, BLACK);
     DrawText("<-", Back.x + 5, Back.y + 5, 25, BLACK);
     
     
-    Vector2 Mouse = rl.GetMousePosition();
+    Mouse := rl.GetMousePosition();
     if (rl.CheckCollisionPointRec(Mouse, Back) && rl.IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         options = 0;
     }
@@ -76,7 +76,7 @@ DrawComponent :: proc (^Left,^Right : rl.vec2, ^B : Ball, Ini : rl.vec2)
     
 }
 
-LeftPaddleMove :: proc (^Left: vec2)
+LeftPaddleMove :: proc (Left: ^vec2)
 {
     #assert(left != nil);
     
@@ -98,7 +98,7 @@ LeftPaddleMove :: proc (^Left: vec2)
     
 }
 
-RightPaddleMove :: proc (^Right: vec2)
+RightPaddleMove :: proc (Right: ^vec2)
 {
     #assert(Right != nil);
     
@@ -118,7 +118,7 @@ RightPaddleMove :: proc (^Right: vec2)
     rl.DrawRectangle(Right.x, Right.y, RWIDTH, RHEIGHT, COLOR_RECT);
 }
 
-BallWallCollision :: proc (^B:Ball, dt:f32)
+BallWallCollision :: proc (B: ^Ball, dt:f32)
 {
      #assert(B!= nil);
     vec_scaled_add2d(&B.Pos, B.Pos, B.Vel, dt * BALL_VEL_SCALE);
@@ -139,7 +139,7 @@ BallWallCollision :: proc (^B:Ball, dt:f32)
     rl.DrawCircle(B.Pos.x, B.Pos.y, B.Radius, COLOR_BALL);
 }
 
-PaddleBallCollision :: proc (^B:Ball, PaddleLeft, PaddleRight : vec2, dt: f32)
+PaddleBallCollision :: proc (B: ^Ball, PaddleLeft, PaddleRight : vec2, dt: f32)
 {
     #assert(B != nil);
     // left paddle right edge
@@ -155,7 +155,7 @@ PaddleBallCollision :: proc (^B:Ball, PaddleLeft, PaddleRight : vec2, dt: f32)
     }    
 }
 
-Get_Score :: proc (^B: Ball)
+Get_Score :: proc (B: ^Ball)
 {
     if B.Pos.x < B.radius { 
         Score.P2 += 1;
@@ -168,7 +168,7 @@ Get_Score :: proc (^B: Ball)
     
 }
 
-Reset :: proc (^B:Ball, ^Left, ^Right : vec2, Ini : vec2)
+Reset :: proc (B: ^Ball, Left: ^rl.vec2, Right : ^rl.vec2, Ini : rl.vec2)
 {
     #assert(b != nil);
     #assert(left != nil);
@@ -205,7 +205,7 @@ HomeScreen :: proc ()
     DrawRectangleLinesEx(Quit, 3, BLACK);
     DrawText("QUIT", Quit.x+ i32(Boffset.x), Quit.y + i32(Boffset.y), 50, DARKBLUE);
     
-    rl.Vector2 Mouse = rl.GetMousePosition();
+    Mouse := rl.GetMousePosition();
     
     if(Mouse.x > Play.x && Mouse.x < Play.x + 200) &&
         (Mouse.y > Play.y && Mouse.y < Play.y + 50)
@@ -237,7 +237,7 @@ HomeScreen :: proc ()
 
 QuitScreen :: proc ()
 {
-    for i:32=0; i < 120; i++ {
+    for i:32=0; i < 120; i+=1 {
         BeginDrawing();
         ClearBackground(BLACK);
         DrawText("GOODBYE!", 80, 100, 100, RED);

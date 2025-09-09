@@ -4,14 +4,14 @@ import rl "raylibdef"
 
 foreign import "pmath.a"
 
-main :: proc() -> i32 {
+main :: proc(){
     rl.SetTragetFPS(60);
     rl.InitWindow(800, 450, cstring("Raylib + Odin: Hello World"))
-    PaddleLeft := vec2 {5, 5};
-    PaddleRight := vec2 {P2LOC, 5};
-    BallVel := vec2 {2, 2};
+    PaddleLeft := rl.vec2 {5, 5};
+    PaddleRight := rl.vec2 {P2LOC, 5};
+    BallVel := rl.vec2 {2, 2};
     ball := Ball {{WIDTH/2,HEIGHT/2},BallVel,6};
-    dt := GetFrameTime();
+    dt := rl.GetFrameTime();
     
     for !rl.WindowShouldClose() {
         dt := GetFrameTime(); 
