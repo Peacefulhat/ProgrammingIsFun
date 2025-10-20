@@ -1,0 +1,5 @@
+1) The GNU C Library (glibc) manual
+-> https://sourceware.org/glibc/manual/
+
+2) FreeBSD Developers Handbook
+-> https://docs.freebsd.org/en/books/developers-handbook/
