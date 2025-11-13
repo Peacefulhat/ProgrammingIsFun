@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 // Reverse Polish Evaluator
 typedef enum{
     PLUS          = '+',
@@ -12,6 +13,7 @@ typedef enum{
     MODULS        = '%',
     SPACE         = ' '
 }Symbols;
+
 
 typedef struct {
     int Sp;

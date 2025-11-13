@@ -113,7 +113,10 @@ void RandomWords(char *buffer, unsigned short no_of_words,int syl_len){
 int main() {
     
     char word[13];
-    MutateBangers(bangers);
+    for( int i=0; i < 5; i++){
+        RandomWords(word, 10, 4);
+        printf("\n");
+    }
 
     return 0;
 }
