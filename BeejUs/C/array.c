@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int sum(int a, int b){
   return a+b;
 }
@@ -15,6 +16,7 @@ void array_to_function(int*ptr,int size){
 //void print_2D_array(int a[2][3])
 //void print_2D_array(int a[][3])
 // both are equivalent;
+
 void print_2D_array(int a[2][3])
 {
     for (int row = 0; row < 2; row++) {
