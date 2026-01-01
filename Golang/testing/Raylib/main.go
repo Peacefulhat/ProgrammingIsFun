@@ -8,6 +8,7 @@ import (
    #include<raylib.h>
    #cgo LDFLAGS: -lraylib
  */
+
 import "C"
 
 func main(){
