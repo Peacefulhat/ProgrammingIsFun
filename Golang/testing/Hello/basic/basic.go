@@ -19,8 +19,8 @@ func multi_return(a int32, b int32) (int32 , int32){
 
 func Variadic_funcs(cmd_args ... string){ // cmd_args is like array of stirngs
 	for i:=0 ;i<len(cmd_args); i++{
-	fmt.Println(cmd_args[i]) 
-}
+		fmt.Println(cmd_args[i]) 
+	}
 }
 
 //Maps (hashtables)
@@ -171,11 +171,12 @@ func slices() {
 	fmt.Println("Third Slice ::", l)
 	// 2D Slice
 	rows, cols := 3, 4
-grid := make([][]int, rows) // 3 rows
+	grid := make([][]int, rows) // 3 rows
 
-for i := range grid {
-	grid[i] = make([]int, cols) // each row has 4 columns
-}
+	for i := range grid
+	{
+		grid[i] = make([]int, cols) // each row has 4 columns
+	}
 	grid[1][2] = 99
 	fmt.Println("2D Slice:: ",grid[1][2])
 
