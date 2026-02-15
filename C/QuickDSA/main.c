@@ -1,0 +1,8 @@
+#define BASIC_IMPLEMENTAION
+#include "Basic/basic.h"
+
+int main(int argc, char** argv)
+{
+
+    return 0;
+}
