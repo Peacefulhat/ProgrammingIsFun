@@ -6,7 +6,7 @@
 // Type defination for patterns.
 typedef enum
 {
-    STAR,// Rectangle and Square.
+    STAR = 0,// Rectangle and Square.
     STAR_LRTRIANGLE,// LeftRightTriangle.
     STAR_RRTRIANGLE,// RightRightTriangle.
     STAR_INVERTED_LRTRIANGLE,// Inverted LeftRightTriangle.
@@ -22,10 +22,13 @@ typedef enum
     NUMBER2_LRTRIANGLE,
     NUMBER3_LRTRIANGLE,
     NUMBER4_LRTRIANGLE,
+    NUMBER5_TRIANGLE,
     LETTER_LRTRIANGLE,
     LETTER2_LRTRIANGLE,
     LETTER3_LRTRIANGLE,
     LETTER4_LRTRIANGLE,
+    SPECIAL_PATTERN,
+    
 }PatternKind;
 
 // 1) check if given character is in lower case or uppercase.
@@ -302,6 +305,28 @@ void Pattern(int32 N, PatternKind Kind)
                     printf("\n");
                 }
             } break;
+        case NUMBER5_TRIANGLE:
+            {
+                for(int32 Y = 1; Y <= N; ++Y){
+                    int Space = N - Y;
+                    for(int32 K = 0; K < Space; ++K){printf(" ");}
+                    for(int32 X = 1; X <= Y; ++X){
+                        printf("%d", X);
+                    }
+                   for(int32 Z = 1; Z <= Y; ++Z){
+                        if(Y > 1){
+                            int32 A = (Y-1)+((Z - 1)*(-1));
+                            if(A)
+                            {
+                                printf("%d", A);
+                            }
+                        }
+
+                    }
+                    printf("\n");
+                } 
+            }break;
+            
         case LETTER_LRTRIANGLE:
             {
                 schar Letter = 65;
@@ -356,6 +381,37 @@ void Pattern(int32 N, PatternKind Kind)
             printf("\n");
         }
     } break;
+    
+case SPECIAL_PATTERN:
+    {
+        for(int32 Y = 1; Y <= N; ++Y){
+            int32 X = 1;
+            for(; X <= N; ++X){
+                
+                if(X >= (N - Y + 2))
+                {
+                    printf("*"); 
+                }
+                else
+                {
+                    printf("%d", X);
+                }
+            }
+
+            for(int32 Z = N; Z >= 1; --Z){
+                
+                if(Z >= (N - Y + 2))
+                {
+                    printf("*");
+                }
+                else
+                {
+                    printf("%d", Z);
+                } 
+            }
+            printf("\n");
+        }
+    }break;
     
 default:
     {
