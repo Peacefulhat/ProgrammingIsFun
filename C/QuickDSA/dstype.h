@@ -15,6 +15,7 @@ typedef uint32_t uint32;
 typedef float  real32; 
 typedef double real64;
 
-
+#define INT_MIN -2147483648
+#define INT_MAX  2147483647
 
 #endif

@@ -53,6 +53,15 @@ int32 DecimalToBinary(int32 N, bool32 IsNegative);
 int32 ReverseInteger(int32 N);
 // 11) Complement of Base 10 Integer(LeetCode).
 int32 ComplementOfInteger(int32 N);
+//12) Power of Two(LeetCode).
+bool32 IsPowerOfTwo(int32 N, int32 S);
+//13) How many notes can we get if we have 100,50,20,1
+void Notes(int32 Amount);
+//14 Find nth term from AP 3*n + 7
+int32 NthTerm(int N);
+//15 Find total setbits in a & b.
+int32 TotalSetBits(int32 A, int32 B);
+
 
 #endif
 
@@ -140,7 +149,7 @@ void Pattern(int32 N, PatternKind Kind)
                         printf("*");
                     }
 
-                        printf("\n");
+                    printf("\n");
                 }
 
             } break;
@@ -326,7 +335,7 @@ void Pattern(int32 N, PatternKind Kind)
                     for(int32 X = 1; X <= Y; ++X){
                         printf("%d", X);
                     }
-                   for(int32 Z = 1; Z <= Y; ++Z){
+                    for(int32 Z = 1; Z <= Y; ++Z){
                         if(Y > 1){
                             int32 A = (Y-1)+((Z - 1)*(-1));
                             if(A)
@@ -500,5 +509,120 @@ int32 DecimalToBinary(int32 N, bool32 IsNegative)
     }
     return Binary;
 }
+
+int32 ReverseInteger(int32 N)
+{
+    int32 Reverse = 0;
+    while(N !=0 )
+    {
+        /* Edge case::its like we are checking if in next iteration the number is going to exceed the range of integer.*/
+        if(Reverse  > INT_MAX/10 || Reverse < INT_MIN/10)
+        {
+            return 0;
+        }
+        Reverse = (Reverse*10) + (N % 10);
+        N /= 10;
+    }
+    return Reverse;
+
+}
+
+int32 ComplementOfInteger(int32 N)
+{
+    if(N == 0 ) return 1;
+    int32 Mask = 0;
+    int32 Temp = N;
+    while(N != 0)
+    {
+        Mask = (Mask << 1) | 1;
+        N >>= 1;
+    }
+    return ((~Temp) & Mask);
+}
+
+bool32 IsPowerOfTwo(int32 N, int32 S)
+{
+    // 1
+    switch(S){
+    case 0:
+        {
+            if(N < 1) return 0;
+            return ((N & (N-1)) == 0);
+        }break;
+        //2
+    case 1:
+        {
+            int32 BitCount = 0;
+            while(N != 0)
+            {
+                if(N & 1) ++BitCount;
+                N >>=1;
+            }
+            return BitCount == 1;
+        }break;
+        default : return 0;
+    }
+}
+
+void Notes(int Amount)
+{
+    int K = 0;
+    int32 TotalNotes = 0;
+    int32 NoteDivisor = 100;
+    while(Amount){
+        switch(NoteDivisor){
+        case 100:
+            {
+                K = Amount / 100;
+                Amount = Amount - (K * 100);
+                TotalNotes += K;
+                printf("Note of Hundreds:: %d\n", K);
+                NoteDivisor = 50;
+            } break;
+        case 50:
+            {
+                K= Amount / 50;
+                Amount = Amount - (K * 50);
+                TotalNotes += K;
+                printf("Note of Fifty:: %d\n", K);
+                NoteDivisor = 20;
+            }  break;
+        case 20:
+            {
+                K= Amount / 20;
+                Amount = Amount - (K * 20);
+                TotalNotes += K;
+                printf("Note of Twenty:: %d\n", K);
+                NoteDivisor = 1;
+            }  break;
+        case 1:
+            {
+                K = Amount / 1;
+                Amount = Amount - (K * 1);
+                TotalNotes += K;
+                printf("Note of Ones:: %d\n", K);
+                NoteDivisor = 0;
+            }break;
+        case 0:
+            {
+                Amount = 0;
+            }
+        }
+    }
+    printf("Total Number of Notes:: %d\n", TotalNotes);
+}
+
+
+int32 NthTerm(int N)
+{
+    return ((3 * N) + 7);
+}
+
+int32 TotalSetBits(int32 A, int32 B)
+{
+    int32 TotalBits = OneBitCount((int32)A) + OneBitCount((int32)B);
+    return TotalBits;
+}
+
 
 #endif
