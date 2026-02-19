@@ -41,6 +41,19 @@ void SumOfEvenNumbers(int32 Terms);
 void Pattern(int32 N, PatternKind Kind);
 // 5) fibonacci Series.
 void Fib(int32 Terms);
+// 6) Prime number.
+bool32 IsPrime(int32 N);
+// 7) Subtract the Product and Sum of Digits of an Integer(LeetCode).
+int32 ProductSumDifference(int32 N);
+// 8) Number of 1 Bits (LeetCode).
+int32 OneBitCount(uint32 N);
+// 9) Decimal to Binary.(-ve Numbers are include.)
+int32 DecimalToBinary(int32 N, bool32 IsNegative);
+// 10) Reverse Integer (LeetCode).
+int32 ReverseInteger(int32 N);
+// 11) Complement of Base 10 Integer(LeetCode).
+int32 ComplementOfInteger(int32 N);
+
 #endif
 
 #ifdef BASIC_IMPLEMENTAION
@@ -433,6 +446,59 @@ void Fib(int32 Terms)
         Second = Third;
     }
     printf("\n");
+}
+
+bool32 IsPrime(int32 N)
+{
+    bool32 Prime = 1;
+    for(int32 Divisor = 2; Divisor < N; Divisor++)
+    {
+        if(N % Divisor == 0)
+        {
+            Prime = 0;
+            break;
+        }
+    }
+    return Prime;
+}
+
+int32 DigitProductSumDifference(int32 N)
+{
+    int32 DigitSum = 0;
+    int32 DigitProduct = 1;
+    while(N != 0)
+    {
+        DigitProduct *= N%10;
+        DigitSum += N%10;
+        N /= 10;
+    }
+    return DigitProduct - DigitSum;
+}
+
+int32 OneBitCount(uint32 N)
+{
+    int32 Count = 0;
+    while(N != 0)
+    {
+        if(N & 1) Count++;
+        N >>= 1;
+    }
+    return Count;
+}
+
+
+int32 DecimalToBinary(int32 N, bool32 IsNegative)
+{
+    //TODO:: Implement things for negative numbers.
+    int32 Binary = 0;
+    int32 i = 0;
+    while(N != 0)
+    {
+        Binary += ((N & 1) * pow(10,i));
+        N >>= 1;
+        i++;
+    }
+    return Binary;
 }
 
 #endif
