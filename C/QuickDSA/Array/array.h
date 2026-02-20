@@ -22,8 +22,8 @@ int32 LinearSearch(ARRAY_TYPE* arr, int32 Size, int32 Key);
 void ReverseArray(ARRAY_TYPE* arr, int32 Size);
 // 4)  Swap alternate.
 void SwapAlternate(ARRAY_TYPE* arr, int32 Size);
-// 5)  Find Unique (Code Studio).
-int32 Unique(ARRAY_TYPE* arr, int32 Size);
+// 5)  Find Unique Element (Code Studio).
+int32 UniqueElement(ARRAY_TYPE* arr, int32 Size);
 // 6)  Find Duplicate in a array (Code Studio).
 int32 Duplicate(ARRAY_TYPE* arr, int32 Size);
 // 7)  Intersection of arrays(Code Studio). 
@@ -108,20 +108,34 @@ void SwapAlternate(ARRAY_TYPE* arr, int32 Size)
     printf("\n");
 }
 
-//TODO
-int32 Unique(ARRAY_TYPE* arr, int32 Size)
+// ##,##,##,##,##,M## ->N , N = 2m+1, 
+
+
+
+int32 UniqueElement(ARRAY_TYPE* arr, int32 Size)
 {
-    
+    int32 Unique = 0;
+    for(int32 Index = 0; Index < Size; Index++){
+
+        Unique = Unique ^ arr[Index]; // a^b^a = b , 0^a = a, 
+    }
+    return Unique; 
 }
 
 int32 Duplicate(ARRAY_TYPE* arr, int32 Size)
 {
-    
+    if(Size == arr[0] == 0) return 0;
+    int32 ArraySum = 0;
+    for(int32 Index = 0; Index < Size; ++Index)
+    {
+        ArraySum += arr[Index];
+    }
+    return ArraySum - ((Size * (Size-1 ))/2);
 }
 
 void FindArrayInstersection(ARRAY_TYPE* arr, int32 N, ARRAY_TYPE* arr2, int32 M )
 {
-    
+    //
 }
 
 void  PairSum(ARRAY_TYPE* arr, int32 Size, int32 sum)
