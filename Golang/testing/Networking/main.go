@@ -1,10 +1,15 @@
 package main
 
-import "fmt"
-import "net"
+import (
+	"fmt"
+	"net/http"
+)
+
+func Hello(w http.ResponseWriter, req *http.Request){
+	fmt.Fprintf(w, "Hello,Sever\n");
+}
 
 func main(){
-	fmt.Print("Hello,Go!")
-	
-	con := NewConn(con net.Conn) 
+	http.HandleFunc("/hello", Hello);
+	http.ListenAndServe(":8090", nil);
 }
