@@ -3,9 +3,7 @@
 
 int main(int argc, char** argv)
 {
-    
-    int32 arr[4] = {2,3,4,5};
-    int32 arr2[4]= {2,3,3,5};
-    FindArrayInstersection(arr, 4, arr2, 4);
+    int arr[5] = {2, -3, 3, 3, -2};
+    PairSum(arr, 5, 0);
     return 0;
 }

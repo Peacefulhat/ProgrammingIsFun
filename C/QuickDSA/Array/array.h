@@ -29,7 +29,7 @@ int32 Duplicate(ARRAY_TYPE* arr, int32 Size);
 // 7)  Intersection of arrays(Code Studio). 
 void FindArrayInstersection(ARRAY_TYPE* arr, int32 N, ARRAY_TYPE* arr2, int32 M );
 // 8)  Pair Sum (Code Studio).
-void  PairSum(ARRAY_TYPE* arr, int32 Size, int32 sum);
+void  PairSum(ARRAY_TYPE* arr, int32 Size, int32 Sum);
 // 9)  Triplet Sum(Code Studio).
 void tripletSum(ARRAY_TYPE* arr, int32 Size, int32 Sum);
 // 10) Sort 0 and 1.
@@ -135,30 +135,36 @@ int32 Duplicate(ARRAY_TYPE* arr, int32 Size)
 
 void FindArrayInstersection(ARRAY_TYPE* arr, int32 N, ARRAY_TYPE* arr2, int32 M )
 {
-    // not finished yet
-    // TODO:
-        // duplicated remove and incrementing and value selecting in not happening properly.
-        // for square matrix it's kind of working. not sure.
-    // arrays are monotonically sorted(assending order).
     int32 Index = 0;
     int32 Index2 = 0;
     while(Index < N && Index2 < M)
     {
-        if(arr[Index] == arr[Index2]){
-            printf("%d ", arr[Index]);
-            Index2++;
-            Index++;
-        }
-         if(arr[Index] > arr2[Index]) Index2++;
+        // make sure if are in this order.
         if(arr[Index] < arr2[Index2]) Index++;
-       
-        
+        if(arr[Index]==arr2[Index2])
+        {
+            printf("%d ", arr[Index]);
+            Index++;
+            Index2++;
+        }
+        if(arr[Index]>arr2[Index2]) Index2++;
     }
     printf("\n");
 }
 
-void  PairSum(ARRAY_TYPE* arr, int32 Size, int32 sum)
+void  PairSum(ARRAY_TYPE* arr, int32 Size, int32 Sum)
 {
+    //TODO:: can i use binary serach to solve this.
+    for(int32 First = 0; First < Size; ++First)
+    {
+        for(int32 Second = 0; Second < Size; ++Second)
+        {
+            if(arr[First] + arr[Second] == Sum && arr[First] < arr[Second]){
+                printf("{%d, %d}\n", arr[First], arr[Second]);
+                
+            }
+        }
+    }
     
 }
 
