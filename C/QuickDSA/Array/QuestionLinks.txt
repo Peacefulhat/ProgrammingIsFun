@@ -1,8 +1,14 @@
 Find Unique (Code Studio):
 https://www.naukri.com/code360/problems/find-unique_625159?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1&isSignin=true&leftPanelTabValue=SUBMISSION
 
+Unique Number of Occurrences(LeetCode).
+https://leetcode.com/problems/unique-number-of-occurrences/description/
+
 Find Duplicate in array (Code Studio):
 https://www.naukri.com/code360/problems/duplicate-in-array_893397?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1&leftPanelTabValue=SUBMISSION
+
+ Find All Duplicates in an Array (LeetCode):
+ https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
 
 Intersection of arrays(Code Studio).
 https://www.naukri.com/code360/problems/intersection-of-2-arrays_1082149?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1

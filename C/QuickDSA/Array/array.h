@@ -24,17 +24,21 @@ void ReverseArray(ARRAY_TYPE* arr, int32 Size);
 void SwapAlternate(ARRAY_TYPE* arr, int32 Size);
 // 5)  Find Unique Element (Code Studio).
 int32 UniqueElement(ARRAY_TYPE* arr, int32 Size);
-// 6)  Find Duplicate in a array (Code Studio).
+// 6) Unique Number of Occurences(LeetCode).
+bool32 UniqueOccurences(int32* arr, int32 Size);
+// 7)  Find Duplicate in a array (Code Studio).
 int32 Duplicate(ARRAY_TYPE* arr, int32 Size);
-// 7)  Intersection of arrays(Code Studio). 
+// 8) Find All Duplicates in an Array(LeetCode).
+int32* FindDuplicate(int32* Nums, int32 Size, int*returnSize);
+// 9)  Intersection of arrays(Code Studio). 
 void FindArrayInstersection(ARRAY_TYPE* arr, int32 N, ARRAY_TYPE* arr2, int32 M );
-// 8)  Pair Sum (Code Studio).
+// 10)  Pair Sum (Code Studio).
 void  PairSum(ARRAY_TYPE* arr, int32 Size, int32 Sum);
-// 9)  Triplet Sum(Code Studio).
+// 11)  Triplet Sum(Code Studio).
 void tripletSum(ARRAY_TYPE* arr, int32 Size, int32 Sum);
-// 10) Sort 0 and 1.
-void sort0and1(ARRAY_TYPE* arr, int32 Size);
-// 11) Sort 0,1,2(Code Studio).
+// 12) Sort 0 and 1.
+void Sort0And1(ARRAY_TYPE* arr, int32 Size);
+// 13) Sort 0,1,2(Code Studio).
 void sort012(ARRAY_TYPE* arr, int32 Size);
 
 #endif
@@ -122,6 +126,41 @@ int32 UniqueElement(ARRAY_TYPE* arr, int32 Size)
     return Unique; 
 }
 
+int comp(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+// TODO: fix issuse in the below problem.
+bool32 UniqueOccurences(int32* arr, int32 Size)
+{// only for postive numbers.
+// using direct access hash table approach.
+// arr[6] = {1, 2, 2, 1, 1, 3};
+// works for this.
+int32 max = INT_MIN;
+int32 min = INT_MAX;
+    int32 arr2[100] = {0};
+    for(int32 i = 0; i < Size; i++)
+    {
+        if(max < arr[i]){
+            max = arr[i];
+        }
+        if(min > arr[i]){
+            min = arr[i];
+        }
+        arr2[*(arr + i)]++;
+    }
+    qsort(arr2, 3, sizeof(int32), comp);
+    bool32 IsUnique = 1;
+    for(int32 i = 0; i <max; i++ )
+    {
+        if(arr2[i] == arr[i+1]){
+            IsUnique = 0;
+            break;
+        }
+    }
+    printf("%d", IsUnique);
+    return IsUnique;
+}
+
 int32 Duplicate(ARRAY_TYPE* arr, int32 Size)
 {
     if(Size == arr[0] == 0) return 0;
@@ -130,25 +169,31 @@ int32 Duplicate(ARRAY_TYPE* arr, int32 Size)
     {
         ArraySum += arr[Index];
     }
-    return ArraySum - ((Size * (Size-1 ))/2);
+    return ArraySum - ((Size * (Size - 1 ))/2);
 }
+
+
 
 void FindArrayInstersection(ARRAY_TYPE* arr, int32 N, ARRAY_TYPE* arr2, int32 M )
 {
     int32 Index = 0;
     int32 Index2 = 0;
+    bool32 NoIntersection = 1;
     while(Index < N && Index2 < M)
     {
         // make sure if are in this order.
-        if(arr[Index] < arr2[Index2]) Index++;
+       
         if(arr[Index]==arr2[Index2])
         {
+            NoIntersection = 0;
             printf("%d ", arr[Index]);
             Index++;
             Index2++;
         }
-        if(arr[Index]>arr2[Index2]) Index2++;
+           if(arr[Index] < arr2[Index2])Index++;
+           if(arr[Index] > arr2[Index2]) Index2++;
     }
+    if(NoIntersection) printf("-1");
     printf("\n");
 }
 
@@ -173,9 +218,23 @@ void tripletSum(ARRAY_TYPE* arr, int32 Size, int32 Sum)
     
 }
 
-void sort0and1(ARRAY_TYPE* arr, int32 Size)
+void Sort0And1(ARRAY_TYPE* arr, int32 Size)
 {
-    
+    int32 Start = 0;
+    int32 End = Size - 1;
+    while(Start < End)
+    {
+        while(arr[Start] == 0 && Start < End) Start++;
+        while(arr[End] == 1 && Start < End) End--;
+
+        if(arr[Start] == 1 &&  arr[End] == 0 && Start < End)
+        {
+            SwapInt32(arr + Start, arr + End);
+            End--;
+            Start++;
+        }
+
+    }
 }
 
 void sort012(ARRAY_TYPE* arr, int32 Size)

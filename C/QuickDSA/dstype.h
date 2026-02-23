@@ -18,4 +18,12 @@ typedef double real64;
 #define INT_MIN -2147483648
 #define INT_MAX  2147483647
 
+void SwapInt32(int* A , int* B)
+{
+    int32 Temp = *A;
+    *A = *B;
+    *B = Temp;
+}
+
+
 #endif
