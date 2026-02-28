@@ -17,7 +17,7 @@ void PrintArray(ARRAY_TYPE* arr, int32 Size);
 // 1)  Min and Maximum value in an array.
 Pair MinMaxArray(ARRAY_TYPE* arr, int32 Size);
 // 2)  Linear Search.
-int32 LinearSearch(ARRAY_TYPE* arr, int32 Size, int32 Key);
+bool32 LinearSearch(ARRAY_TYPE* arr, int32 Size, int32 Key);
 // 3)  Reverse an array.
 void ReverseArray(ARRAY_TYPE* arr, int32 Size);
 // 4)  Swap alternate.
@@ -95,7 +95,6 @@ void ReverseArray(ARRAY_TYPE* arr, int32 Size)
         ++Start;
         --End;
     }
-    printf("\n");
 }
 
 void SwapAlternate(ARRAY_TYPE* arr, int32 Size)
