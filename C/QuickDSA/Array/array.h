@@ -1,12 +1,8 @@
 #ifndef ARRAY_H
 #define ARRAY_H
-
 #include "../dstype.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#define ARRAY_TYPE int32
 
+#define ARRAY_TYPE int32
 typedef struct {
     int32 First;
     int32 Second;
@@ -311,6 +307,8 @@ void Sort0And1(ARRAY_TYPE* arr, int32 Size)
     }
 }
 
+
+// Todo: // Do this problem.
 void sort012(ARRAY_TYPE* arr, int32 Size)
 {
     
