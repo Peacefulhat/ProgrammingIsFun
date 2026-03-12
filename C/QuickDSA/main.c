@@ -3,11 +3,9 @@
 
 int main(int argc, char** argv)
 {
-    int32 Even[6] = {2,3,4,5,6,7};
-    int32 Odd[5] = {8,9,10,11,12};
+    int32 Even[6] = {4, 6, 10, 12, 18, 20};
     int32 Size = 6;
-    int32 SearchValue = 23;
-    int32 Index = BinarySearch(Even, Size, SearchValue);
-    printf("[Index:: %d, Value:: %d]", Index, SearchValue);
+    Pair Result = UpperBoundLowerBound(Even, 6, 20);
+    printf("[LowerBound:: %d, UpperBound:: %d]", Result.First, Result.Second);
     return 0;
 }

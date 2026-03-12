@@ -20,6 +20,11 @@ typedef uint32_t uint32;
 typedef float  real32; 
 typedef double real64;
 
+typedef struct {
+    int32 First;
+    int32 Second;
+}Pair;
+
 void SwapInt32(int* A , int* B)
 {
     int32 Temp = *A;

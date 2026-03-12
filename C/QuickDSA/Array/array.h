@@ -3,10 +3,6 @@
 #include "../dstype.h"
 
 #define ARRAY_TYPE int32
-typedef struct {
-    int32 First;
-    int32 Second;
-}Pair;
 
 // 1)  Min and Maximum value in an array.
 Pair MinMaxArray(ARRAY_TYPE* arr, int32 Size);

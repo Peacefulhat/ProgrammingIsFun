@@ -6,6 +6,8 @@
 
 //BinarySearch
 TYPE BinarySearch(TYPE* Array, int32 Size, TYPE Value);
+// UpperBoundLowerBound
+Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K);
 
 #endif // BINARY_SEARCH_H
 
@@ -30,6 +32,33 @@ TYPE BinarySearch(TYPE* Array, int32 Size, TYPE Value)
         Mid = Start + (End-Start) / 2;
     }
     return Ind;
+}
+
+Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K)
+{
+    Pair Result = {-1, -1};
+    int32 Start = 0;
+    int32 End = Size - 1;
+    // if End and Start get out of int range . 
+    int32 Mid = Start + (End - Start) / 2;
+
+    while(Start <= End)
+    {
+        if(Array[Mid] > K )
+        {
+            Result.Second = Mid;
+            End = Mid - 1;
+
+        }
+        if(Array[Mid] <= K)
+        {
+            Result.First = Mid;
+            Start = Mid + 1;
+
+        }
+        Mid = Start + (End-Start) / 2;
+    }
+    return Result;
 }
 
 #endif
