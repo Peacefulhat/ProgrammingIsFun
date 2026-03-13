@@ -6,9 +6,12 @@
 
 //BinarySearch
 TYPE BinarySearch(TYPE* Array, int32 Size, TYPE Value);
-// UpperBoundLowerBound
+// UpperBoundLowerBound(alternate sol)
+//find lower bound first and the upper bound in
+// Two different functions
 Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K);
-
+//Search insert position of K in Sorted array.
+TYPE SeachInsertPosition(TYPE* Array, int32 Size, TYPE Value);
 #endif // BINARY_SEARCH_H
 
 #ifdef BINARY_SEARCH_IMPLEMENTATION
@@ -58,7 +61,39 @@ Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K)
         }
         Mid = Start + (End-Start) / 2;
     }
+    
     return Result;
 }
 
+TYPE SeachInsertPosition(TYPE* Array, int32 Size, TYPE K)
+{
+    int32 Save = 0;
+    int32 Start = 0;
+    int32 End = Size - 1;
+    int32 Mid = Start + ((End-Start)/2);
+    while(Start <= End)
+    {
+
+        if(Array[Mid] == K)
+        {
+            return Mid;
+        }
+        if(Array[Mid] > K)
+        {
+            Save = Mid;
+            End = Mid - 1;
+        }
+        if(Array[Mid] < K)
+        {
+            Save = Mid;
+            Start = Mid + 1;
+        }
+        Mid = Start + ((End-Start)/2);
+    }
+    if(Array[Save] < K){
+        
+        Save +=1;
+    }
+    return Save;
+}
 #endif
