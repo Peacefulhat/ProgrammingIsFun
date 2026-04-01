@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 typedef unsigned int uint32;
 
@@ -29,27 +30,38 @@ void WriteRandomRGB(const char* FilePath, uint32 Width, uint32 Height, uint32 Co
         printf("Error opening file.\n");
         return;
     }
-    
+
     ppm Img;
     Img.MagicNumber = "P3";
     Img.Width = Width;
     Img.Height = Height;
     Img.ColorRange = ColorRange;
-    
+
     fprintf(Fp, "%s\n", Img.MagicNumber);
     fprintf(Fp, "%u %u\n", Img.Width, Img.Height);
     fprintf(Fp, "%u\n",Img.ColorRange);
 
-    
+
     for (uint32 i = 0; i < Img.Height; i++)
     {
         for (uint32 j = 0; j < Img.Width; j++)
         {
-                Img.Colors.R = (j ^ i)%256; // 
-            
-                Img.Colors.G =     (Img.Colors.R & (j ^ i))%256;
-                Img.Colors.B =     (Img.Colors.R & Img.Colors.G & (j ^ i))%256;
-            fprintf(Fp, "%u %u %u ", Img.Colors.R, Img.Colors.G, Img.Colors.B);
+            // Black and white Squares
+            /* Img.Colors.R = (j & i)%256; //
+               Img.Colors.G =     (Img.Colors.R &( (j & i)))%256;
+               Img.Colors.B =     (Img.Colors.R & Img.Colors.G &(( (j & i))))%256;
+            */
+            // Squers and tirangles
+                /*
+                Img.Colors.R = (j & i)%256;
+                Img.Colors.G =     (Img.Colors.R + ( (j + i)))%256;
+                Img.Colors.B =     (Img.Colors.R + Img.Colors.G - (( (j + i))))%256;
+                */
+                Img.Colors.R = (j & i)%256;
+                Img.Colors.G =     (Img.Colors.R + ( (j + i)))%256;
+                Img.Colors.B =     (Img.Colors.R + Img.Colors.G - (( (j + i))))%256;
+
+                fprintf(Fp, "%u %u %u ", Img.Colors.R, Img.Colors.G, Img.Colors.B);
         }
         fprintf(Fp, "\n");
     }
