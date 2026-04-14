@@ -20,7 +20,7 @@ TYPE BinarySearch(TYPE* Array, int32 Size, TYPE Value)
 {
     int32 Start = 0;
     int32 End = Size - 1;
-    // if End and Start get out of int range . 
+    // if End and Start get out of int range .
     int32 Mid = Start + (End - Start) / 2;
     TYPE Ind = -1;
     while(Start <= End)
@@ -42,7 +42,7 @@ Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K)
     Pair Result = {-1, -1};
     int32 Start = 0;
     int32 End = Size - 1;
-    // if End and Start get out of int range . 
+    // if End and Start get out of int range .
     int32 Mid = Start + (End - Start) / 2;
 
     while(Start <= End)
@@ -61,7 +61,7 @@ Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K)
         }
         Mid = Start + (End-Start) / 2;
     }
-    
+
     return Result;
 }
 
@@ -91,7 +91,7 @@ TYPE SeachInsertPosition(TYPE* Array, int32 Size, TYPE K)
         Mid = Start + ((End-Start)/2);
     }
     if(Array[Save] < K){
-        
+
         Save +=1;
     }
     return Save;

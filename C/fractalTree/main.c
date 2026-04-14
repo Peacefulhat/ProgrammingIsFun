@@ -1,12 +1,10 @@
 #include <raylib.h>
 #include <math.h>
-#include <stdio.h>
-#include <string.h>
 #define WIDTH   1280
 #define HEIGHT  720
 #define XOFFSET 50
 #define YOFFSET 50
-#define DEPTH   3
+#define DEPTH   7
 #define ANGLE_REDUCER 20
 #define ANGLE_ADDER 20
 #define HEIGHT_REDUCER 1
@@ -45,7 +43,7 @@ void DrawFractalTreePerFrame(Branch B, int* branchesThisFrame, int maxBranchesPe
 
     if (*branchesThisFrame >= maxBranchesPerFrame) return;
 
-    (*branchesThisFrame)++; 
+    (*branchesThisFrame)++;
 
     Color BranchColor = Vector2GetColor(B.Point);
     Vector2 Point2 = FindPoint(B);
@@ -76,7 +74,7 @@ void DrawFractalTree(Branch B)
     Vector2 Point2 = FindPoint(B);
 
     DrawLineEx(B.Point, Point2, BRANCH_THICKNESS, BranchColor);
-    
+
     Branch Left = {
         .Point.x = Point2.x,
         .Point.y = Point2.y,
@@ -84,11 +82,11 @@ void DrawFractalTree(Branch B)
         .Height = B.Height - HEIGHT_REDUCER
     };
 
-    
+
     Branch Right = Left;
     Right.Angle = B.Angle + ANGLE_ADDER;
-    
-    
+
+
     DrawFractalTree(Left);
     DrawFractalTree(Right);
 }
@@ -96,13 +94,13 @@ void DrawFractalTree(Branch B)
 int main(int argc, char**argv)
 {
     int maxBranchesPerFrame   = 0;
-    int NotStill = 0;
+    int NotStill = 1;
     SetTargetFPS(60);
     InitWindow(WIDTH, HEIGHT, "Basic Window");
     Branch Root = {
         .Point.x = WIDTH/2, .Point.y = HEIGHT - YOFFSET,
         .Angle = -90, .Height = 10
-    }; 
+    };
     while (!WindowShouldClose())
     {
         BeginDrawing();
@@ -114,13 +112,13 @@ int main(int argc, char**argv)
             maxBranchesPerFrame += 2;
             DrawFractalTreePerFrame(Root, &branchesThisFrame, maxBranchesPerFrame);
         }
-        
+
         else
         {
             DrawFractalTree(Root);
         }
       EndDrawing();
-        
+
     }
 
     CloseWindow();

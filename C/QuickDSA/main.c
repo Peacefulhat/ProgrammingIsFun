@@ -1,7 +1,7 @@
-#define BINARY_SEARCH_IMPLEMENTATION 
+#define BINARY_SEARCH_IMPLEMENTATION
 #include "Array/binarySearch.h"
 
-int main(int argc, char** argv)
+int main()
 {
     return 0;
 }
