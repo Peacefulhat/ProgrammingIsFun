@@ -74,7 +74,6 @@ SolidPyramid:: proc(N: u32)
         }
         fmt.print("\n");
     }
-
 }
 
 InvertedSolidPyramid:: proc(N: u32)
@@ -251,7 +250,6 @@ HollowDiamond:: proc(N: u32)
                 fmt.print("  ");
             }
         }
-
         fmt.print("\n");
     }
 
@@ -260,10 +258,67 @@ HollowDiamond:: proc(N: u32)
 
 Hpattern:: proc(N: u32)
 {
-    
+    for i in 0..<N
+    {
+        for j in 0..<i + 1
+        {
+            fmt.print("* ");
+        }
+
+        for k in 0..< 2*(N - i - 1)
+        {
+            fmt.print("  ");
+        }
+        for j in 0..<i + 1
+        {
+            fmt.print("* ");
+        }
+        fmt.print("\n");
+    }
+
+    for i:u32 = N - 1; i > 0; i-=1
+    {
+        for j:u32 = i; j > 0; j-=1
+        {
+            fmt.print("* ");
+        }
+
+        for k in 0..< 2*(N - i)
+        {
+            fmt.print("  ");
+        }
+        for j:u32 = i; j > 0; j-=1
+        {
+            fmt.print("* ");
+        }
+        fmt.print("\n");
+    }
 }
+
+PyramidN:: proc(N: u32)
+{
+    FirstTerm: u32 = 1;
+        Num: u32 = 1;
+       for i in 0..<N
+    {
+        Space: u32 =  (N - (i + 1));
+        for space in 0..<Space
+        {
+            fmt.print("  ");
+        }
+        Stars:u32 = (FirstTerm + (i * 2)); // Ap
+        for j in 0..< Stars
+        {
+            fmt.print(Num, "");
+        }
+        fmt.print("\n");
+        Num += 1;
+    }
+}
+
+
 
 main:: proc()
 {
-    HollowDiamond(30);
+    PyramidN(5);
 }
