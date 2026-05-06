@@ -65,7 +65,7 @@ Pair UpperBoundLowerBound(TYPE* Array, int32 Size, TYPE K)
     return Result;
 }
 
-TYPE SeachInsertPosition(TYPE* Array, int32 Size, TYPE K)
+TYPE SearchInsertPosition(TYPE* Array, int32 Size, TYPE K)
 {
     int32 Save = 0;
     int32 Start = 0;
@@ -96,4 +96,5 @@ TYPE SeachInsertPosition(TYPE* Array, int32 Size, TYPE K)
     }
     return Save;
 }
+
 #endif

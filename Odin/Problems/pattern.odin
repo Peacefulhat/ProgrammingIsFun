@@ -1,4 +1,5 @@
 package main;
+
 import "core:fmt"
 
 SolidRectangle ::proc(Width:u32,  Height:u32)
@@ -320,5 +321,5 @@ PyramidN:: proc(N: u32)
 
 main:: proc()
 {
-    PyramidN(5);
+    HollowDiamond(7);
 }
