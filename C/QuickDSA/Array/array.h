@@ -33,6 +33,8 @@ void Sort0And1(ARRAY_TYPE* Arr, int32 Size);
 void Sort012(ARRAY_TYPE* Arr, int32 Size);
 //14) Running Sum.
 void RunningSum(ARRAY_TYPE* Arr, int32 Size);
+//15) Shift Right (Shift every element to right by one position).
+void ShiftRight(ARRAY_TYPE* Arr, int32 Size);
 
 #endif
 
@@ -315,4 +317,18 @@ void RunningSum(ARRAY_TYPE* Arr, int32 Size)
         Arr[Index] += Arr[Index - 1];
     }
 }
+
+void ShiftRight(ARRAY_TYPE* Arr, int32 Size)
+{
+    int32 Temp = Arr[0];
+    uint32 i = 0;
+    for(; i < Size; ++i)
+    {
+        int32 Temp2 = Arr[i];
+        Arr[i] = Temp;
+        Temp = Temp2;
+    }
+    Arr[i % Size] = Temp;
+}
+
 #endif

@@ -11,6 +11,7 @@ typedef enum
     STAR_RRTRIANGLE,// RightRightTriangle.
     STAR_INVERTED_LRTRIANGLE,// Inverted LeftRightTriangle.
     STAR_INVERTED_RRTRIANGLE,// Inverted RightRightTriangle.
+
     NUMBER,// Rectangle and Square.
     NUMBER2,
     NUMBER3,
@@ -28,7 +29,14 @@ typedef enum
     LETTER3_LRTRIANGLE,
     LETTER4_LRTRIANGLE,
     SPECIAL_PATTERN,
-    
+    STAR_SLANTED_RECTANGLE,
+    INVERTED_SOLID_PYRAMID,
+    DIAMOND,
+    HOLLOW_DIAMOND,
+    HOLLOW_SQUARE,
+    HOLLOW_RIGHTTRIANGLE,
+    HOLLOW_PYRAMID,
+    HPATTERN
 }PatternKind;
 
 // 1) check if given character is in lower case or uppercase.
@@ -62,10 +70,9 @@ int32 NthTerm(int N);
 //15 Find total setbits in a & b.
 int32 TotalSetBits(int32 A, int32 B);
 
-
 #endif
 
-#ifdef BASIC_IMPLEMENTAION
+#ifdef BASIC_IMPLEMENTATION
 
 void CheckCaseOfLetter(char Ch)
 {
@@ -74,7 +81,7 @@ void CheckCaseOfLetter(char Ch)
         printf("This is LowerCase\n");
         return;
     }
-    
+
     if(Ch >= 'A' && Ch <= 'Z')
     {
         printf("This is UpperCase\n");
@@ -115,271 +122,287 @@ void Pattern(int32 N, PatternKind Kind)
     switch(Kind)
     {
         case STAR:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X < N; ++X)
                 {
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("*");
-                    }
-                    printf("\n");
+                    printf("*");
                 }
-            }break;
-            
+                printf("\n");
+            }
+        }break;
+
         case STAR_LRTRIANGLE:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X <= Y; ++X)
                 {
-                    for(int32 X = 0; X <= Y; ++X)
-                    {
-                        printf("*");
-                    }
-                    printf("\n");
-                    
+                    printf("*");
                 }
-            } break;
+                printf("\n");
+
+            }
+        } break;
+        
         case STAR_RRTRIANGLE:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                int32 Space = N - (Y+1);
+                for(int32 K = 0; K < Space; K++){printf(" ");}
+                for(int32 X = 0; X <(N - Space); ++X)
                 {
-                    int32 Space = N - (Y+1);
-                    for(int32 K = 0; K < Space; K++){printf(" ");}
-                    for(int32 X = 0; X <(N - Space); ++X)
-                    {
-                        printf("*");
-                    }
-
-                    printf("\n");
+                    printf("*");
                 }
 
-            } break;
+                printf("\n");
+            }
+
+        } break;
+
         case STAR_INVERTED_LRTRIANGLE:
+        {
+            int32 Cols = N;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                int32 Cols = N;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = Cols; X >0; --X)
                 {
-                    for(int32 X = Cols; X >0; --X)
-                    {
-                        printf("*");
-                    }
-                    --Cols;
-                    printf("\n");
+                    printf("*");
                 }
-            } break;
+                --Cols;
+                printf("\n");
+            }
+        } break;
+
         case STAR_INVERTED_RRTRIANGLE:
+        {
+            int32 Cols = N;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                int32 Cols = N;
-                for(int32 Y = 0; Y < N; ++Y)
+                int32 Space = Y;
+                for(int32 K = 0; K < Space; ++K){printf(" ");}
+                for(int32 X = (N-Y); X >0; --X)
                 {
-                    int32 Space = Y;
-                    for(int32 K = 0; K < Space; ++K){printf(" ");}
-                    for(int32 X = (N-Y); X >0; --X)
-                    {
-                        printf("*");
-                    }
-                    printf("\n");
+                    printf("*");
                 }
-            } break;
+                printf("\n");
+            }
+        } break;
+
         case NUMBER:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X < N; ++X)
                 {
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%d", Y);
-                    }
-                    printf("\n");
+                    printf("%d", Y);
                 }
-            } break;
+                printf("\n");
+            }
+        } break;
+
         case NUMBER2:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X < N; ++X)
                 {
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%d", X);
-                    }
-                    printf("\n");
+                    printf("%d", X);
                 }
+                printf("\n");
+            }
 
-            } break;
+        } break;
+
         case NUMBER3:
+        {
+            int32 Count = 0;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                int32 Count = 0;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X < N; ++X)
                 {
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%d", Count);
-                        ++Count;
-                    }
-                    printf("\n");
+                    printf("%d", Count);
+                    ++Count;
                 }
+                printf("\n");
+            }
 
-            } break;
+        } break;
+
         case LETTER:
+        {
+            schar Letter = 65;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                schar Letter = 65;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X < N; ++X)
                 {
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%c", Letter);
-                    }
-                    ++Letter;
-                    printf("\n");
+                    printf("%c", Letter);
                 }
-                
-            } break;
+                ++Letter;
+                printf("\n");
+            }
+
+        } break;
+
         case LETTER2:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                schar Letter = 65;
+                for(int32 X = 0; X < N; ++X)
                 {
-                    schar Letter = 65;
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%c", Letter);
-                        ++Letter;
-                    }
-                    printf("\n");
+                    printf("%c", Letter);
+                    ++Letter;
                 }
+                printf("\n");
+            }
 
-            } break;
+        } break;
+
         case LETTER3:
+        {
+            schar Letter = 65;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                schar Letter = 65;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X < N; ++X)
                 {
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%c", Letter);
-                        ++Letter;
-                    }
-                    printf("\n");
+                    printf("%c", Letter);
+                    ++Letter;
                 }
-            } break;
-            
+                printf("\n");
+            }
+        } break;
+
         case LETTER4:
+        {
+            schar Letter = 65;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                schar Letter = 65;
-                for(int32 Y = 0; Y < N; ++Y)
+                schar Letter2 = Letter;
+                for(int32 X = 0; X < N; ++X)
                 {
-                    schar Letter2 = Letter;
-                    for(int32 X = 0; X < N; ++X)
-                    {
-                        printf("%c", Letter2);
-                        ++Letter2;
-                    }
-                    ++Letter;
-                    printf("\n");
+                    printf("%c", Letter2);
+                    ++Letter2;
                 }
+                ++Letter;
+                printf("\n");
+            }
 
-            } break;
+        } break;
+
         case NUMBER_LRTRIANGLE:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X <= Y; ++X)
                 {
-                    for(int32 X = 0; X <= Y; ++X)
-                    {
-                        printf("%d", Y);
-                    }
-                    printf("\n");
+                    printf("%d", Y);
                 }
-            } break;
+                printf("\n");
+            }
+        } break;
+
         case NUMBER2_LRTRIANGLE:
+        {
+            int32 Count = 0;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                int32 Count = 0;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X <= Y; ++X)
                 {
-                    for(int32 X = 0; X <= Y; ++X)
-                    {
-                        printf("%d", Count);
-                        ++Count;
-                    }
-                    printf("\n");
+                    printf("%d", Count);
+                    ++Count;
                 }
-            } break;
+                printf("\n");
+            }
+        } break;
+
         case NUMBER3_LRTRIANGLE:
-            {
+        {
 
-                for(int32 Y = 0; Y < N; ++Y)
+            for(int32 Y = 0; Y < N; ++Y)
+            {
+                int32 Count = Y;
+                for(int32 X = 0; X <= Y; ++X)
                 {
-                    int32 Count = Y;
-                    for(int32 X = 0; X <= Y; ++X)
-                    {
-                        printf("%d", Count);
-                        ++Count;
-                    }
-                    printf("\n");
+                    printf("%d", Count);
+                    ++Count;
                 }
-                
-            } break;
+                printf("\n");
+            }
+
+        } break;
+
         case NUMBER4_LRTRIANGLE:
+        {
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                for(int32 Y = 0; Y < N; ++Y)
+                int32 Count = Y;
+                for(int32 X = Count; X >=0; --X)
                 {
-                    int32 Count = Y;
-                    for(int32 X = Count; X >=0; --X)
-                    {
-                        printf("%d", X);
+                    printf("%d", X);
 
-                    }
-                    printf("\n");
                 }
-            } break;
+                printf("\n");
+            }
+        } break;
+
         case NUMBER5_TRIANGLE:
-            {
-                for(int32 Y = 1; Y <= N; ++Y){
-                    int Space = N - Y;
-                    for(int32 K = 0; K < Space; ++K){printf(" ");}
-                    for(int32 X = 1; X <= Y; ++X){
-                        printf("%d", X);
-                    }
-                    for(int32 Z = 1; Z <= Y; ++Z){
-                        if(Y > 1){
-                            int32 A = (Y-1)+((Z - 1)*(-1));
-                            if(A)
-                            {
-                                printf("%d", A);
-                            }
+        {
+            for(int32 Y = 1; Y <= N; ++Y){
+                int Space = N - Y;
+                for(int32 K = 0; K < Space; ++K){printf(" ");}
+                for(int32 X = 1; X <= Y; ++X){
+                    printf("%d", X);
+                }
+                for(int32 Z = 1; Z <= Y; ++Z){
+                    if(Y > 1){
+                        int32 A = (Y-1)+((Z - 1)*(-1));
+                        if(A)
+                        {
+                            printf("%d", A);
                         }
+                    }
 
-                    }
-                    printf("\n");
-                } 
-            }break;
-            
+                }
+                printf("\n");
+            }
+        }break;
+
         case LETTER_LRTRIANGLE:
+        {
+            schar Letter = 65;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                schar Letter = 65;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X <= Y; ++X)
                 {
-                    for(int32 X = 0; X <= Y; ++X)
-                    {
-                        printf("%c", Letter);
-                    }
-                    ++Letter;
-                    printf("\n");
+                    printf("%c", Letter);
                 }
-            } break;
+                ++Letter;
+                printf("\n");
+            }
+        } break;
+
         case LETTER2_LRTRIANGLE:
+        {
+            schar Letter = 65;
+            for(int32 Y = 0; Y < N; ++Y)
             {
-                schar Letter = 65;
-                for(int32 Y = 0; Y < N; ++Y)
+                for(int32 X = 0; X <= Y; ++X)
                 {
-                    for(int32 X = 0; X <= Y; ++X)
-                    {
-                        printf("%c", Letter);
-                        ++Letter;
-                    }
-                    printf("\n");
+                    printf("%c", Letter);
+                    ++Letter;
                 }
-            } break;
+                printf("\n");
+            }
+        } break;
+
         case LETTER3_LRTRIANGLE:
-            {
-                schar Letter = 65;
-                for(int32 Y = 0; Y < N; ++Y)
-                {  schar Letter2 = Letter;
+        {
+            schar Letter = 65;
+            for(int32 Y = 0; Y < N; ++Y)
+            {  schar Letter2 = Letter;
                 for(int32 X = 0; X <= Y; ++X)
                 {
                     printf("%c", Letter2);
@@ -389,57 +412,314 @@ void Pattern(int32 N, PatternKind Kind)
                 printf("\n");
             }
         } break;
-    case LETTER4_LRTRIANGLE:
+
+        case LETTER4_LRTRIANGLE:
         {
             schar Letter = 65 + N - 1;
             for(int32 Y = 0; Y < N; ++Y)
             {  schar Letter2 = Letter;
-            for(int32 X = 0; X <= Y; ++X)
-            {
-                printf("%c", Letter2);
-                ++Letter2;
+                for(int32 X = 0; X <= Y; ++X)
+                {
+                    printf("%c", Letter2);
+                    ++Letter2;
+                }
+                --Letter;
+                printf("\n");
             }
-            --Letter;
-            printf("\n");
-        }
-    } break;
-    
-case SPECIAL_PATTERN:
-    {
-        for(int32 Y = 1; Y <= N; ++Y){
-            int32 X = 1;
-            for(; X <= N; ++X){
-                
-                if(X >= (N - Y + 2))
-                {
-                    printf("*"); 
+        } break;
+
+        case SPECIAL_PATTERN:
+        {
+            for(int32 Y = 1; Y <= N; ++Y)
+            {
+                int32 X = 1;
+                for(; X <= N; ++X){
+
+                    if(X >= (N - Y + 2))
+                    {
+                        printf("*");
+                    }
+                    else
+                    {
+                        printf("%d", X);
+                    }
                 }
-                else
-                {
-                    printf("%d", X);
+
+                for(int32 Z = N; Z >= 1; --Z){
+
+                    if(Z >= (N - Y + 2))
+                    {
+                        printf("*");
+                    }
+                    else
+                    {
+                        printf("%d", Z);
+                    }
                 }
+                printf("\n");
+            }
+        }break;
+
+        case STAR_SLANTED_RECTANGLE:
+        {
+            for(uint32 Y =  0; Y < N; ++Y)
+            {
+                for (uint32 Space = 0; Space < N - (Y + 1); ++Space)
+                {
+                    printf(" ");
+                }
+                for(uint32 X = 0; X < N; ++X)
+                {
+                    printf("* ");
+                }
+                printf("\n");
             }
 
-            for(int32 Z = N; Z >= 1; --Z){
-                
-                if(Z >= (N - Y + 2))
+        }break;
+
+
+        case INVERTED_SOLID_PYRAMID:
+        {
+            uint32 FirstTerm = (1 + (N - 1) * 2);
+            for (int32 Y = 0; Y < N; ++Y)
+            {
+                for(int32 Space = 0; Space < Y; ++Space)
                 {
-                    printf("*");
+                    printf("  ");
                 }
-                else
+
+                uint32 Stars = (FirstTerm + (Y * -2)); // Ap
+                for(int32 X = 0; X < Stars; ++X)
                 {
-                    printf("%d", Z);
-                } 
+                    printf("* ");
+                }
+                printf("\n");
             }
-            printf("\n");
+
+        }break;
+
+        case DIAMOND:
+        {
+            // Upper Pyramid
+            uint32 FirstTerm = 1;
+            for (int32 Y = 0; Y < N; ++Y)
+            {
+                for (int32 X = 0; X < N - (Y + 1); ++X)
+                {
+                    printf("  ");
+                }
+                uint32 Stars = (FirstTerm + (Y * 2)); // Ap
+                for (int32 Z = 0; Z < Stars; ++Z)
+                {
+                    printf("* ");
+                }
+                printf("\n");
+            }
+
+            // Lower Pyramid
+            uint32 FFirstTerm = (1 + (N - 2) * 2);
+            for(int32 Y = 0; Y < N - 1; ++Y)
+            {
+                for (int32 Space = 0; Space < Y + 1; ++Space)
+                {
+                    printf("  ");
+                }
+
+                uint32 SStars = FFirstTerm +( Y * -2); // Ap
+
+                for(int32 X = 0; X < SStars; ++X)
+                {
+                    printf("* ");
+                }
+                printf("\n");
+            }
+
+        }break;
+
+        case HOLLOW_SQUARE:
+        {
+
+            for (int32 Y = 0; Y< N; ++Y){
+                uint32 Space;
+                if (Y == 0 || Y == N - 1){
+                    Space = 0;
+                }
+                else{
+                    Space = N - 2;
+                }
+                for (int32 X = 0; X < N - Space; ++X){
+
+                    if( Y == 0 || Y == N - 1)
+                    {
+                        printf("* ");
+                        continue;
+                    }
+
+                    printf("* ");
+
+                    if(Y >= 1)
+                    {
+                        for (int32 Z = 0; Z < Space; ++Z)
+                        {
+                            printf("  ");
+                        }
+                    }
+                }
+                printf("\n");
+            }
+
+        }break;
+
+        case HOLLOW_RIGHTTRIANGLE:
+        {
+
+            int32 SpaceStart = 2;
+            for (int32 Y = 0; Y < N; ++Y)
+            {
+                for (int32 X = 0; X< Y + 1; ++X)
+                {
+                    if(X == 0 || X == Y|| Y == N - 1)
+                    {
+                        printf("*");
+                    }
+                    else if (Y >= SpaceStart)
+                    {
+                        printf(" ");
+                    }
+                }
+                printf("\n");
+            }
+
+
+        }break;
+
+
+        case HOLLOW_PYRAMID:
+        {
+
+            uint32 FirstTerm = 1;
+            for (int32 Y = 0; Y < N; ++Y)
+            {
+                for(int32 Space = 0; Space < (N - (Y + 1)); ++Space)
+                {
+                    printf("  ");
+                }
+                uint32 StarsWithSpace = (FirstTerm + (Y * 2)); // Ap
+                for(int32 X = 0; X < StarsWithSpace; ++X)
+                {
+                    if(X == 0  || Y == N - 1 || X == StarsWithSpace - 1)
+                    {
+                        printf("* ");
+                    }
+                    else
+                    {
+                        printf("  ");
+                    }
+                }
+                printf("\n");
+            }
+        }break;
+
+        case HOLLOW_DIAMOND:
+        {
+
+            uint32 FirstTerm =  1;
+            for(int32 Y = 0; Y< N; ++Y)
+            {
+                for(int32 Space = 0; Space < (N - (Y + 1)); ++Space)
+                {
+                    printf("  ");
+                }
+                uint32 StarsWithSpace = (FirstTerm + (Y * 2)); // Ap
+                for (int32 X = 0; X< StarsWithSpace; ++X)
+                {
+                    if(X == 0 || X == StarsWithSpace - 1)
+                    {
+                        printf("* ");
+                    }
+                    else
+                    {
+                        printf("  ");
+                    }
+                }
+                printf("\n");
+            }
+
+            uint32 IFirstTerm = (1 + (N - 2) * 2);
+            for (int32 Y = 0; Y < N - 1; ++Y)
+            {
+                for(int32 Space = 0; Space < Y + 1; ++Space)
+                {
+                    printf("  ");
+                }
+
+                uint32 StarsWithSpace = IFirstTerm + (Y * -2); // Ap
+
+                for (int32 X = 0; X< StarsWithSpace; ++X)
+                {
+                    if( X == 0 || X == StarsWithSpace - 1)
+                    {
+                        printf("* ");
+                    }
+                    else
+                    {
+                        printf("  ");
+                    }
+                }
+                printf("\n");
+            }
+
+        }break;
+
+        case HPATTERN:
+        {
+
+            for(int32 Y = 0; Y < N; ++Y)
+            {
+                for(int32 X = 0; X < Y + 1; ++X)
+                {
+                    printf("* ");
+                }
+
+                for(int32 Z = 0; Z < 2*(N - Y - 1); ++Z)
+                {
+                    printf("  ");
+                }
+
+                for(int32 X = 0; X < Y + 1; ++X)
+                {
+                    printf("* ");
+                }
+
+                printf("\n");
+            }
+
+            for(uint32 Y = N - 1; Y > 0; --Y)
+            {
+                for (uint32 X = Y; X > 0; --X)
+                {
+                    printf("* ");
+                }
+
+                for( int32 Z = 0;  Z < 2*(N - Y); ++Z)
+                {
+                    printf("  ");
+                }
+                for (uint32 X = Y; X > 0; --X)
+                {
+                    printf("* ");
+                }
+                printf("\n");
+            }
+
+        }break;
+
+
+        default:
+        {
+            printf("Not a correct kind for pattern");
         }
-    }break;
-    
-default:
-    {
-        printf("Not a correct kind for pattern");
     }
-}
 
 }
 void Fib(int32 Terms)
@@ -544,13 +824,13 @@ bool32 IsPowerOfTwo(int32 N, int32 S)
 {
     // 1
     switch(S){
-    case 0:
+        case 0:
         {
             if(N < 1) return 0;
             return ((N & (N-1)) == 0);
         }break;
         //2
-    case 1:
+        case 1:
         {
             int32 BitCount = 0;
             while(N != 0)
@@ -571,7 +851,7 @@ void Notes(int Amount)
     int32 NoteDivisor = 100;
     while(Amount){
         switch(NoteDivisor){
-        case 100:
+            case 100:
             {
                 K = Amount / 100;
                 Amount = Amount - (K * 100);
@@ -579,7 +859,7 @@ void Notes(int Amount)
                 printf("Note of Hundreds:: %d\n", K);
                 NoteDivisor = 50;
             } break;
-        case 50:
+            case 50:
             {
                 K= Amount / 50;
                 Amount = Amount - (K * 50);
@@ -587,7 +867,7 @@ void Notes(int Amount)
                 printf("Note of Fifty:: %d\n", K);
                 NoteDivisor = 20;
             }  break;
-        case 20:
+            case 20:
             {
                 K= Amount / 20;
                 Amount = Amount - (K * 20);
@@ -595,7 +875,7 @@ void Notes(int Amount)
                 printf("Note of Twenty:: %d\n", K);
                 NoteDivisor = 1;
             }  break;
-        case 1:
+            case 1:
             {
                 K = Amount / 1;
                 Amount = Amount - (K * 1);
@@ -603,7 +883,7 @@ void Notes(int Amount)
                 printf("Note of Ones:: %d\n", K);
                 NoteDivisor = 0;
             }break;
-        case 0:
+            case 0:
             {
                 Amount = 0;
             }
