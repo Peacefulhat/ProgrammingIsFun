@@ -1,5 +1,7 @@
 #ifndef DSTYPE_H
 #define DSTYPE_H
+
+// Need libraries.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
