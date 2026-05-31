@@ -3,14 +3,28 @@
 
 #include "../dstype.h"
 #define ARRAY_TYPE int32
-
+void PrintArray2D(ARRAY_TYPE* ARR, int32 Rows, int32 Cols);
 void RowSum(ARRAY_TYPE* Arr, int32 Rows, int32 Cols);
 void ColSum(ARRAY_TYPE* Arr, int32 Rows, int32 Cols);
+void Transpose(ARRAY_TYPE* Arr, int32 Rows, int32 Cols);
 void WaveForm(ARRAY_TYPE* Arr, int32 Rows, int32 Cols);
+void Rotate90Deg(ARRAY_TYPE* Arr, int32 Rows, int32 Cols);
 #endif
 
 #ifdef ARRAY2D_IMPLEMENTATION
 
+void PrintArray2D(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
+{
+    for(int32 Y = 0; Y < Rows; ++Y)
+    {
+        printf("[ ");
+        for(int32 X = 0; X < Cols; ++X)
+        {
+            printf("%d ", Arr[Y * Cols + X]);
+        }
+        printf("]\n");
+    }
+}
 void RowSum(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
 {
     printf("[ ");
@@ -45,6 +59,20 @@ void ColSum(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
 
 }
 
+
+void Transpose(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
+{
+       for(int32 Y = 0; Y < Cols; ++Y)
+    {
+        printf("[ ");
+        for(int32 X = 0; X < Rows; ++X)
+        {
+            printf("%d ",Arr[X * Cols + Y]);
+        }
+        printf("]\n");
+    }
+}
+
 void WaveForm(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
 {
     for(int32 Y = 0; Y < Cols; ++Y)
@@ -66,5 +94,10 @@ void WaveForm(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
         }
         printf("]\n");
     }
+}
+
+void Rotate90Deg(ARRAY_TYPE* Arr, int32 Rows, int32 Cols)
+{
+
 }
 #endif

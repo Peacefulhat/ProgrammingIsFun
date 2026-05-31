@@ -3,107 +3,160 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 
-typedef struct Token Token;
+typedef int8_t  int8;
+typedef uint8_t uint8;
+typedef int32_t int32;
+// using long as int64
+typedef int64_t int64;
+typedef uint64_t uint64;
+typedef enum{
+    WORD,
+    SENTENCE
+}kind;
 
- struct Token
+kind NodeKind = WORD;
+
+typedef struct
 {
-    char* Value;
-    Token* Next;
+    char* Start;
+    int32 Count;
+}string_view;
+
+typedef struct token token;
+
+struct token
+{
+    string_view Sv;
+    token* Next;
 };
 
+token* Head = NULL;
+token* Tail = NULL;
+
+int64 GetFileSize(FILE* File);
 char* ReadEntireFile(char* FilePath);
-Token* CreateTokenNode(char* value);
-void TokenList(char * File);
-void FreeFile(char *File);
-void PrintTokenList(Token *Head);
+void Append(token* Token);
+void Tokenizer(char* FileContents, kind NodeKind);
+void PrintTokenList(token* Head);
+
 #endif
 
 #ifdef LEXER_IMPLEMENTATION
 
-void FreeFile(char *File)
+int64 GetFileSize(FILE* File)
 {
-  if(File)
+    if(!File)
     {
-      free(File);
+        return (0);
     }
-  return;
-}
 
-Token* TokenListHead = NULL;
-Token* TokenListTail = NULL;
+    if(fseek(File, 0, SEEK_END) != 0)
+    {
+        return (0);
+    }
+    int64 Size = ftell(File);
+    return (Size);
+}
 
 char* ReadEntireFile(char* FilePath)
 {
-    FILE* ReadFile = fopen(FilePath, "r");
-    unsigned char* File = (unsigned char*)malloc(1024);
-    int i = 0;
-    int ch = 0;
-    while((ch = fgetc(ReadFile))!=EOF){
-      File[i] = (unsigned char)ch;
-        i++;
-      }
-    File[++i] = '\0';
-    
-    return File;
-}
-
-Token* CreateTokenNode(char* value)
-{
-  Token* token = (Token*)malloc(sizeof(Token));
-  token->Value = value;
-  token->Next = NULL;
-  return token;
-}
-
-void PrintTokenList(Token *Head)
-{
-    Token* Temp = Head;
-    int i = 0;
-    while(Temp!=NULL)
+    FILE* File = fopen(FilePath, "r");
+    if(!File)
     {
-        printf("%d: %s\n",i,Temp->Value);
-        i++;
-        Temp=Temp->Next;
+        return (NULL);
+    }
+
+    int64 Size = GetFileSize(File);
+    fseek(File, 0, SEEK_SET);
+    char* FContents = (char*)malloc(Size + 1);
+
+    if(fread(FContents, 1, Size, File) != Size)
+    {
+        return (NULL);
+    }
+    FContents[Size] = '\0';
+    return (FContents);
+}
+
+void Append(token* Token)
+{
+     if(Head == NULL  && Tail == NULL)
+     {
+        Head = Token;
+        Tail = Token;
+        return;
+     }
+
+    Tail->Next = Token;
+    Tail = Token;
+}
+
+static void PrintStringView(string_view Sv)
+{
+    int64 Index = 0;
+    while(Index < Sv.Count)
+    {
+        printf("%c",Sv.Start[Index]);
+        ++Index;
+    }
+}
+static string_view GetStringView(char* Begin, kind NodeKind)
+{
+    string_view Sv = {Begin, 0};
+    int64 i = 0;
+    switch(NodeKind)
+    {
+        case WORD:
+        {
+            while(Begin[Sv.Count++] != ' ');
+
+        }break;
+
+        case SENTENCE:
+        {
+            while(Begin[Sv.Count++] != '\n');
+
+        }break;
+    }
+    PrintStringView(Sv);
+    return (Sv);
+}
+
+static token* GetTokenNode(string_view Sv)
+{
+    token* Token = (token*) malloc(sizeof(*Token));
+    Token->Sv = Sv;
+    Token->Next = NULL;
+    return (Token);
+
+}
+
+void Tokenizer(char* FileContents, kind NodeKind)
+{
+    int64 Index = 0;
+    while(Index < strlen(FileContents))
+    {
+        string_view Sv = GetStringView(&FileContents[Index], NodeKind);
+        token* Token = GetTokenNode(Sv);
+        Append(Token);
+        Index += Sv.Count;
     }
 }
 
-void TokenAppend(Token* TokenNode)
-{
-    if(!TokenListHead)
-    {
-        TokenListHead = TokenNode;
-        TokenListTail = TokenNode;
-    }
-    TokenListTail->Next = TokenNode;
-    TokenListTail = TokenNode;
-}
 
-void TokenList(char * File)
+
+void PrintTokenList(token* Head)
 {
-  int i = 0;
-  Token* TknLst;
-  int j = -1;
-  char* Tkn = (char*)malloc(10);
-  while(File[i]!='\0')
-  {
-      if(File[i] == ' ' ||  File[i] == '\n')
-      {
-          if(j == -1 && File[i] == ' ')
-          {
-              i++;
-              continue;
-          }
-          Tkn[++j] = '\0';
-          j = -1;
-          TknLst = CreateTokenNode(Tkn);
-          TokenAppend(TknLst);
-          Tkn = (char*)malloc(20);
-          i++;
-          continue;
-      }
-      Tkn[++j] = File[i];      
-      i++;
+    token* Temp = Head;
+    while(Temp != NULL)
+    {
+        PrintStringView(Temp->Sv);
+        printf("\n");
+        Temp = Temp->Next;
+
     }
 }
 
