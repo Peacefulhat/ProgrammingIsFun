@@ -47,16 +47,12 @@ void WriteRandomRGB(const char* FilePath, uint32 Width, uint32 Height, uint32 Co
         for (uint32 j = 0; j < Img.Width; j++)
         {
             // Black and white Squares
-            /* Img.Colors.R = (j & i)%256; //
+              /* Img.Colors.R = (j & i)%256; //
                Img.Colors.G =     (Img.Colors.R &( (j & i)))%256;
                Img.Colors.B =     (Img.Colors.R & Img.Colors.G &(( (j & i))))%256;
-            */
+*/
             // Squers and tirangles
-                /*
-                Img.Colors.R = (j & i)%256;
-                Img.Colors.G =     (Img.Colors.R + ( (j + i)))%256;
-                Img.Colors.B =     (Img.Colors.R + Img.Colors.G - (( (j + i))))%256;
-                */
+                
                 Img.Colors.R = (j & i)%256;
                 Img.Colors.G =     (Img.Colors.R + ( (j + i)))%256;
                 Img.Colors.B =     (Img.Colors.R + Img.Colors.G - (( (j + i))))%256;
