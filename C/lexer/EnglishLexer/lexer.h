@@ -12,7 +12,9 @@ typedef int32_t int32;
 // using long as int64
 typedef int64_t int64;
 typedef uint64_t uint64;
-typedef enum{
+
+typedef enum
+{
     WORD,
     SENTENCE
 }kind;
