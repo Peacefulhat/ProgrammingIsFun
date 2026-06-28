@@ -1,5 +1,6 @@
 #define ARRAY2D_IMPLEMENTATION
 #include "Array/array2d.h"
+#include "Basic/basic.h"
 
 
 int main()
