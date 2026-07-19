@@ -5,46 +5,51 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef int8_t  int8;
 typedef uint8_t uint8;
 typedef int32_t int32;
-// using long as int64
 typedef int64_t int64;
 typedef uint64_t uint64;
 
-typedef enum
-{
-    WORD,
-    SENTENCE
-}kind;
-
-kind NodeKind = WORD;
-
 typedef struct
 {
-    char* Start;
+    const char* Data;
     int32 Count;
 }string_view;
 
-typedef struct token token;
+string_view CstrAsSv(const char* Cstr);
+string_view SvTrimLeft(string_view Sv);
+string_view SvTrimRight(string_view Sv);
+string_view SvTrim(string_view Sv);
+string_view SvChopByDelim(string_view* Sv, char Delim);
+void SvLeft(string_view* Sv, int N);
+int SvEq(string_view A, string_view B);
 
-struct token
-{
-    string_view Sv;
-    token* Next;
-};
-
-token* Head = NULL;
-token* Tail = NULL;
-
+// File Reading
 int64 GetFileSize(FILE* File);
 char* ReadEntireFile(char* FilePath);
-void Append(token* Token);
-void Tokenizer(char* FileContents, kind NodeKind);
-void PrintTokenList(token* Head);
+
+// Token
+typedef struct line line;
+
+struct line
+{
+    string_view* Word;
+    int32 WordCount;
+    line* Next;
+};
+
+typedef struct
+{
+    line* Begin;
+    line* End;
+    int32 LineCount;
+}eng_token;
 
 #endif
+
 
 #ifdef LEXER_IMPLEMENTATION
 
@@ -83,83 +88,92 @@ char* ReadEntireFile(char* FilePath)
     return (FContents);
 }
 
-void Append(token* Token)
-{
-     if(Head == NULL  && Tail == NULL)
-     {
-        Head = Token;
-        Tail = Token;
-        return;
-     }
 
-    Tail->Next = Token;
-    Tail = Token;
+#define PRINT_SV(Sv) printf("|%.*s|\n", (Sv).Count, (Sv).Data)
+
+string_view CstrAsSv(const char* Cstr)
+{
+    return (string_view){
+        .Data = Cstr,
+        .Count = strlen(Cstr)
+    };
 }
 
-static void PrintStringView(string_view Sv)
+string_view SvTrimLeft(string_view Sv)
 {
-    int64 Index = 0;
-    while(Index < Sv.Count)
+    int32 Index = 0;
+    while(Index < Sv.Count && Sv.Data[Index] == ' ')
     {
-        printf("%c",Sv.Start[Index]);
         ++Index;
+        
     }
+    return (string_view){
+        .Data = Sv.Data + Index,
+        .Count = Sv.Count - Index
+    };
 }
-static string_view GetStringView(char* Begin, kind NodeKind)
+
+string_view SvTrimRight(string_view Sv)
 {
-    string_view Sv = {Begin, 0};
-    int64 i = 0;
-    switch(NodeKind)
+    int32 Index = 0;
+    while(Index < Sv.Count && isspace(Sv.Data[Sv.Count - 1 - Index]))
     {
-        case WORD:
-        {
-            while(Begin[Sv.Count++] != ' ');
-
-        }break;
-
-        case SENTENCE:
-        {
-            while(Begin[Sv.Count++] != '\n');
-
-        }break;
-    }
-    PrintStringView(Sv);
-    return (Sv);
+        ++Index;
+    }    return (string_view){
+        .Data = Sv.Data,
+        .Count = Sv.Count - Index
+    };
 }
 
-static token* GetTokenNode(string_view Sv)
+string_view SvTrim(string_view Sv)
 {
-    token* Token = (token*) malloc(sizeof(*Token));
-    Token->Sv = Sv;
-    Token->Next = NULL;
-    return (Token);
-
+    return (SvTrimRight(SvTrimLeft(Sv)));
 }
 
-void Tokenizer(char* FileContents, kind NodeKind)
+// chop By string or something
+// string_view SvChopBySv(string_view*Sv, string_view Sv);
+// string_view SvChopByDelim(string_view*Sv, char* Delim);
+
+string_view SvChopByDelim(string_view* Sv, char Delim)
 {
-    int64 Index = 0;
-    while(Index < strlen(FileContents))
+    int32 Index = 0;
+    while(Index < Sv->Count && (Sv->Data[Index] != Delim ))
     {
-        string_view Sv = GetStringView(&FileContents[Index], NodeKind);
-        token* Token = GetTokenNode(Sv);
-        Append(Token);
-        Index += Sv.Count;
+        Index++;
     }
-}
-
-
-
-void PrintTokenList(token* Head)
-{
-    token* Temp = Head;
-    while(Temp != NULL)
+    string_view Result = {Sv->Data, Index};
+    if(Index < Sv->Count)
     {
-        PrintStringView(Temp->Sv);
-        printf("\n");
-        Temp = Temp->Next;
+        Sv->Data+=Index + 1;
+        Sv->Count-= Index + 1;
+    }
+    else // return what every there is left
+    {
+        Sv->Count -= Index ;
+        Sv->Data += Index ;
+    }
+    return (Result);
+}
 
+void SvLeft(string_view* Sv, int N)
+{
+    if(Sv != NULL)
+    {
+        Sv->Data += N;
+        Sv->Count -= N;
     }
 }
+
+int SvEq(string_view A, string_view B)
+{
+    if(A.Count != B.Count)
+    {
+        // if length are not equal.
+        return (-1);
+    }
+    return (strncmp(A.Data, B.Data, A.Count) == 0);
+}
+
+
 
 #endif
