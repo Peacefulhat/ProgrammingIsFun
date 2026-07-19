@@ -6,7 +6,6 @@ int main()
 {
     char* Buffer = ReadEntireFile("English.txt");
     string_view Sv = CstrAsSv(Buffer);
-    /*
     while(Sv.Count )
     {
         string_view Line = SvChopByDelim(&Sv, '\n');
@@ -17,6 +16,5 @@ int main()
             PRINT_SV(ChopedValue);
         }
     }
-    */
     return (0);
 }

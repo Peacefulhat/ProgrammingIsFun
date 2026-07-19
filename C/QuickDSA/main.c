@@ -1,7 +1,5 @@
-#define ARRAY2D_IMPLEMENTATION
+#define ARRAY2D_IMPLEMENTATION 
 #include "Array/array2d.h"
-#include "Basic/basic.h"
-
 
 int main()
 {
@@ -18,5 +16,10 @@ int main()
         1 2 3
     */
     PrintArray2D((int32*)arr, 3, 3);
+    int32 A = 23;
+    int32  B = 929;
+    printf("A: %d, B: %d\n", A, B);
+    SwapInt32(&A, &B);
+    printf("A: %d, B: %d\n", A, B);
     return 0;
 }

@@ -1,5 +1,7 @@
 #ifndef ARRAY_H
 #define ARRAY_H
+#define DSTYPE_IMPLEMENTATION
+
 #include "../dstype.h"
 
 #define ARRAY_TYPE int32

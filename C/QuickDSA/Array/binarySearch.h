@@ -1,5 +1,6 @@
 #ifndef BINARY_SEARCH_H
 #define BINARY_SEARCH_H
+#define DSTYPE_IMPLEMENTATION
 
 #include "../dstype.h"
 #define TYPE int32

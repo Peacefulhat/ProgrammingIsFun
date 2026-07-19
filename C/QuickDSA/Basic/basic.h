@@ -1,7 +1,6 @@
 #ifndef BASIC_H
 #define BASIC_H
 
-#include <stdio.h>
 #include "../dstype.h"
 // Type defination for patterns.
 typedef enum

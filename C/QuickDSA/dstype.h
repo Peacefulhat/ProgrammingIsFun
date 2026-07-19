@@ -1,3 +1,4 @@
+
 #ifndef DSTYPE_H
 #define DSTYPE_H
 
@@ -27,11 +28,8 @@ typedef struct {
     int32 Second;
 }Pair;
 
-void SwapInt32(int* A , int* B)
-{
-    int32 Temp = *A;
-    *A = *B;
-    *B = Temp;
-}
+void SwapInt32(int32* A, int32* B);
 
 #endif
+
+
