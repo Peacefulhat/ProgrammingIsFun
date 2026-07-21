@@ -8,7 +8,7 @@
 // 0) Print Array
 void PrintArray(ARRAY_TYPE* ARR, int32 Size);
 // 1)  Min and Maximum value in an array.
-Pair MinMaxArray(ARRAY_TYPE* Arr, int32 Size);
+pair MinMaxArray(ARRAY_TYPE* Arr, int32 Size);
 // 2)  Linear Search.
 bool32 LinearSearch(ARRAY_TYPE* Arr, int32 Size, int32 Key);
 // 3)  Reverse an array.
@@ -51,9 +51,9 @@ void PrintArray(ARRAY_TYPE* Arr, int32 Size)
     }
 }
 
-Pair MinMaxArray(int32* Arr, int32 Size)
+pair MinMaxArray(int32* Arr, int32 Size)
 {
-    Pair Result = {0};
+    pair Result = {0};
     Result.First = INT_MAX;
     Result.Second = INT_MIN;
     for(int32 Index = 0 ; Index < Size; ++Index)

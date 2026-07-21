@@ -9,7 +9,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <limits.h>
+#include <ctype.h>
 #include <math.h>
+
 
 typedef int8_t  int8;
 typedef int16_t int16;
@@ -22,13 +24,19 @@ typedef uint16_t uint16;
 typedef uint32_t uint32;
 typedef float  real32;
 typedef double real64;
-
+// Pair
 typedef struct {
     int32 First;
     int32 Second;
-}Pair;
+}pair;
 
-void SwapInt32(int32* A, int32* B);
+
+void SwapInt32(int32* A , int32* B)
+{
+    int32 Temp = *A;
+    *A  = *B;
+    *B = Temp;
+}
 
 #endif
 

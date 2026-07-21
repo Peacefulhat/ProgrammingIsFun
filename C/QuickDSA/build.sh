@@ -1,3 +1,3 @@
 #!/bin/zsh
-gcc -o main main.c dstype.c -lm
-./main 
+gcc -o main main.c -lm
+./main
