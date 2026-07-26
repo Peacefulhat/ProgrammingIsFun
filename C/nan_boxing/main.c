@@ -11,11 +11,9 @@
 
 void print_bits(uint8_t* Bytes, size_t BytesSize)
 {
-    for(int Y = BytesSize - 1; Y >= 0; --Y)
-    {
+    for(int Y = BytesSize - 1; Y >= 0; --Y) {
         uint8_t Byte = Bytes[Y];
-        for(int  X = 7; X >= 0; --X )
-        {
+        for(int  X = 7; X >= 0; --X ) {
             printf("%d", !!(Byte & (1 << X)));
 
         }
@@ -25,13 +23,14 @@ void print_bits(uint8_t* Bytes, size_t BytesSize)
 }
 
 
-#define INSPECT_VALUE(Type, Value, Lable)         \
-{                                                 \
-Type Name = (Type)(Value);                        \
-printf("%s: \n\t", Lable);                       \
-print_bits((uint8_t*)&Name, sizeof(Name));        \
-printf("    is nan = %d\n", IsNaN(Name));         \
-}                                                 \
+#define INSPECT_VALUE(Type, Value, Lable)            \
+{                                                    \
+    Type Name = (Type)(Value);                       \
+    printf("%s: \n\t", Lable);                       \
+    print_bits((uint8_t*)&Name, sizeof(Name));       \
+    printf("    is nan = %d\n", IsNaN(Name));        \
+}                                                    \
+
 
 #define EXP_MASK (((1LL << 11LL) - 1) << 52LL) // -1 for that one bit (think to know).
 #define FRACTION_MASK ((1LL << 52LL) - 1L)
@@ -39,14 +38,14 @@ printf("    is nan = %d\n", IsNaN(Name));         \
 #define TYPE_MASK (((1LL << 4LL) - 1LL) <<48LL)
 #define VALUE_MASK  ((1LL << 48LL) - 1LL)
 #define TYPE(N) ((1LL << 3LL) + N)
- 
+
 double MakeInf(void)
 {
     uint64_t Result = EXP_MASK;
     return *(double*)&Result;
 }
 
- double SetType(double X, uint64_t Type)
+double SetType(double X, uint64_t Type)
 {
     uint64_t Cast = *(uint64_t*)&X;
     Cast = (Cast & (~TYPE_MASK))| (((TYPE_MASK >> 48LL) & Type ) << 48LL);
@@ -71,7 +70,7 @@ uint64_t GetValue(double X)
 {
     uint64_t Cast = (*(uint64_t*)&X);
     return (Cast & VALUE_MASK);
-    
+
 }
 
 int IsNaN(double X)
@@ -137,12 +136,12 @@ int IsInf(double X)
 {
     uint64_t Cast = (*(uint64_t*)&X) ;
     return ((Cast & EXP_MASK) == EXP_MASK) &&
-    ((Cast & FRACTION_MASK) == 0) &&
-    ((Cast & SIGN_MASK) == 0);
+           ((Cast & FRACTION_MASK) == 0) &&
+           ((Cast & SIGN_MASK) == 0);
 }
 
 
-int main(void)
+int main2(void)
 {
     double Pi = 3.14159265359;
     assert(Pi         ==  AsDouble(BoxDouble(Pi)));
@@ -152,26 +151,26 @@ int main(void)
     return (0);
 }
 
-int main2(void)
+int main(void)
 {
     //INSPECT_VALUE(double,  3.14159265359, "3.14159265359");
     //INSPECT_VALUE(double,  nan("0"), "nan(0)");
     //INSPECT_VALUE(double,  nan("1"), "nan(1)");
     //INSPECT_VALUE(double,  nan("2"), "nan(2)");
-        /*
+    /*
     for(int i = 0; i < ValueSize; ++i)
     {
-        printf("{\n");
-        printf("\t%d: is double  == %d\n", i, IsDouble(Values[i]));
-        printf("\t%d: is integer == %d\n", i, IsInteger(Values[i]));
-        printf("\t%d: is pointer == %d\n", i, IsPointer(Values[i]));
-        printf("}\n");
+    printf("{\n");
+    printf("\t%d: is double  == %d\n", i, IsDouble(Values[i]));
+    printf("\t%d: is integer == %d\n", i, IsInteger(Values[i]));
+    printf("\t%d: is pointer == %d\n", i, IsPointer(Values[i]));
+    printf("}\n");
     }
     */
 
-    for(uint64_t i = 0; i < 8; ++i)
-    {
+    for(uint64_t i = 0; i < 8; ++i) {
         INSPECT_VALUE(double, SetValue(SetType(MakeInf(), TYPE(i)), 1234567LL), "0");
-    }  
+    }
+
     return (0);
 }
