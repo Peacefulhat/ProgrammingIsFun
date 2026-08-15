@@ -1,4 +1,5 @@
 // Resource: https://en.wikipedia.org/wiki/NaN
+// Resource: https://piotrduperas.com/posts/nan-boxing/
 // Tsoding Daily: Virtal Machine in C EP 2 : NaN - Boxing.
 // This was implemented using the video, i don't own anything.
 // I am just learning why its useful and how its implemented.
