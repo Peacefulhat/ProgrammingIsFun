@@ -43,4 +43,26 @@ fn main(){
     println!("Debug: {:?}", A);
     println!("Display: {}", B);
     println!("Debug: {:?}", B);
+
+    // Printing vectors, try changing the code so that it print index as well
+    #[derive(Debug)]
+    struct list(Vec<i32>);
+
+    impl fmt::Display for list {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            // create the reference to the vec<i32> in the list structure
+            let Vec = &self.0;
+            write!(f, "[")?;
+            for (index, v) in Vec.iter().enumerate() {
+                if index != 0 {
+                    write!(f, ", ")?;
+                }
+                write!(f, "{0}:{1} ", index, v)?;
+            }
+            write!(f, "]")
+        }
+    }
+    let items = list(vec![23, 24, 25, 26, 27]);
+    println!("Debug: {:#?}", items);
+    println!("Display: {}", items);
 }
