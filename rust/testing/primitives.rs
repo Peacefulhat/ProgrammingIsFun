@@ -3,6 +3,7 @@
 #![allow(unused_assignments)]
 
 fn main() {
+    println!("\nData Types:\n");
     // Constant
     const THREE_HOURS: u32 = 60 * 60 * 3;
 

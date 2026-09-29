@@ -42,6 +42,8 @@ impl fmt::Display for Point2D {
 }
 
 fn main() {
+    
+    println!("\nFormatted Printing:\n");
     let MyStr = format!("format!(): This macro write a formatted text to a string");
     print!("print!(): This prints the formatted text to the console\n");
     print!("{}", MyStr);
