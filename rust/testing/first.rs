@@ -6,6 +6,6 @@ line
 comment
  */
 
-fn main(){
+fn main() {
     println!("Hello, World From Rust!");
 }

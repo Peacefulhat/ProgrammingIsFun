@@ -65,4 +65,24 @@ fn main(){
     let items = list(vec![23, 24, 25, 26, 27]);
     println!("Debug: {:#?}", items);
     println!("Display: {}", items);
+    //  color formatting challenge
+    #[derive(Debug)]
+    struct color {
+        Red: u8,
+        Green: u8,
+        Blue: u8,
+    }
+    impl fmt::Display for color {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result{
+            write!(f, "RGB ({0}, {1}, {2}) 0x{0:02X}{1:02X}{2:02X}", self.Red, self.Green, self.Blue)
+        }
+    }
+
+    for Color in [
+   color { Red: 128, Green: 255, Blue: 90}, 
+   color { Red: 0, Green: 3, Blue: 254},
+   color { Red: 0, Green: 0, Blue: 0}, 
+    ]{
+              println!("{}", Color);
+    }
 }

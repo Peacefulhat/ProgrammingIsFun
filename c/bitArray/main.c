@@ -22,7 +22,7 @@ Bytes bits |
 
 void SetBit(int pos, unsigned int* BitArray)
 {
-  
+
     unsigned int Mask = 1 << (pos-1);
     BitArray[0] = BitArray[0] |  Mask;
 
@@ -30,13 +30,13 @@ void SetBit(int pos, unsigned int* BitArray)
 
 void PrintBits(unsigned int * BitArray)
 {
+
     unsigned int arr[1];
     arr[0] = BitArray[0];
-    do
-    {
+    do {
         printf("%d",(arr[0] & 1));
         arr[0] >>=1;
-    }while(arr[0] != 0);
+    } while(arr[0] != 0);
     printf("\n");
 }
 
