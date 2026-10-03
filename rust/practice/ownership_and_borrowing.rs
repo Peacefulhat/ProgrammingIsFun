@@ -8,8 +8,26 @@
 // if owner goes out of the scope the value is dropped
 
 // Borrowing(reference)
-// we can have indefinate amout of immutable references or can have one mutable reference
+// we can have indefinate amout of immutable references or can have one mutable reference at a time.
 // reference should be valid
+
+
+// here we changed the ownership of value  and then again send it back to original variable.
+fn Preserve(mut S: String) -> String{
+    S.push_str(", World 3");
+    let mut Result =  S;
+    Result
+}
+fn TransferOwnership(S: String){
+    //This function will remove onwership of passed variable
+    // the parameter is going to the new onwner and the value will be dropped,
+    // when function goes out of scope
+}
+
+fn SendOwnership() -> String{
+    let Result = String::from("Onweship Send"); // This variable onwer ship is going to transfered to other variable
+    Result // return Result;
+}
 
 fn main() {
     // ownership
@@ -49,21 +67,38 @@ fn main() {
     let mut Str = String::from("Hello, World2!");
     let mut Str = Preserve(Str);
     println!("{:?}", Str);
+
+    // Reference
+    // immutable reference
+    let mut Str = String::from("New Thing");
+    let X = &Str; // immutable reference: only allow to read the memory
+
+    // mutable reference with function
+    let mut Str = String::from("Hello, World2!");
+    UpdateString(&mut Str); // allow to read or wirte to memory
+    println!("{}", Str);
+    
+    //let mut Str2 = &mut Str; // only one mutable reference is allow on a mutable variable or
+    //indefinate amount of immutable references, one thing at a time(mutable or immutable)
+//    let mut Str3 = &mut Str;
+    //println!("{} {}", Str2, Str3);// error
+//    let Str3 = &Str;
+    //     println!("{} {}", Str2, Str3); // error
+    let Str2 = &Str;
+    let Str3 = &Str;
+    let Str4 = &Str;
+
+    println!("{}, {}, {}", Str2, Str3, Str4);
+    let mut Str = String::from("Hello, World2! mutable");
+    let Str5 = TakeAndReturn(&mut Str); // more of like a mutable reference
+    println!("{}", Str5);
+
 }
 
-// here we changed the ownership of value  and then again send it back to original variable.
-fn Preserve(mut S: String) -> String{
-    S.push_str(", World 3");
-    let mut Result =  S;
-    Result
-}
-fn TransferOwnership(S: String){
-    //This function will remove onwership of passed variable
-    // the parameter is going to the new onwner and the value will be dropped,
-    // when function goes out of scope
+fn TakeAndReturn(Str: &mut String) ->&mut String {
+    Str
 }
 
-fn SendOwnership() -> String{
-    let Result = String::from("Onweship Send"); // This variable onwer ship is going to transfered to other variable
-    Result // return Result;
+fn UpdateString(Str: &mut String){
+    Str.push_str("No No, it's Third");
 }
