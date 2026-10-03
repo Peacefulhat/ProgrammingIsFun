@@ -39,6 +39,7 @@ fn main() {
     // Note: Debug {:?} can be used with rust known types
 
     // Compound Types
+    
     let arr: [i32; 5] = [1, 2, 3, 4, 5];
     println!("{:?}", arr);
     let tuple = (5u32, 1u8, true, -5.04f32);
@@ -49,4 +50,7 @@ fn main() {
     println!("{:?}", tuple);
     println!("{:?}", tuple2);
     println!("{}", THREE_HOURS);
+    //  Note:  The tuple without any values has a special name, unit.
+    //This value and its corresponding type are both written () and represent an empty value or an empty return type.
+    //Expressions implicitly return the unit value if they don’t return any other value.
 }
