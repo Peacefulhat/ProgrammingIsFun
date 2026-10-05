@@ -50,7 +50,7 @@ fn main() {
     };
 
     println!("P4: {:?}", p4);
-    //    println!("P3: {:?}", p3); // p3 is not accesible, its ownership was transfered to p4(heap data not in stack -> string)
+    //    println!("P3: {:?}", p3); // p3 is not accesible, its ownership was transfered to p4(heap data, not in stack -> string)
     //partial move occurs because `p3.Name` has type `String`, which does not implement the `Copy` trait
 
     // Tuple Structs
@@ -114,11 +114,11 @@ fn main() {
     };
     dbg!(RectArea4(&Rectangle2));
 
-      let Rectangle2 = rect2 {
+    let Rectangle2 = rect2 {
         Width: 10,
         Height: 50,
-      };
-    
+    };
+
     let Rectangle3 = rect2 {
         Width: 50,
         Height: 50,
@@ -126,19 +126,22 @@ fn main() {
     println!("(method): Area of Rectangle: {}", Rectangle3.Area());
 
     // Methods with more parameters
-    println!("(method with more parameter): Area of Rectangle: {}", Rectangle3.CanHold(&Rectangle2));
-    
+    println!(
+        "(method with more parameter): Area of Rectangle: {}",
+        Rectangle3.CanHold(&Rectangle2)
+    );
+
     // Associate function
     //All functions defined within an impl block are called associated functions because
     //they’re associated with the type named after the impl. We can define associated functions
     //that don’t have self as their first parameter (and thus are not methods) because they don’t
     //need an instance of the type to work with. We’ve already used one function like this:
     //the String::from function that’s defined on the String type.
-    
+
     //Associated functions that aren’t methods are often used for constructors
     //that will return a new instance of the struct. These are often called new,
     //but new isn’t a special name and isn’t built into the language.
-    let NewRectangle = rect2::New(5, 5);
+    let NewRectangle = rect2::New(5, 5); // as a constructor.
     println!("(Associate function): Rectangle: {:?}", NewRectangle);
 }
 
@@ -154,27 +157,31 @@ struct rect2 {
 // Unlike functions, methods are defined within the context of a struct (or an enum or a trait object,
 // and their first parameter is always self, which represents the instance of the struct the method is being called on.
 
-impl rect2{
-    fn Area(&self) -> u32{
+impl rect2 {
+    fn Area(&self) -> u32 {
         self.Width * self.Height
     }
-    
+
     fn Width(&self) -> bool {
         self.Width > 0
     }
-    
+
     fn CanHold(&self, Other: &rect2) -> bool {
         self.Width > Other.Width && self.Height > Other.Height
     }
-    
-    // associate function // there first parameter is not self
-     fn New(Width: u32, Height: u32) -> Self {
+
+    // associate function // here first parameter is not self
+    fn New(Width: u32, Height: u32) -> Self {
+        // here Self is the rect2 struct type it self
         Self {
-            Width,
-            Height
+            Width, // struct init shorthand
+            Height,
         }
+        //The Self keywords in the return type and in the body of the function are aliases for
+        //the type that appears after the impl keyword, which in this case is rect2.
     }
 }
+
 fn RectArea4(Side: &rect2) -> u32 {
     Side.Width * Side.Height
 }
@@ -205,3 +212,12 @@ fn Construct(NewName: String, NewAge: u32) -> person {
 fn Construct2(Name: String, Age: u32) -> person {
     person { Name, Age }
 }
+
+//Note: in the signature for area, we use &self instead of rect: &rect2  The &self is actually short for self: &Self.
+//Within an impl block, the type Self is an alias for the type that the impl block is for.(here rect2)
+//Methods must have a parameter named self of type Self for their first parameter,
+//so Rust lets you abbreviate this with only the name self in the first parameter spot.
+//Note that we still need to use the & in front of the self shorthand to indicate that this method borrows the Self instance,
+//just as we did in rect: &rect2.
+//Methods can take ownership of self, borrow self immutably, as we’ve done here, or borrow self mutably &mut self, just as they can any other parameter.
+

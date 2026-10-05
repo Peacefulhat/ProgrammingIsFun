@@ -13,12 +13,18 @@ fn main() {
     let mut StringSlice = &Str[..];
     let Updatedtext = SliceFunc(&StringSlice);
     println!("{}", Updatedtext);
-    
+
     // other slice type is &i32
     let a = [1, 2, 3, 4, 5];
     let slice = &a[1..3];
+
+    SliceFunc2("Helo, world"); // string literal are like of
+                               // &str type
 }
 
+fn SliceFunc2(Str: &str) {
+    println!("{}", Str);
+}
 fn SliceFunc(Str: &str) -> &str {
     let Token = String::from("int::");
     let Slice = &Token[..];
