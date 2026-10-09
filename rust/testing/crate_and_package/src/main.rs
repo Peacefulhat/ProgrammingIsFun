@@ -2,7 +2,7 @@
 #![allow(unused)]
 
 pub mod garden;
-pub use crate::garden::sum;
+
 fn main() {
     let Plant = garden::vegetables::vegetable {
         Name: String::from("Asparagus"),
