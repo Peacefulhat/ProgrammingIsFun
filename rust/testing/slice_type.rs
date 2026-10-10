@@ -126,3 +126,8 @@ fn FirstWordInString4(S: &str) -> &str {
 //The Rust language gives you control over your memory usage in the same way as other systems programming languages.
 //But having the owner of data automatically clean up that data when the owner goes out of scope means you don’t have
 //to write and debug extra code to get this control.
+
+/*Note: &str can be a stack allocated string slice, or slice to a String
+(which is heap allocated) and in &'static str's case can be a string literal,
+stored in text segment of the binary.
+ */
