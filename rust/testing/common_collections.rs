@@ -1,16 +1,16 @@
+//A vector allows you to store a variable number of values next to each other.
+/*    pub struct Vec<T, A = Global>
+where
+    A: Allocator,
+{
+    /* private fields */ }
+ */
+
 #![allow(unused)]
 #![allow(nonstandard_style)]
-
 use std::collections::*;
 
 fn main() {
-    //A vector allows you to store a variable number of values next to each other.
-    /*    pub struct Vec<T, A = Global>
-    where
-        A: Allocator,
-    {
-        /* private fields */ }
-     */
     let mut MyVector = Vec::<i32>::new();
     let v = vec![1, 2, 3]; // initialization with vec! macro
     MyVector.push(-23); // add item to end of vector
@@ -30,6 +30,7 @@ fn main() {
         println!("{}", item);
     }
     println!("{}", MyVector.capacity());
+
     // Option<&T> return type kindof
     let MyVecSlice = MyVector.get(1); // index; returns Option<&i32>
     println!("{}", MyVecSlice.unwrap());
@@ -57,7 +58,6 @@ fn main() {
         Text(String),
     }
 
-
     let row = vec![
         SpreadsheetCell::Int(3),
         SpreadsheetCell::Text(String::from("blue")),
@@ -66,4 +66,5 @@ fn main() {
     println!("{:?}", row);
     //A string is a collection of characters. We’ve mentioned the String type previously,
     //A hash map allows you to associate a value with a specific key. common called a `map`.
+
 }
