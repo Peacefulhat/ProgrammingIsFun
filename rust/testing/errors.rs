@@ -26,7 +26,7 @@ fn main() {
 
     //    panic!("Crash and Burn"); we are calling panic! macro ourselves.
     let my_vec = vec![1, 2, 3];
-//    println!("{}", my_vec[99]); // here it happeing by the code, we were trying to access at invlid index.
+    //    println!("{}", my_vec[99]); // here it happeing by the code, we were trying to access at invlid index.
 
     // recoverable errors
     /*
@@ -35,6 +35,10 @@ fn main() {
                 Err(E)
         }
      */
-let MyFile = File::open("helo.txt");
-}
+  let FileResult = File::open("hello.txt");
 
+    let ReadFile = match FileResult {
+        Ok(file) => file,
+        Err(error) => panic!("Problem opening the file: {:?}", error)
+    };
+}
