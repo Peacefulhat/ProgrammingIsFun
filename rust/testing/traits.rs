@@ -1,6 +1,7 @@
 #![allow(nonstandard_style)]
 #![allow(unused)]
-
+use std::fmt::Display;
+use std::fmt::Debug;
 //A trait defines the functionality a particular type has and can share with other types.
 //We can use traits to define shared behavior in an abstract way.
 //We can use `trait bounds` to specify that a generic type can be any type that has certain behavior.
@@ -13,10 +14,13 @@
 
 trait summary {
     //    fn Summarize(&self) -> String;
-
+    //Default implementations can call other methods in the same trait,
+    //even if those other methods don’t have a default implementation.
+    //In this way, a trait can provide a lot of useful functionality and only require implementors to specify a small part of it.
+    fn SummarizeAuthor(&self) -> String;
     //Using Default Implementations
     fn Summarize(&self) -> String {
-        String::from("(Read more...)")
+        format!("(Read more...) {}", self.SummarizeAuthor())
     }
 }
 //After the method signature, instead of providing an implementation within curly brackets, we use a semicolon.
@@ -40,6 +44,9 @@ struct news_article {
 //to have for the particular type.
 
 impl summary for news_article {
+    fn SummarizeAuthor(&self) -> String {
+        format!("@{}", self.Author)
+    }
     fn Summarize(&self) -> String {
         format!(
             "\n{}, by {} ({})\n\n {}\n",
@@ -65,7 +72,12 @@ impl summary for social_post {
 }
 
  */
-impl summary for social_post {}
+
+impl summary for social_post {
+    fn SummarizeAuthor(&self) -> String {
+        format!("@{}", self.Username)
+    }
+}
 // use aggregator::{SocialPost, Summary};
 // this is how we import the code form a module and the trait. we have to explecity import the trait
 
@@ -73,6 +85,46 @@ impl summary for social_post {}
 //Sometimes it’s useful to have default behavior for some or all of the methods in a trait instead of
 //requiring implementations for all methods on every type. Then, as we implement the trait on a particular type,
 //we can keep or override each method’s default behavior.
+
+
+// using traits as parameter
+
+fn Notify(Item: &impl summary) {
+    //Instead of a concrete type for the item parameter, we specify the impl keyword and the trait name.
+    //This parameter accepts any type that implements the specified trait. In the body of notify,
+    //we can call any methods on item that come from the Summary trait
+    
+    println!("\nNotification: \nBreaking news! {}", Item.Summarize());
+}
+
+//multiple trait bounds exmaple
+fn Notify2 <T: summary + Display> (Item: &T){
+    
+}
+
+// clearer trait bound with where clause
+//fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {
+fn some_function<T, U>(t: &T, u: &U)
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+    
+}
+
+
+//Returning Types That Implement Traits
+fn returns_summarizable() -> impl summary {
+    // here returning a trait object, more on that later in chapter 18
+    social_post {
+        Username: String::from("horse_ebooks"),
+        Content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        Reply: false,
+        Repost: false,
+    }
+}
 
 fn main() {
     let mut FirstNews = news_article {
@@ -96,4 +148,54 @@ fn main() {
     println!("{}", Summarize);
     let Summarize = FirstPost.Summarize();
     println!("{}", Summarize);
+
+    Notify(&FirstNews);
+    let ReturnedTrait = returns_summarizable();
+    //println!("{:?}", ReturnedTrait);// error, traits object is not covered for now
 }
+
+
+//The impl Trait syntax works for straightforward cases but is actually syntax sugar for a longer form known as a trait bound;
+/*
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+// with multiple trait parameter parameter
+pub fn notify(item1: &impl Summary, item2: &impl Summary)
+
+Using impl Trait is appropriate if we want this function to allow item1 and item2 to have different types (as long as both types implement Summary). If we want to force both parameters to have the same type, however, we must use a trait bound, like this
+
+pub fn notify<T: Summary>(item1: &T, item2: &T) {
+
+multiple trait bounds:
+We can also specify more than one trait bound. Say we wanted notify to use display formatting as well as summarize on item: We specify in the notify definition that item must implement both Display and Summary. We can do so using the + syntax:
+
+pub fn notify(item: &(impl Summary + Display)) {
+
+The + syntax is also valid with trait bounds on generic types:
+
+pub fn notify<T: Summary + Display>(item: &T) {
+
+With the two trait bounds specified, the body of notify can call summarize and use {} to format item.
+
+*/
+/*
+Clearer Trait Bounds with where Clauses
+
+Using too many trait bounds has its downsides. Each generic has its own trait bounds, so functions with multiple generic type parameters can contain lots of trait bound information between the function’s name and its parameter list, making the function signature hard to read. For this reason, Rust has alternate syntax for specifying trait bounds inside a where clause after the function signature. So, instead of writing this:
+
+fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {
+
+we can use a where clause, like this:
+
+fn some_function<T, U>(t: &T, u: &U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+
+This function’s signature is less cluttered: The function name, parameter list, and return type are close together, similar to a function without lots of trait bounds.
+*/
+
+//Using Trait Bounds to Conditionally Implement Methods: (not get the point for now, if need go rust book this section)
+//We can also conditionally implement a trait for any type that implements another trait. Implementations of a trait on any type that satisfies the trait bounds are called blanket implementations and are used extensively in the Rust standard library
