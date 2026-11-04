@@ -19,9 +19,11 @@ https://www.naukri.com/code360/problems/pair-sum_697295?source=youtube&campaign=
 Triplet Sum(Code Studio)
 https://www.naukri.com/code360/problems/triplets-with-given-sum_893028?source=youtube&campaign=LoveBabbar_Codestudiovideo1&utm_source=youtube&utm_medium=affiliate&utm_campaign=LoveBabbar_Codestudiovideo1
 
-sort 0 and 1
+sort 0 and 1:
+no-link.(google up the question, in leetcode or codehelp.in, and others)
 
 sort 0,1,2 (Code Studio).
 https://www.naukri.com/code360/problems/sort-0-1-2_631055?source=youtube&campaign=LoveBabbar_Codestudiovideo1&utm_source=youtube&utm_medium=affiliate&utm_campaign=LoveBabbar_Codestudiovideo1
 
-
+Shift array element by 1 and by K position:
+no-link.(google up the question, in leetcode or codehelp.in, and others)

@@ -1,6 +1,6 @@
 #ifndef ARRAY2D_H
 #define ARRAY2D_H
-#include "../dstype.h"
+#include "common.h"
 
 #define ARRAY_TYPE int32
 void PrintArray2D(ARRAY_TYPE* ARR, int32 Rows, int32 Cols);

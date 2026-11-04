@@ -1,3 +1,3 @@
 #!/bin/zsh
-gcc -o main main.c -lm
+gcc -o main main.c -Ilibds/ -lm
 ./main
