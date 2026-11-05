@@ -45,6 +45,7 @@ void ShiftRight2(ARRAY_TYPE* Arr, int32 Size, int32 K);
 void ShiftRight3(ARRAY_TYPE* Arr, int32 Size, int32 K);
 //17) Find Union of Two arrays.
 void UnionofArray(ARRAY_TYPE* Arr, int32 ArrSize, ARRAY_TYPE* Arr2, int32 ArrSize2);
+
 #endif
 
 
@@ -274,6 +275,24 @@ void TripletSum(ARRAY_TYPE* Arr, int32 Size, int32 Sum)
 
 void Sort0And1(ARRAY_TYPE* Arr, int32 Size)
 {
+    /*
+    my solution
+    int32 Start = 0;
+    int32 End = Size - 1;
+    while(Start < End) {
+     if(Arr[Start] > Arr[End]) {
+         SWAP(int32, Arr[Start], Arr[End]);
+         Start++;
+         End--;
+     }
+     else if(Arr[Start] < Arr[End]) {
+         End--;
+     }
+     else{
+         Start++;
+     }
+
+    }*/
     int32 Start = 0;
     int32 End = Size - 1;
     while(Start < End) {
@@ -293,6 +312,31 @@ void Sort0And1(ARRAY_TYPE* Arr, int32 Size)
 // Todo: // Do this problem.
 void Sort012(ARRAY_TYPE* Arr, int32 Size)
 {
+    int Low = 0;
+    int High = Size - 1;
+    int Mid = 0;
+
+    // process elements until Mid crosses High
+    while (Mid <= High) {
+        if (Arr[Mid] == 0) {
+
+            // current is 0: swap with Low and move both
+            // pointers forward
+            SWAP(int32, Arr[Low], Arr[Mid]);
+            Low++;
+            Mid++;
+        } else if (Arr[Mid] == 1) {
+            // current is 1: it's already in correct position
+            Mid++;
+        } else {
+            // current is 2: swap with High and move High backward
+            // do not increment Mid, as swapped value needs
+            // to be re-checked
+            SWAP(int32, Arr[Mid], Arr[High]);
+            High--;
+        }
+    }
+
 }
 
 void RunningSum(ARRAY_TYPE* Arr, int32 Size)
@@ -302,7 +346,7 @@ void RunningSum(ARRAY_TYPE* Arr, int32 Size)
     }
 }
 
-void ShiftRight(ARRAY_TYPE* Arr, int32 Size)
+void SHighftRight(ARRAY_TYPE* Arr, int32 Size)
 {
     int32 Temp = Arr[0];
     uint32 i = 0;
@@ -389,7 +433,8 @@ void UnionofArray(ARRAY_TYPE* Arr, int32 ArrSize, ARRAY_TYPE* Arr2, int32 ArrSiz
     PrintArray(Arr3, j);
 }
 
-int findUnion(int arr1[], int size1, int arr2[], int size2) {
+int findUnion(int arr1[], int size1, int arr2[], int size2)
+{
     int k = 0; // Index tracker for the result array
     int32 result[size1 + size2];
     // 1. Copy all elements of the first array to the result
@@ -400,7 +445,7 @@ int findUnion(int arr1[], int size1, int arr2[], int size2) {
     // 2. Add elements from the second array if they are not already in the result
     for (int i = 0; i < size2; i++) {
         int isDuplicate = 0;
-        
+
         // Check if arr2[i] already exists in the result array
         for (int j = 0; j < k; j++) {
             if (result[j] == arr2[i]) {
@@ -408,7 +453,7 @@ int findUnion(int arr1[], int size1, int arr2[], int size2) {
                 break;
             }
         }
-        
+
         // If it's a unique element, add it
         if (!isDuplicate) {
             result[k++] = arr2[i];

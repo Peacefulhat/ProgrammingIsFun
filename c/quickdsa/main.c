@@ -7,8 +7,7 @@
 
 int main()
 {
-    ARRAY_TYPE MyArr[7]= {1,2,3,4,5, 6, 7};
-    ARRAY_TYPE MyArr2[7]= {1,2,3,4,5, 6, 7};
-    FindArrayInstersection(MyArr, 7, MyArr2, 7);
+    ARRAY_TYPE MyArr[7]= {0, 1, 2, 0, 1, 2, 0};
+    PrintArray(MyArr, 7);
     return (0);
 }
