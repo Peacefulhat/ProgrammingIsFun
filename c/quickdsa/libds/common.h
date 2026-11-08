@@ -1,7 +1,13 @@
 // comman type aliases
 #ifndef COMMON_TYPE_H
 #define COMMON_TYPE_H
+
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+
 
 // common type alias
 typedef int8_t  int8;

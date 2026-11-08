@@ -45,6 +45,12 @@ void ShiftRight2(ARRAY_TYPE* Arr, int32 Size, int32 K);
 void ShiftRight3(ARRAY_TYPE* Arr, int32 Size, int32 K);
 //17) Find Union of Two arrays.
 void UnionofArray(ARRAY_TYPE* Arr, int32 ArrSize, ARRAY_TYPE* Arr2, int32 ArrSize2);
+//18) Remove Duplicates from sorted array
+int32 RemoveDuplicates(ARRAY_TYPE* Arr, int32 Size);
+//19) Find First Repeating element in array.
+int32 FristRepeatingElement(ARRAY_TYPE* Arr, int32 Size);
+//20) find the pivot index
+int32 PivotIndex(ARRAY_TYPE* Arr, int32 Size);
 
 #endif
 
@@ -249,9 +255,9 @@ void FindArrayInstersection(ARRAY_TYPE* Arr, int32 N, ARRAY_TYPE* Arr2, int32 M 
 void  PairSum(ARRAY_TYPE* Arr, int32 Size, int32 Sum)
 {
     //TODO:: can i use binary serach to solve this.
-    for(int32 First = 0; First < Size; ++First) {
-        for(int32 Second = 0; Second < Size; ++Second) {
-            if(Arr[First] + Arr[Second] == Sum && Arr[First] < Arr[Second]) {
+    for(int32 First = 0; First < Size - 1; ++First) {
+        for(int32 Second = First + 1; Second < Size; ++Second) {
+            if(Arr[First] + Arr[Second] == Sum && Arr[First] <= Arr[Second]) {
                 printf("{%d, %d}\n", Arr[First], Arr[Second]);
             }
         }
@@ -261,8 +267,8 @@ void  PairSum(ARRAY_TYPE* Arr, int32 Size, int32 Sum)
 
 void TripletSum(ARRAY_TYPE* Arr, int32 Size, int32 Sum)
 {
-    for(int32 First = 0; First < Size; ++First) {
-        for(int32 Second = First + 1; Second < Size; ++Second) {
+    for(int32 First = 0; First < Size - 2; ++First) {
+        for(int32 Second = First + 1; Second < Size - 1; ++Second) {
             for(int32 Third = Second + 1; Third < Size; ++Third) {
                 if(Arr[First] + Arr[Second] + Arr[Third] == Sum ) {
                     printf("{%d, %d, %d}\n", Arr[First], Arr[Second], Arr[Third]);
@@ -461,7 +467,87 @@ int findUnion(int arr1[], int size1, int arr2[], int size2)
     }
 
     PrintArray(result, k);
-    return k; // Return the total number of unique elements in the union
+    return (k); // Return the total number of unique elements in the union
 }
 
+int32 RemoveDuplicates(ARRAY_TYPE* Arr, int32 Size)
+{
+    // returns length of modified array
+    int32 Length = 0;
+
+    /*
+    find only the length and don't modifiy the array itself.
+    ARRAY_TYPE State = INT_MIN;
+    for(int32 I = 0; I < Size; I++) {
+        if(State != Arr[I]) {
+            Length++;
+        }
+        State = Arr[I];
+    }
+    */
+    ARRAY_TYPE Start = 0;
+    ARRAY_TYPE End = 0;
+    for(int32 I = 0; I < Size && End < Size; I++) {
+        while(Arr[Start] == Arr[End])  End++;
+
+        if(Arr[Start] != Arr[End]) {
+            Arr[++Start] = Arr[End++];
+        }
+    }
+    return (Start + 1);
+}
+
+#define REP_MAX_SIZE 25
+int32 FristRepeatingElement(ARRAY_TYPE* Arr, int32 Size)
+{
+    // currently no hash table is in the libds, //only limited to value up to 25, elements.
+    // can use dynamic arrays or heap allocaiton for more values.(not efficent becasue unused space)
+// logic:
+
+    // iterate array , frequency > 1, key = arr[i], and value is frequency;
+    // iterate array, and check for where frequency > 1, in hash table, its easy if using direct access hash table
+    // where every value is index we are incrementing the value at that index.
+    // iterate over the original array and map it with the frequency stored in direct access hash table.
+    // current implementation direct assess hash table.
+    ARRAY_TYPE Freq[REP_MAX_SIZE] = {0};
+    for(int32 I = 0; I < Size; I++) {
+        Freq[Arr[I]] += 1;
+    }
+
+
+    // this is becasue in which order the elements are apperaring
+    for(int32 I = 0; I < Size; I++) {
+        if(Freq[Arr[I]] > 1) {
+            return (I);
+        }
+    }
+    return(-1);
+}
+
+
+int32 PivotIndex(ARRAY_TYPE* Arr, int32 Size)
+{
+    int32 LeftSum [Size] = {};
+    int32 RightSum[Size] = {};
+    RightSum[Size - 1] = Arr[Size - 1];
+    LeftSum[0] = Arr[0];
+
+    for(int32 i = 1; i <= Size - 1; i++) {
+        LeftSum[i] = LeftSum[i - 1] + Arr[i];
+    }
+
+    int32 End = Size - 1;
+    // right to left dirction matters
+    for(int32 i = Size - 2; i >= 0 ; i--) {
+
+        RightSum[i] = RightSum[i + 1] + Arr[--End];
+    }
+
+    for(int32 i = 0; i < Size; i++) {
+        if(LeftSum[i] == RightSum[i]) {
+            return (i);
+        }
+    }
+    return (-1);
+}
 #endif
