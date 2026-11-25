@@ -1,6 +1,19 @@
 const std = @import("std");
 const print = std.debug.print;
 
+// error set: error sets are like enums with but they are only dedicated for errors.
+const InputError = error{EmptyInput};
+
+// error set can be merged togther with '||' symbol
+const ParseError = InputError || std.fmt.ParseIntError;
+
+// the return type of this function is error union using the '!' symbol
+// error union is basicaly union of error set and the other return type after '!' symbol.
+fn parseNumber(str: []const u8) ParseError!u8 {
+    if (str.len == 0) return error.EmptyInput;
+    return std.fmt.parseInt(u8, str, 10);
+}
+
 fn sliceAreTheSame(a: []const u8, b: []const u8) bool {
     if (a.len != b.len) {
         return false;
@@ -84,6 +97,48 @@ fn error_example() void {
     }
 }
 
-pub fn main() void {
-    error_example();
+pub fn main() ParseError!void {
+    const input = "383";
+    var result = parseNumber(input);
+    print("{}\n", .{@TypeOf(result)});
+    print("{any}\n", .{result});
+
+    // catch, catch can be used to catch the payload of error union.
+    // you can use 'catch' to provide a default error.
+    result = parseNumber(input) catch 42; // if error happens put 42 in the result.
+
+    // you can use 'catch' with 'switch' to handle each type of error.
+    result = parseNumber(input) catch |err| switch (err) {
+        error.EmptyInput => blk1: {
+            print("Empty input is not allowed\n", .{});
+            break :blk1 42; // if input was empty the put default value 42.
+        },
+        error.Overflow => blk2: {
+            print("overflow happened\n", .{});
+            break :blk2 0; // if input was empty the put default value 42.
+        },
+        else => |e| {
+            return e;
+        },
+    };
+
+    // you can use 'catch' with 'unreachable' to ignore the error if its' never going to happen.
+    result = parseNumber("23") catch unreachable;
+    result = parseNumber("238");
+    // you can use 'catch' to propagate the error to the caller.
+    //    result = parseNumber("282") catch |err| return err; in this case we will return with the caught error when we exit the main.
+    //     'try' is shorcut for keyword for this error catch.
+    //    result = try parseNumber("283");
+
+    // Note: if can handle error union, optionals, boolean.
+    if (result) |value| { // on success we will have value.
+        print("value: {}\n", .{value});
+    } else |err| { // on failure we will get error.
+        switch (err) {
+            error.Overflow => print("overflow is not allowed\n", .{}),
+            else => print("something went wrong\n", .{}),
+        }
+    }
+    // Note: while can work with error unions smiliar to optionals.
+    // 'anyerror' keyword , (example: anyerror!u8, or !u8), can be used to return any kind of error.
 }
