@@ -4,6 +4,7 @@ const Point = @import("Point.zig");
 const Point2D = Point.Point2D;
 const Point3D = Point.Point3D;
 
+// comptime 1 exmaple, trying to do generics in zig
 pub fn main() void {
     // Point2D struct
     {
