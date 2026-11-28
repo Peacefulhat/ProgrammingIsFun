@@ -69,8 +69,8 @@ pub fn main() !void {
     print("as_u64: {}\n", .{as_u64});
     print("as_f64: {}\n", .{as_f64});
 
-    // Narrowing int cast. if acceptable yo can truncate bits.
+    // Narrowing int cast. if acceptable you can truncate bits.
     const big_int: u64 = 2000;
-    const litte_int: u32 = @intCast(big_int);
+    const litte_int: u8 = @truncate(big_int);
     print("{}\n", .{litte_int});
 }
